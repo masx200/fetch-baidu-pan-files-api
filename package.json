@@ -34,10 +34,6 @@
         "typescript": "^3.8.2"
     },
     "devDependencies": {},
-    "directories": {
-        "lib": "lib",
-        "test": "test"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/masx200/fetch-baidu-pan-files.git"
