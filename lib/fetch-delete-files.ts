@@ -53,12 +53,12 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
             const data = await req.json();
-            const info = data?.info;
-            if (Array.isArray(info) && info.length) {
+           // const info = data?.info;
+           // if (Array.isArray(info) && info.length) {
                 // console.log(info);
-                return info;
-            } else {
-                throw Error("data error " + JSON.stringify(data));
+              //  return info;
+           if(data?.errno===0){return data } else {
+                throw Error("data error " +urlhref+" "+ JSON.stringify(data));
             }
             // return data;
         } else {
