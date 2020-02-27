@@ -1,6 +1,6 @@
 {
     "type": "module",
-    "name": "fetch-file-list-to-mongodb",
+    "name": "fetch-baidu-pan-files",
     "version": "1.0.0",
     "main": "lib/index.js",
     "license": "MIT",
