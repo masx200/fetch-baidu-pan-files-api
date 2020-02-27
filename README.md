@@ -61,10 +61,6 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 yarn run save-cookie "BAIDUID=xxx; BIDUPSID=xxx; PSTM=xxx; PANWEB=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; cflag=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
 ```
 
-```shell
-yarn run parse-cookie
-```
-
 # 直接获取指定目录下的文件信息,若遇到网络错误自动重试
 
 ```js
