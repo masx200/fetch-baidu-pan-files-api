@@ -1,0 +1,26 @@
+{
+    "include": ["*.ts", "./**/*.ts"],
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "alwaysStrict": true,
+        "allowUnreachableCode": false,
+        "noImplicitThis": true,
+        "checkJs": true,
+        "allowJs": true,
+        "pretty": true,
+        "target": "es2019",
+        "module": "ESNext",
+        "jsx": "preserve",
+        "declaration": true,
+        "removeComments": true,
+        "importHelpers": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
+    }
+}
