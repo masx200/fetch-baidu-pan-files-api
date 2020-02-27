@@ -1,2 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+*.js linguist-language=Typescript 
+*.css linguist-language=Typescript 
+*.html linguist-language=Typescript 
+*.jsx linguist-language=Typescript
+*.ts linguist-language=Typescript
