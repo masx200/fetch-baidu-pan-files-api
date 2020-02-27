@@ -15,6 +15,17 @@
 
 # 使用方法
 
+
+
+
+## 安装模块
+
+```shell
+
+yarn add @masx200/fetch-baidu-pan-file
+
+
+```
 ## 安装 `node_modules`
 
 ```shell
