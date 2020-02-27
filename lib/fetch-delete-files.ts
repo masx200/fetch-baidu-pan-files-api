@@ -103,7 +103,7 @@ export async function deletefiles(rawfiles: Array<string>): Promise<void> {
         await slicedelete(filestoremove);
     }
 }
-const listlimit = 200;
+const listlimit = 500;
 async function slicedelete(filestoremove: string[]) {
     let oprearesults;
     if (listlimit < filestoremove.length) {
