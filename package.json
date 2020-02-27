@@ -32,13 +32,16 @@
     "typescript": "^3.8.2"
   },
   "devDependencies": {},
-  "repository": "git+https://github.com/masx200/fetch-pan-file-list-mongodb.git",
-  "bugs": {
-    "url": "https://github.com/masx200/fetch-pan-file-list-mongodb/issues"
-  },
-  "homepage": "https://github.com/masx200/fetch-pan-file-list-mongodb#readme",
   "directories": {
     "lib": "lib",
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masx200/fetch-baidu-pan-files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/masx200/fetch-baidu-pan-files/issues"
+  },
+  "homepage": "https://github.com/masx200/fetch-baidu-pan-files#readme"
 }
