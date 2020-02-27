@@ -1,6 +1,6 @@
 {
     "type": "module",
-    "name": "fetch-baidu-pan-files",
+    "name": "@masx200/fetch-baidu-pan-files",
     "version": "1.0.0",
     "main": "lib/index.js",
     "license": "MIT",

@@ -58,19 +58,19 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 # 使用前先保存 `cookie`,并解析 `cookie`
 
 ```shell
-yarn run save-cookie "BAIDUID=xxx; BIDUPSID=xxx; PSTM=xxx; PANWEB=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; cflag=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
+node  ./lib/save-cookie.js "BAIDUID=xxx; BIDUPSID=xxx; PSTM=xxx; PANWEB=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; cflag=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
 ```
 
 # 直接获取指定目录下的文件信息,若遇到网络错误自动重试
 
 ```js
-import { listonedir } from "./lib/fetchlistdir.js";
+import { listonedir } from "@masx200/fetch-baidu-pan-files";
 listonedir("/path/to/your/dir").then(console.log);
 ```
 
 # 直接删除指定的批量文件,多次尝试,判断要删除的文件是否存在
 
 ```js
-import { deletefiles } from "./lib/fetch-delete-files.js";
+import { deletefiles } from "@masx200/fetch-baidu-pan-files";
 deletefiles(["/path/to/your/file1", "/path/to/your/file2"]).then(console.log);
 ```
