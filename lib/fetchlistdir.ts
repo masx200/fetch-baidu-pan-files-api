@@ -5,11 +5,32 @@ import { PANFILE } from "./schemafile.js";
 import { initPANENV } from "./index.js";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
+const numlimit = 1000;
+export async function listonedir(
+    dir: string
+    // bdstoken: string,
+    // logid: string
+): Promise<Array<PANFILE | PANDIR>> {
+    let page = 1;
+    const alldata: (PANFILE | PANDIR)[] = [];
+    while (true) {
+        const datalist: (PANFILE | PANDIR)[] = await listdirpage(dir, page);
+
+        alldata.push(...datalist);
+        if (datalist.length < numlimit) {
+            break;
+        }
+        page++;
+    }
+    return alldata;
+}
 function gettimestamp() {
     return String(new Date().getTime());
 }
-export async function listonedir(
-    dir: string
+/* 需要拆分1000个最多每次 */
+async function listdirpage(
+    dir: string,
+    page: number
     // bdstoken: string,
     // logid: string
 ): Promise<Array<PANFILE | PANDIR>> {
@@ -19,9 +40,9 @@ export async function listonedir(
         desc: "1",
         showempty: "0",
         web: "1",
-        page: "1",
+        page: String(page),
         dir: dir,
-
+        num: "1000",
         channel: "chunlei",
         app_id: "250528",
         bdstoken: panenv.bdstoken,
@@ -83,7 +104,7 @@ export async function listonedir(
         await new Promise(r => {
             setTimeout(r, 5000);
         });
-        return listonedir(dir /* , bdstoken, logid */);
+        return listdirpage(dir, page /* , bdstoken, logid */);
     }
 }
 
