@@ -2,7 +2,7 @@
 import { limitedfetch as fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-import { initPANENV } from './index.js';
+import { initPANENV } from "./index.js";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 function gettimestamp() {
@@ -13,7 +13,7 @@ export async function listonedir(
     // bdstoken: string,
     // logid: string
 ): Promise<Array<PANFILE | PANDIR>> {
-    const panenv=await initPANENV()
+    const panenv = await initPANENV();
     const params = {
         order: "time",
         desc: "1",

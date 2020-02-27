@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 export declare type PANFILE = {
     category: number;
     fs_id: number;
@@ -15,5 +14,3 @@ export declare type PANFILE = {
     size: number;
     unlist: number;
 };
-declare const panfileschema: mongoose.Schema<any>;
-export default panfileschema;

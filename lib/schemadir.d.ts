@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 export declare type PANDIR = {
     dir_empty: number;
     empty: number;
@@ -16,5 +15,3 @@ export declare type PANDIR = {
     size: number;
     unlist: number;
 };
-declare const panfileschema: mongoose.Schema<any>;
-export default panfileschema;

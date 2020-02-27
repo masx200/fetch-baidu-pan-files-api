@@ -2,7 +2,7 @@ import { posix } from "path";
 import { listonedir } from "./fetchlistdir.js";
 // import fetch from "node-fetch";
 import { limitedfetch as fetch } from "./limitfetch.js";
-import { initPANENV } from './index.js';
+import { initPANENV } from "./index.js";
 const operationurl = `https://pan.baidu.com/api/filemanager`;
 /* 每次不能太多2000个1000个500个 */
 function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
@@ -13,7 +13,7 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
     return result;
 }
 async function fetchdelete(filestoremove: string[]): Promise<any[]> {
-    const panenv=await initPANENV()
+    const panenv = await initPANENV();
     const params = {
         opera: "delete",
         async: "1",
@@ -26,7 +26,6 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         clienttype: "0"
     };
     try {
-       
         const listapi = new URL(operationurl);
         listapi.search = String(new URLSearchParams(params));
         const urlhref = String(listapi);
