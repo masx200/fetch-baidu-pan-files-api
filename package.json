@@ -10,7 +10,7 @@
         "save-cookie": "node ./cli/save-cookie.js",
         "watch": "tsc --watch",
         "build": "tsc ",
-        "prettier": "prettier ./**/*.ts ./*.ts --write",
+        "prettier": "prettier ./**/*.ts ./*.ts *.json *.md --write",
         "test-get-html": "node ./test/update-cookie.js",
         "test-list-dir": "node ./test/list-dir.js"
     },

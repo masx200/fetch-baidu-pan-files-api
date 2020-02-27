@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import path from "path";
 import fsextra from "fs-extra";
 import process from "process";
 import { txtfile } from "../lib/files.js";
@@ -10,6 +11,7 @@ process.on("unhandledRejection", err => {
 (async () => {
     console.log(cookiestr);
     if (cookiestr) {
+        await fsextra.ensureDir(path.dirname(txtfile));
         await fsextra.writeFile(txtfile, cookiestr);
         await parsecookie();
     }
