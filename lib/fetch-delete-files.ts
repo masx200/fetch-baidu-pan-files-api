@@ -250,3 +250,7 @@ async function slicedelete(filestoremove: string[]) {
 // });
 
 // {"errno":12,"info":[{"errno":-9,"path":"\/\u7ba1\u7406\u5458\u53d6\u5f97\u6743\u9650.reg"},{"errno":-9,"path":"\/GraphicsMagick-1.3.34-Q16-win64-dll(1).exe"}],"request_id":1317091197014819351}
+
+// response
+
+// {"errno":0,"info":[],"request_id":1343596476256555324,"taskid":65546456840230}
