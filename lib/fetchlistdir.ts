@@ -86,7 +86,9 @@ async function listdirpage(
             ) {
                 return listdata;
             } else {
-                throw Error("data error " + JSON.stringify(data));
+                throw Error(
+                    "data error " + " " + urlhref + JSON.stringify(data)
+                );
             }
         } else {
             throw Error(
