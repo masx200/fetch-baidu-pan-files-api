@@ -42,7 +42,7 @@ async function listdirpage(
         web: "1",
         page: String(page),
         dir: dir,
-        num: "1000",
+        num:String( numlimit),
         channel: "chunlei",
         app_id: "250528",
         bdstoken: panenv.bdstoken,
@@ -87,7 +87,7 @@ async function listdirpage(
                 return listdata;
             } else {
                 throw Error(
-                    "data error " + " " + urlhref + JSON.stringify(data)
+                    "data error " + " " + urlhref +" "+ JSON.stringify(data)
                 );
             }
         } else {
