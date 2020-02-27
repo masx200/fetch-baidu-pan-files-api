@@ -15,8 +15,9 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
 async function fetchdelete(filestoremove: string[]): Promise<any[]> {
     const panenv = await initPANENV();
     const params = {
+        async: "2",
         opera: "delete",
-        async: "1",
+        // async: "1",
         onnest: "fail",
         channel: "chunlei",
         web: "1",
