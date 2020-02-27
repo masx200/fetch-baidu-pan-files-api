@@ -24,9 +24,9 @@ export async function listonedir(
     }
     return alldata;
 }
-function gettimestamp() {
+/*function gettimestamp() {
     return String(new Date().getTime());
-}
+}*/
 /* 需要拆分1000个最多每次 */
 async function listdirpage(
     dir: string,
@@ -48,7 +48,7 @@ async function listdirpage(
         bdstoken: panenv.bdstoken,
         logid: panenv.logid,
         clienttype: "0",
-        startLogTime: gettimestamp()
+      //  startLogTime: gettimestamp()
     };
     const headers = {
         "Accept-Encoding": "gzip, deflate, br",
