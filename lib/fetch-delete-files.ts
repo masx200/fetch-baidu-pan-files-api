@@ -1,12 +1,8 @@
 import { posix } from "path";
+import { listonedir } from "./fetchlistdir.js";
 // import fetch from "node-fetch";
 import { limitedfetch as fetch } from "./limitfetch.js";
-import fsextra from "fs-extra";
-import { PANENV } from "./index.js";
-import { getbdstokenanduser } from "./init.js";
-import { jsonfile } from "./files.js";
-import { objtostrcookie } from "./objtostrcookie.js";
-import { listonedir } from "./fetchlistdir.js";
+import { initPANENV } from './index.js';
 const operationurl = `https://pan.baidu.com/api/filemanager`;
 /* 每次不能太多2000个1000个500个 */
 function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
@@ -17,28 +13,20 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
     return result;
 }
 async function fetchdelete(filestoremove: string[]): Promise<any[]> {
-    if (!PANENV.bdstoken || !PANENV.user) {
-        let [bdstoken, user] = await getbdstokenanduser();
-        PANENV.bdstoken = bdstoken;
-        PANENV.user = user;
-    }
-    if (!PANENV.cookie) {
-        const panobj = await fsextra.readJSON(jsonfile);
-        let coostr = objtostrcookie(panobj);
-        PANENV.cookie = coostr;
-    }
+    const panenv=await initPANENV()
+    const params = {
+        opera: "delete",
+        async: "1",
+        onnest: "fail",
+        channel: "chunlei",
+        web: "1",
+        app_id: "250528",
+        bdstoken: panenv.bdstoken,
+        logid: panenv.logid,
+        clienttype: "0"
+    };
     try {
-        const params = {
-            opera: "delete",
-            async: "1",
-            onnest: "fail",
-            channel: "chunlei",
-            web: "1",
-            app_id: "250528",
-            bdstoken: PANENV.bdstoken,
-            logid: PANENV.logid,
-            clienttype: "0"
-        };
+       
         const listapi = new URL(operationurl);
         listapi.search = String(new URLSearchParams(params));
         const urlhref = String(listapi);
@@ -60,7 +48,7 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language":
                 "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            Cookie: PANENV.cookie
+            Cookie: panenv.cookie
         };
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
@@ -93,16 +81,6 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
     }
 }
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
-    if (!PANENV.bdstoken || !PANENV.user) {
-        let [bdstoken, user] = await getbdstokenanduser();
-        PANENV.bdstoken = bdstoken;
-        PANENV.user = user;
-    }
-    if (!PANENV.cookie) {
-        const panobj = await fsextra.readJSON(jsonfile);
-        let coostr = objtostrcookie(panobj);
-        PANENV.cookie = coostr;
-    }
     /* 先获取文件列表 */
     const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
     console.log("获取文件信息", filedirs);

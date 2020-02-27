@@ -1,13 +1,8 @@
 // import fetch from "node-fetch";
-import fsextra from "fs-extra";
-import { jsonfile } from "./files.js";
-import { objtostrcookie } from "./objtostrcookie.js";
 import { limitedfetch as fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-// import { bdstoken, logid, user } from "./index.js";
-import { getbdstokenanduser } from "./init.js";
-import { PANENV } from "./index.js";
+import { initPANENV } from './index.js';
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 function gettimestamp() {
@@ -18,16 +13,7 @@ export async function listonedir(
     // bdstoken: string,
     // logid: string
 ): Promise<Array<PANFILE | PANDIR>> {
-    if (!PANENV.bdstoken || !PANENV.user) {
-        let [bdstoken, user] = await getbdstokenanduser();
-        PANENV.bdstoken = bdstoken;
-        PANENV.user = user;
-    }
-    if (!PANENV.cookie) {
-        const panobj = await fsextra.readJSON(jsonfile);
-        let coostr = objtostrcookie(panobj);
-        PANENV.cookie = coostr;
-    }
+    const panenv=await initPANENV()
     const params = {
         order: "time",
         desc: "1",
@@ -38,8 +24,8 @@ export async function listonedir(
 
         channel: "chunlei",
         app_id: "250528",
-        bdstoken: PANENV.bdstoken,
-        logid: PANENV.logid,
+        bdstoken: panenv.bdstoken,
+        logid: panenv.logid,
         clienttype: "0",
         startLogTime: gettimestamp()
     };
@@ -56,7 +42,7 @@ export async function listonedir(
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin",
         "x-requested-with": "XMLHttpRequest",
-        cookie: PANENV.cookie
+        cookie: panenv.cookie
     };
     const listapi = new URL(listurl);
     listapi.search = String(new URLSearchParams(params));

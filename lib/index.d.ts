@@ -1,9 +1,10 @@
 import { deletefiles } from "./fetch-delete-files.js";
 import { listonedir } from "./fetchlistdir.js";
-export declare const PANENV: {
+interface PANENV {
     logid: string;
-    bdstoken: string | undefined;
-    user: string | undefined;
-    cookie: string | undefined;
-};
+    bdstoken: string;
+    user: string;
+    cookie: string;
+}
+export declare function initPANENV(): Promise<PANENV>;
 export { listonedir, deletefiles };
