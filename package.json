@@ -1,40 +1,44 @@
 {
-    "type": "module",
-    "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.0.0",
-    "main": "lib/index.js",
-    "license": "MIT",
-    "scripts": {
-        "save-cookie": "node ./cli/save-cookie.js",
-        "watch": "tsc --watch",
-        "build": "tsc ",
-        "prettier": "prettier ./**/*.ts ./*.ts --write",
-        "test-get-html": "node ./test/update-cookie.js",
-        "test-list-dir": "node ./test/list-dir.js"
-    },
-    "keywords": [],
-    "author": "masx200 <34191203+masx200@users.noreply.github.com>",
-    "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
-    "dependencies": {
-        "@masx200/async-task-current-limiter": "^1.0.7",
-        "@types/btoa": "^1.2.3",
-        "@types/cookie": "^0.3.3",
-        "@types/fs-extra": "^8.1.0",
-        "@types/mongoose": "^5.7.1",
-        "@types/node": "^13.7.4",
-        "@types/node-fetch": "^2.5.4",
-        "btoa": "^1.2.1",
-        "cookie": "^0.4.0",
-        "fs-extra": "^8.1.0",
-        "mongoose": "^5.9.2",
-        "node-fetch": "^2.6.0",
-        "prettier": "^1.19.1",
-        "typescript": "^3.8.2"
-    },
-    "devDependencies": {},
-    "repository": "git+https://github.com/masx200/fetch-pan-file-list-mongodb.git",
-    "bugs": {
-        "url": "https://github.com/masx200/fetch-pan-file-list-mongodb/issues"
-    },
-    "homepage": "https://github.com/masx200/fetch-pan-file-list-mongodb#readme"
+  "type": "module",
+  "name": "@masx200/fetch-baidu-pan-files",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "save-cookie": "node ./cli/save-cookie.js",
+    "watch": "tsc --watch",
+    "build": "tsc ",
+    "prettier": "prettier ./**/*.ts ./*.ts --write",
+    "test-get-html": "node ./test/update-cookie.js",
+    "test-list-dir": "node ./test/list-dir.js"
+  },
+  "keywords": [],
+  "author": "masx200 <34191203+masx200@users.noreply.github.com>",
+  "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
+  "dependencies": {
+    "@masx200/async-task-current-limiter": "^1.0.7",
+    "@types/btoa": "^1.2.3",
+    "@types/cookie": "^0.3.3",
+    "@types/fs-extra": "^8.1.0",
+    "@types/mongoose": "^5.7.1",
+    "@types/node": "^13.7.4",
+    "@types/node-fetch": "^2.5.4",
+    "btoa": "^1.2.1",
+    "cookie": "^0.4.0",
+    "fs-extra": "^8.1.0",
+    "mongoose": "^5.9.2",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.2"
+  },
+  "devDependencies": {},
+  "repository": "git+https://github.com/masx200/fetch-pan-file-list-mongodb.git",
+  "bugs": {
+    "url": "https://github.com/masx200/fetch-pan-file-list-mongodb/issues"
+  },
+  "homepage": "https://github.com/masx200/fetch-pan-file-list-mongodb#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }
