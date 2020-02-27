@@ -80,9 +80,11 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         return fetchdelete(filestoremove);
     }
 }
-export async function deletefiles(rawfiles: Array<string>): Promise<void> {
-    /* 先获取文件列表 */
-    const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
+
+
+async function excludenotexistfiles(rawfiles: Array<string>):Promise<Array<string>>{
+
+const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
     console.log("获取文件信息", filedirs);
     const filepool: string[] = (
         await Promise.all(
@@ -98,6 +100,15 @@ export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     const filestoremove = rawfiles.filter(f => {
         return filepool.includes(f);
     });
+
+
+return filestoremove
+
+}
+
+export async function deletefiles(rawfiles: Array<string>): Promise<void> {
+    /* 先获取文件列表 */
+ const filestoremove=  excludenotexistfiles(rawfiles)
     console.log("需要删除的文件", filestoremove);
     /* 如果没有需要删除的文件,则不需要执行 */
     if (filestoremove.length) {
