@@ -1,8 +1,20 @@
+export async function deletefiles(rawfiles: Array<string>): Promise<void> {
+    /* 先获取文件列表 */
+    const filestoremove = await excludenotexistfiles(rawfiles);
+    console.log("需要删除的文件", filestoremove);
+    /* 如果没有需要删除的文件,则不需要执行 */
+    if (filestoremove.length) {
+        await slicedelete(filestoremove);
+    } else {
+        console.log("没有需要删除的文件");
+    }
+}
 import { posix } from "path";
 import { listonedir } from "./fetchlistdir.js";
 // import fetch from "node-fetch";
 import { limitedfetch as fetch } from "./limitfetch.js";
 import { initPANENV } from "./index.js";
+import { taskquerydeletepoll } from "./fetch-task-query-delete.js";
 const operationurl = `https://pan.baidu.com/api/filemanager`;
 /* 每次不能太多2000个1000个500个 */
 function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
@@ -12,7 +24,7 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
     }
     return result;
 }
-async function fetchdelete(filestoremove: string[]): Promise<any[]> {
+async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
     const panenv = await initPANENV();
     const params = {
         async: "2",
@@ -53,18 +65,14 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
             const data = await req.json();
-            // const info = data?.info;
-            // if (Array.isArray(info) && info.length) {
-            // console.log(info);
-            //  return info;
-            if (data?.errno === 0) {
-                return data;
+            const taskid = data?.taskid;
+            if (data?.errno === 0 && typeof taskid === "number") {
+                return taskid;
             } else {
                 throw Error(
                     "data error " + urlhref + " " + JSON.stringify(data)
                 );
             }
-            // return data;
         } else {
             throw Error(
                 "fetch failed " +
@@ -81,7 +89,7 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         await new Promise(r => {
             setTimeout(r, 5000);
         });
-        return fetchdelete(filestoremove);
+        return fetchdeletetaskid(filestoremove);
     }
 }
 
@@ -108,43 +116,42 @@ async function excludenotexistfiles(
     return filestoremove;
 }
 
-export async function deletefiles(rawfiles: Array<string>): Promise<void> {
-    /* 先获取文件列表 */
-    const filestoremove = await excludenotexistfiles(rawfiles);
-    console.log("需要删除的文件", filestoremove);
-    /* 如果没有需要删除的文件,则不需要执行 */
-    if (filestoremove.length) {
-        await slicedelete(filestoremove);
-    }
-}
 const listlimit = 500;
-async function slicedelete(filestoremove: string[]) {
-    let oprearesults;
-    if (listlimit < filestoremove.length) {
-        oprearesults = (
-            await Promise.all(
-                slicearray(filestoremove, listlimit).map(list => {
-                    return fetchdelete(list);
-                })
-            )
-        ).flat();
-    } else {
-        oprearesults = await fetchdelete(filestoremove);
-    }
-    console.log(oprearesults);
-    const newfiles = oprearesults
-        .filter(o => o?.errno === 111)
-        .map(o => o?.path);
-    /* 把删除失败的文件再次删除 */
-
-    if (newfiles.length) {
-        /* 延时10秒 */
-
-        console.log("删除失败的文件,10秒后再次尝试删除", newfiles);
-        await new Promise(r => setTimeout(r, 10000));
-        await deletefiles(newfiles);
-    }
+async function slicedelete(filestoremove: string[]): Promise<void> {
+    const sliced = slicearray(filestoremove, listlimit);
+    sliced.reduce(async (prev, filelist) => {
+        await prev;
+        const taskid = await fetchdeletetaskid(filelist);
+        await taskquerydeletepoll(taskid, filelist);
+    }, Promise.resolve());
 }
+// async function slicedelete(filestoremove: string[]) {
+//     let oprearesults;
+//     if (listlimit < filestoremove.length) {
+//         oprearesults = (
+//             await Promise.all(
+//                 slicearray(filestoremove, listlimit).map(list => {
+//                     return fetchdelete(list);
+//                 })
+//             )
+//         ).flat();
+//     } else {
+//         oprearesults = await fetchdelete(filestoremove);
+//     }
+//     console.log(oprearesults);
+//     const newfiles = oprearesults
+//         .filter(o => o?.errno === 111)
+//         .map(o => o?.path);
+//     /* 把删除失败的文件再次删除 */
+
+//     if (newfiles.length) {
+//         /* 延时10秒 */
+
+//         console.log("删除失败的文件,10秒后再次尝试删除", newfiles);
+//         await new Promise(r => setTimeout(r, 10000));
+//         await deletefiles(newfiles);
+//     }
+// }
 // 删除失败的代码是111,但是也可能删除成功
 // {
 //     "errno": 111,
