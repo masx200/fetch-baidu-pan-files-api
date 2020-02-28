@@ -9,8 +9,8 @@ export async function taskquerydeletepoll(
 ): Promise<void> {
     while (true) {
         // console.log("开始查询任务状态", taskid);
-        const status = await taskquerydeleteonce(taskid, filelist);
-        console.log("查询到任务状态成功", taskid, status);
+        const [status, progress] = await taskquerydeleteonce(taskid, filelist);
+        console.log("查询到任务状态成功", taskid, status, progress);
         if (status === "success") {
             return;
         } else {
@@ -24,7 +24,7 @@ export async function taskquerydeletepoll(
 async function taskquerydeleteonce(
     taskid: number,
     filelist: string[]
-): Promise<string> {
+): Promise<[string, any]> {
     const panenv = await initPANENV();
     const params = {
         taskid: String(taskid),
@@ -63,8 +63,9 @@ async function taskquerydeleteonce(
         if (req.ok) {
             const data = await req.json();
             const status = data?.status;
+            const progress = data?.progress;
             if (data?.errno === 0 && typeof status === "string") {
-                return status;
+                return [status, progress];
             } else {
                 throw Error(
                     "data error " + urlhref + " " + JSON.stringify(data)
