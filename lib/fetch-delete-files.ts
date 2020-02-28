@@ -53,12 +53,16 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
             const data = await req.json();
-           // const info = data?.info;
-           // if (Array.isArray(info) && info.length) {
-                // console.log(info);
-              //  return info;
-           if(data?.errno===0){return data } else {
-                throw Error("data error " +urlhref+" "+ JSON.stringify(data));
+            // const info = data?.info;
+            // if (Array.isArray(info) && info.length) {
+            // console.log(info);
+            //  return info;
+            if (data?.errno === 0) {
+                return data;
+            } else {
+                throw Error(
+                    "data error " + urlhref + " " + JSON.stringify(data)
+                );
             }
             // return data;
         } else {
@@ -81,10 +85,10 @@ async function fetchdelete(filestoremove: string[]): Promise<any[]> {
     }
 }
 
-
-async function excludenotexistfiles(rawfiles: Array<string>):Promise<Array<string>>{
-
-const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
+async function excludenotexistfiles(
+    rawfiles: Array<string>
+): Promise<Array<string>> {
+    const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
     console.log("获取文件信息", filedirs);
     const filepool: string[] = (
         await Promise.all(
@@ -101,14 +105,12 @@ const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
         return filepool.includes(f);
     });
 
-
-return filestoremove
-
+    return filestoremove;
 }
 
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     /* 先获取文件列表 */
- const filestoremove=  excludenotexistfiles(rawfiles)
+    const filestoremove = await excludenotexistfiles(rawfiles);
     console.log("需要删除的文件", filestoremove);
     /* 如果没有需要删除的文件,则不需要执行 */
     if (filestoremove.length) {

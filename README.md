@@ -1,6 +1,5 @@
 # fetch-baidu-pan-files
 
-
 这个代码库是`百度网盘批量清理重复文件计划`的一部分。
 
 模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息
@@ -15,9 +14,6 @@
 
 # 使用方法
 
-
-
-
 ## 安装模块
 
 ```shell
@@ -26,6 +22,7 @@ yarn add @masx200/fetch-baidu-pan-file
 
 
 ```
+
 ## 安装 `node_modules`
 
 ```shell

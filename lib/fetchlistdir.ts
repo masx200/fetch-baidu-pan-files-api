@@ -42,13 +42,13 @@ async function listdirpage(
         web: "1",
         page: String(page),
         dir: dir,
-        num:String( numlimit),
+        num: String(numlimit),
         channel: "chunlei",
         app_id: "250528",
         bdstoken: panenv.bdstoken,
         logid: panenv.logid,
-        clienttype: "0",
-      //  startLogTime: gettimestamp()
+        clienttype: "0"
+        //  startLogTime: gettimestamp()
     };
     const headers = {
         "Accept-Encoding": "gzip, deflate, br",
@@ -87,7 +87,7 @@ async function listdirpage(
                 return listdata;
             } else {
                 throw Error(
-                    "data error " + " " + urlhref +" "+ JSON.stringify(data)
+                    "data error " + " " + urlhref + " " + JSON.stringify(data)
                 );
             }
         } else {
