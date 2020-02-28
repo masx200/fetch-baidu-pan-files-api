@@ -119,7 +119,7 @@ async function excludenotexistfiles(
 const listlimit = 500;
 async function slicedelete(filestoremove: string[]): Promise<void> {
     const sliced = slicearray(filestoremove, listlimit);
-    await sliced.reduce(async (prev, filelist) => {
+    return await sliced.reduce(async (prev, filelist) => {
         await prev;
         const taskid = await fetchdeletetaskid(filelist);
         await taskquerydeletepoll(taskid, filelist);
