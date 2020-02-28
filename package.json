@@ -12,7 +12,8 @@
         "build": "tsc ",
         "prettier": "prettier ./**/*.ts ./*.ts *.json *.md --write",
         "test-get-html": "node ./test/update-cookie.js",
-        "test-list-dir": "node ./test/list-dir.js"
+        "test-list-dir": "node ./test/list-dir.js",
+        "test-delete": "node ./test/test-delete.js"
     },
     "keywords": [],
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
