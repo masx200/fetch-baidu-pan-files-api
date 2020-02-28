@@ -3,7 +3,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
