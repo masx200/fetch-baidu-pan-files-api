@@ -122,7 +122,9 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
     return await sliced.reduce(async (prev, filelist) => {
         await prev;
         const taskid = await fetchdeletetaskid(filelist);
+        console.log("获取到删除的任务id", taskid);
         await taskquerydeletepoll(taskid, filelist);
+        console.log("删除文件成功", filelist);
     }, Promise.resolve());
 }
 // async function slicedelete(filestoremove: string[]) {

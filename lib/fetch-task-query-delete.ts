@@ -8,7 +8,7 @@ export async function taskquerydeletepoll(
     filelist: string[]
 ): Promise<void> {
     while (true) {
-        console.log("开始查询任务状态", taskid);
+        // console.log("开始查询任务状态", taskid);
         const status = await taskquerydeleteonce(taskid, filelist);
         console.log("查询到任务状态成功", taskid, status);
         if (status === "success") {
