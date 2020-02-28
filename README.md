@@ -85,3 +85,7 @@ listonedir("/path/to/your/dir").then(console.log);
 import { deletefiles } from "@masx200/fetch-baidu-pan-files";
 deletefiles(["/path/to/your/file1", "/path/to/your/file2"]).then(console.log);
 ```
+
+# 详细的网盘 API
+
+https://github.com/masx200/fetch-baidu-pan-files/tree/master/api
