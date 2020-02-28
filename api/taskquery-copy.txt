@@ -43,18 +43,34 @@ Yme: ZIGW+iw9QE0WbSsES3b+qnFLuuUZTBz3rQpNwyaD
 Content-Length: 92
 
 
-
-{"errno":0,"request_id":1355093914804990429,"task_errno":0,"status":"pending"}
-
-
-
-
-{"errno":0,"request_id":1355094520139329148,"task_errno":0,"status":"running","progress":100}
-
-
-
-{"errno":0,"request_id":1355094819457067754,"task_errno":0,"status":"success","list":[{"from":"\/\u88c5\u673a\u8f6f\u4ef6\/\u7ba1\u7406\u5458\u53d6\u5f97\u6743\u9650.reg","to":"\/\u7ba1\u7406\u5458\u53d6\u5f97\u6743\u9650.reg"}],"total":1}
-
-
-
 fetch("https://pan.baidu.com/share/taskquery?taskid=874527623686544&channel=chunlei&web=1&app_id=250528&bdstoken=603a14a94befd0d5b90cd1431d9c87ef&logid=MTU4Mjg1NjEyMDQ4MDAuNjQzNDQ0NzQ0MjU4NDM1OQ==&clienttype=0", {"credentials":"include","headers":{"accept":"application/json, text/javascript, */*; q=0.01","accept-language":"zh-CN,zh;q=0.9","content-type":"application/x-www-form-urlencoded; charset=UTF-8","sec-fetch-dest":"empty","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-requested-with":"XMLHttpRequest"},"referrer":"https://pan.baidu.com/disk/home?","referrerPolicy":"no-referrer-when-downgrade","body":"filelist=%5B%7B%22path%22%3A%22%2F%E8%A3%85%E6%9C%BA%E8%BD%AF%E4%BB%B6%2F%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%2C%22dest%22%3A%22%22%2C%22newname%22%3A%22%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%7D%5D","method":"POST","mode":"cors"});
+
+{
+    "errno": 0,
+    "request_id": 1355093914804990500,
+    "task_errno": 0,
+    "status": "pending"
+}
+
+
+{
+    "errno": 0,
+    "request_id": 1355094520139329000,
+    "task_errno": 0,
+    "status": "running",
+    "progress": 100
+}
+
+{
+    "errno": 0,
+    "request_id": 1355094819457067800,
+    "task_errno": 0,
+    "status": "success",
+    "list": [
+        {
+            "from": "/装机软件/管理员取得权限.reg",
+            "to": "/管理员取得权限.reg"
+        }
+    ],
+    "total": 1
+}

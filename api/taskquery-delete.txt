@@ -61,4 +61,15 @@ Content-Length: 150
 
 
 
-{"errno":0,"request_id":1355259851061845594,"task_errno":0,"status":"success","list":[{"path":"\/\u7ba1\u7406\u5458\u53d6\u5f97\u6743\u9650.reg"}],"total":1}
+{
+    "errno": 0,
+    "request_id": 1355259851061845500,
+    "task_errno": 0,
+    "status": "success",
+    "list": [
+        {
+            "path": "/管理员取得权限.reg"
+        }
+    ],
+    "total": 1
+}

@@ -52,4 +52,9 @@ Content-Length: 95
 
 fetch("https://pan.baidu.com/api/filemanager?opera=copy&async=2&onnest=fail&channel=chunlei&web=1&app_id=250528&bdstoken=603a14a94befd0d5b90cd1431d9c87ef&logid=MTU4Mjg1NjExNTc5MTAuODE0NTUyNTg2NDM2MzE5Nw==&clienttype=0", {"credentials":"include","headers":{"accept":"application/json, text/javascript, */*; q=0.01","accept-language":"zh-CN,zh;q=0.9","content-type":"application/x-www-form-urlencoded; charset=UTF-8","sec-fetch-dest":"empty","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-requested-with":"XMLHttpRequest"},"referrer":"https://pan.baidu.com/disk/home?","referrerPolicy":"no-referrer-when-downgrade","body":"filelist=%5B%7B%22path%22%3A%22%2F%E8%A3%85%E6%9C%BA%E8%BD%AF%E4%BB%B6%2F%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%2C%22dest%22%3A%22%22%2C%22newname%22%3A%22%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%7D%5D","method":"POST","mode":"cors"});
 
-{"errno":0,"info":[],"request_id":1355093581657212856,"taskid":874527623686544}
+{
+    "errno": 0,
+    "info": [],
+    "request_id": 1355093581657213000,
+    "taskid": 874527623686544
+}
