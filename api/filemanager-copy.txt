@@ -1,0 +1,55 @@
+POST /api/filemanager?opera=copy&async=2&onnest=fail&channel=chunlei&web=1&app_id=250528&bdstoken=603a14a94befd0d5b90cd1431d9c87ef&logid=MTU4Mjg1NjExNTc5MTAuODE0NTUyNTg2NDM2MzE5Nw==&clienttype=0 HTTP/1.1
+Host: pan.baidu.com
+Connection: keep-alive
+Content-Length: 263
+Accept: application/json, text/javascript, */*; q=0.01
+Sec-Fetch-Dest: empty
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: https://pan.baidu.com
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Referer: https://pan.baidu.com/disk/home?
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: BAIDUID=5986DDBE5028B133EC9A8D8BE483EA83:FG=1; pan_login_way=1; PANWEB=1; BIDUPSID=5986DDBE5028B133EC9A8D8BE483EA83; PSTM=1577711388; cflag=13%3A3; BDCLND=4FLUxVCJ4YB0UHJXBEPk5%2FtPQ72egy%2Bx8Labn81I4cA%3D; BDUSS=2pXdnB5LTlqU21weTMxNVRpUnd5N3NPbFV0T2hWdG1PQzVxLXFLajlEV004bmxlSVFBQUFBJCQAAAAAAAAAAAEAAADPRYIEbWFzeDIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIxlUl6MZVJea; STOKEN=ac56ddf1a146efb3ae1be2043fd1c121cc67c041f11fb28f8f84586e650a6366; SCRC=539b1dfb67ef188b367eeb4401910f5f; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1582785732,1582798284,1582813243,1582855173; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1582855273; PANPSC=17022100357536604440%3AKkwrx6t0uHDoTFmRfJVxoMJKt428qvGu%2B%2FtD9xp6N5gr2wqYbSNJzAjY5VzUlGl4qjKagt%2BNmvvKGWKyBagKrmlUQ2zB5GaPDtTCc6ZqWjGu2cUHmw770eVcjWJ40Swp0v29HoOyBxO7W09FU%2BvrLt8NRd7EA5d%2B2fNZfjs7wBY%2FcoIBUQpA2juoAeCl9TBG
+
+
+order: time
+desc: 1
+showempty: 0
+web: 1
+page: 1
+num: 100
+dir: /
+t: 0.1519944551817014
+channel: chunlei
+web: 1
+app_id: 250528
+bdstoken: dd1601843e05e55609ed49d51dabba42
+logid: MTU4Mjg1NTgwNDkzNzAuNjU4MDU0NjM5ODczNjMzMQ==
+clienttype: 0
+startLogTime: 1582855804937
+
+filelist: [{"path":"/装机软件/管理员取得权限.reg","dest":"","newname":"管理员取得权限.reg"}]
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json; charset=UTF-8
+Date: Fri, 28 Feb 2020 02:15:17 GMT
+Flow-Level: 3
+Logid: 1355093581657212856
+Server: nginx
+Set-Cookie: PANPSC=15301355548815052483%3AZdTG9lVgpnuZqQKuVYp8v1cS2d9ns3O5vd9dRSgT3onjD5%2FhM08MsSpPymoB8yIZOD8tuTtuXwKv%2FNj2q7IDPOKiycrkhrnWQjQ1mFHTd8V1tt%2Bk9Cane%2BomA%2FKeZTApdS8c7ndIzLEQUHeSSbUhhWzQAWXtbqM%2BhgUHpi7vcen7%2B0P3Gno3mFO4o7rVV8Q%2B7e7bgMsDOU6SsVZaqyA8TA%3D%3D; expires=Sat, 29-Feb-20 02:15:16 GMT; Max-Age=86400; path=/; domain=pan.baidu.com; httponly;
+Vary: Accept-Encoding
+X-Powered-By: BaiduCloud
+Yld: 202172072352745400
+Yme: ZIGW/iYrV0kMajEYTmvhq21BovoaTBz0rApNwCKD6ZzAPitBOauzU1Y0
+Content-Length: 95
+
+fetch("https://pan.baidu.com/api/filemanager?opera=copy&async=2&onnest=fail&channel=chunlei&web=1&app_id=250528&bdstoken=603a14a94befd0d5b90cd1431d9c87ef&logid=MTU4Mjg1NjExNTc5MTAuODE0NTUyNTg2NDM2MzE5Nw==&clienttype=0", {"credentials":"include","headers":{"accept":"application/json, text/javascript, */*; q=0.01","accept-language":"zh-CN,zh;q=0.9","content-type":"application/x-www-form-urlencoded; charset=UTF-8","sec-fetch-dest":"empty","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-requested-with":"XMLHttpRequest"},"referrer":"https://pan.baidu.com/disk/home?","referrerPolicy":"no-referrer-when-downgrade","body":"filelist=%5B%7B%22path%22%3A%22%2F%E8%A3%85%E6%9C%BA%E8%BD%AF%E4%BB%B6%2F%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%2C%22dest%22%3A%22%22%2C%22newname%22%3A%22%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%9D%83%E9%99%90.reg%22%7D%5D","method":"POST","mode":"cors"});
+
+{"errno":0,"info":[],"request_id":1355093581657212856,"taskid":874527623686544}
