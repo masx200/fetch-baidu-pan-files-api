@@ -1,15 +1,16 @@
 {
-    "types": "lib/index.d.ts",
+    "types": "dist/index.d.ts",
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
+        "test": "yarn test-get-html &&  yarn test-list-dir && yarn test-delete",
         "save-cookie": "node  --experimental-modules ./cli/save-cookie.js",
         "watch": "tsc --watch",
-        "build": "tsc ",
+        "build": "tsc && api-extractor run --local ",
         "prettier": "prettier ./**/*.ts ./*.ts *.json *.md --write ./**/*.js",
         "test-get-html": "node ./test/update-cookie.js",
         "test-list-dir": "node ./test/list-dir.js",
@@ -20,6 +21,7 @@
     "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
     "dependencies": {
         "@masx200/async-task-current-limiter": "^1.0.7",
+        "@microsoft/api-extractor": "^7.7.13",
         "@types/btoa": "^1.2.3",
         "@types/cookie": "^0.3.3",
         "@types/fs-extra": "^8.1.0",

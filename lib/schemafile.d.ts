@@ -14,3 +14,4 @@ export declare type PANFILE = {
     size: number;
     unlist: number;
 };
+//# sourceMappingURL=schemafile.d.ts.map

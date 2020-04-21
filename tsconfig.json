@@ -12,6 +12,7 @@
         "module": "ESNext",
         "jsx": "preserve",
         "declaration": true,
+        "declarationMap": true,
         "removeComments": true,
         "importHelpers": true,
         "strict": true,

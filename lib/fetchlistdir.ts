@@ -2,7 +2,7 @@
 import { fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-import { initPANENV } from "./index.js";
+import { initPANENV } from "./PANENV.js";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 const numlimit = 1000;

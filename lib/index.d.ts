@@ -1,10 +1,7 @@
 import { deletefiles } from "./fetch-delete-files.js";
 import { listonedir } from "./fetchlistdir.js";
-interface PANENV {
-    logid: string;
-    bdstoken: string;
-    user: string;
-    cookie: string;
-}
-export declare function initPANENV(): Promise<PANENV>;
+import { PANFILE } from "./schemafile.js";
+import { PANDIR } from "./schemadir.js";
+export { PANDIR, PANFILE };
 export { listonedir, deletefiles };
+//# sourceMappingURL=index.d.ts.map

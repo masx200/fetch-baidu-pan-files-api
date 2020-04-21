@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 // import { fetch } from "./limitfetch.js";
-import { initPANENV } from "./index.js";
+import { initPANENV } from "./PANENV.js";
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */
 export async function taskquerydeletepoll(

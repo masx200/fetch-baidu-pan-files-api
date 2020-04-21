@@ -15,3 +15,4 @@ export declare type PANDIR = {
     size: number;
     unlist: number;
 };
+//# sourceMappingURL=schemadir.d.ts.map
