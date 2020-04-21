@@ -91,6 +91,11 @@ btoa@^1.2.1:
   resolved "https://registry.npmjs.org/btoa/-/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
   integrity sha512-SB4/MIGlsiVkMcHmT+pSmIPoNDoHg+7cMzmt3Uxt628MTz2487DKSqK/fuhFBrkuqrYv5UCEnACpF4dTFNKc/g==
 
+buffer-from@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+  integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
+
 cookie@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
@@ -100,6 +105,13 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+data-uri-to-buffer@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-3.0.0.tgz#8a3088a5efd3f53c3682343313c6895d498eb8d7"
+  integrity sha512-MJ6mFTZ+nPQO+39ua/ltwNePXrfdF3Ww0wP1Od7EePySXN1cP9XNqRQOG3FxTfipp8jx898LUCgBCEP11Qw/ZQ==
+  dependencies:
+    buffer-from "^1.1.1"
 
 debug@3.1.0:
   version "3.1.0"
@@ -112,6 +124,11 @@ denque@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/denque/-/denque-1.4.1.tgz#6744ff7641c148c3f8a69c307e51235c1f4a37cf"
   integrity sha512-OfzPuSZKGcgr96rf1oODnfjqBFmr1DVoc/TrItj3Ohe0Ah1C5WX5Baquw/9U9KovnQ88EqmJbD66rKYUQYN1tQ==
+
+fetch-blob@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/fetch-blob/-/fetch-blob-1.0.5.tgz#5cc86a8740236c38d8073b153c8b51be5f3dc11e"
+  integrity sha512-BIggzO037jmCrZmtgntzCD2ymEaWgw9OMJsfX7FOS1jXGqKW9FEhETJN8QK4KxzIJknRl3RQdyzz34of+NNTMQ==
 
 fs-extra@^8.1.0:
   version "8.1.0"
@@ -215,10 +232,13 @@ ms@2.1.2:
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-node-fetch@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+node-fetch@^3.0.0-beta.4:
+  version "3.0.0-beta.4"
+  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-3.0.0-beta.4.tgz#f5fcc70e506314c90df4f5f19e81cff55aa1ecea"
+  integrity sha512-NxI746RCCuW5XmvGEOVPMFksmoMFEaWUEhNAGY5VLJ9qmit1mCEfRTHdomZuMe94FuY2QO2DLrWYe70HT7ubqw==
+  dependencies:
+    data-uri-to-buffer "^3.0.0"
+    fetch-blob "^1.0.5"
 
 prettier@^1.19.1:
   version "1.19.1"

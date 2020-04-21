@@ -30,7 +30,7 @@
         "cookie": "^0.4.0",
         "fs-extra": "^8.1.0",
         "mongoose": "^5.9.2",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^3.0.0-beta.4",
         "prettier": "^1.19.1",
         "typescript": "^3.8.2"
     },

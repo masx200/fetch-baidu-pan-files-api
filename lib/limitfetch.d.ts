@@ -1,2 +1,1 @@
-import fetch from "node-fetch";
-export declare const limitedfetch: typeof fetch;
+export declare const limitedfetch: (url: any, opt: any) => any;
