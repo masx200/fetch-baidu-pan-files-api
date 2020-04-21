@@ -1,1 +1,5 @@
-export declare const limitedfetch: (url: any, opt: any) => any;
+declare const limitedfetch: (
+    url: string,
+    opt?: RequestInit | undefined
+) => Promise<Response>;
+export { limitedfetch as fetch };

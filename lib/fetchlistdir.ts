@@ -1,5 +1,5 @@
 // import fetch from "node-fetch";
-import { limitedfetch as fetch } from "./limitfetch.js";
+import { fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
 import { initPANENV } from "./index.js";

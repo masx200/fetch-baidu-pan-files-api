@@ -1,12 +1,12 @@
 import currentlimiter from "@masx200/async-task-current-limiter";
+import https from "https";
 import fetch from "node-fetch";
 const fetchlimiter = currentlimiter(17);
-// const listener = (data: any) => console.log(JSON.stringify(data));
-import https from "https";
-// fetchlimiter.target.on("free", listener);
 
-// fetchlimiter.target.on("full", listener);
-export const limitedfetch = fetchlimiter.asyncwrap(function(url, opt) {
+const limitedfetch = fetchlimiter.asyncwrap(function(
+    url: string,
+    opt?: RequestInit
+): Promise<Response> {
     const agent = new https.Agent({
         keepAlive: true
     });
@@ -16,3 +16,4 @@ export const limitedfetch = fetchlimiter.asyncwrap(function(url, opt) {
         ...opt
     });
 });
+export { limitedfetch as fetch };

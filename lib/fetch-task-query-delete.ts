@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-// import { limitedfetch as fetch } from "./limitfetch.js";
+// import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./index.js";
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */

@@ -1,6 +1,6 @@
 import fsextra from "fs-extra";
 import { jsonfile } from "./files.js";
-import { limitedfetch as fetch } from "./limitfetch.js";
+import { fetch } from "./limitfetch.js";
 import { homeurl } from "./init.js";
 import { objtostrcookie } from "./objtostrcookie.js";
 import { savecookies } from "./savecookies.js";

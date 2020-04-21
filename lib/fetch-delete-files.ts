@@ -12,7 +12,7 @@ export async function deletefiles(rawfiles: Array<string>): Promise<void> {
 import { posix } from "path";
 import { listonedir } from "./fetchlistdir.js";
 // import fetch from "node-fetch";
-import { limitedfetch as fetch } from "./limitfetch.js";
+import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./index.js";
 import { taskquerydeletepoll } from "./fetch-task-query-delete.js";
 const operationurl = `https://pan.baidu.com/api/filemanager`;
