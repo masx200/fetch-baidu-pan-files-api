@@ -81,6 +81,7 @@ async function listdirpage(
             const listdata = data?.list;
             /* 如果目录不存在则返回空数组 */
             if (errno === -9) {
+                //  "-9": "文件被所有者删除，操作失败",
                 return [];
             }
             if (
