@@ -1,0 +1,17 @@
+<script type="text/javascript">!function(){                    var yunData = require('disk-system:widget/data/yunData.js');
+            yunData.setData({"loginstate":1,"username":"masx20","third":0,"flag":1,"file_list":null,"uk":1157661021,"task_key":"03cdca767aa6a4e365024701f6da3e53c706ef09","task_time":1591439094,"sampling":false,"bdstoken":"0d454a1f3bb413fd5395d7afe561338c","is_vip":0,"bt_paths":null,"applystatus":1,"sign1":"6aa58222e141d36ace8438642e3e2fdf748edd7d","sign2":"function s(j,r){var a=[];var p=[];var o=\"\";var v=j.length;for(var q=0;q<256;q++){a[q]=j.substr((q%v),1).charCodeAt(0);p[q]=q}for(var u=q=0;q<256;q++){u=(u+p[q]+a[q])%256;var t=p[q];p[q]=p[u];p[u]=t}for(var i=u=q=0;q<r.length;q++){i=(i+1)%256;u=(u+p[i])%256;var t=p[i];p[i]=p[u];p[u]=t;k=p[((p[i]+p[u])%256)];o+=String.fromCharCode(r.charCodeAt(q)^k)}return o};","sign3":"d76e889b6aafd3087ac3bd56f4d4053a","timestamp":1591439094,"timeline_status":1,"face_status":0,"srv_ts":1591439094,"need_tips":null,"is_year_vip":0,"show_vip_ad":0,"vip_end_time":null,"is_evip":0,"is_svip":0,"is_auto_svip":0,"activity_status":0,"photo":"https:\/\/dss0.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG\/sys\/portrait\/item\/netdisk.1.82ea8dd9.tbo9dsRa5tzBc1JX9FND8A.jpg","curr_activity_code":0,"activity_end_time":0,"token":"d644NJsDDB7ZG4xUA+u\/aWYTTP1UPkObT9sTzb3Xx96uf6yMKGvzxTVn7mWF1Gfx6p5Ni\/PW\/GcHbM3BU3IGJsEogUz8kA932WA2lklYsj8pT9rNRwBnbyRxyNrhm7iVWiu5g51tjFQcQe16G2dCI3x+TBZj9GCzskhaphiyLboenRBhHlPCGWtZZ+kyeGVNZpSBj+SBU8UsTQN5sLQiSW1QXG5xbDNyHwrymH3bF3Wk9J5gfcBRpVTk1cM+sC2erxjYCZl3q54pDiXxrinDbjDXwNw","sharedir":0,"pansuk":"SzSpQo7YubXCAzUNFpobhg","vol_autoup":"0","wpsauth":true,"wpssamping":true,"hit_ogc":false,"skinName":"white","urlparam":[],"XDUSS":"pansec_DCb740ccc5511e5e8fedcff06b081203-0NfD7zL6MGSg9%2Fgabtn%2FB8OHrz5nQfAeubjSlJM%2FxDVe3%2B1IZS%2B71x%2FJkxqkiIzJMItXUfaEq7K4%2FWVStVVLaUXRgqNJlv9DI2DuFd2%2B2rej0Gi7CRlPObnzW9iFq9xZo7rD7YYNSQQ6%2Fa5UZnwtJBOvEM5cXeoPz3GFGynKjp7PjpgdNoLJg4VSz9ZoW0JG5gs1IJB2DWJu9tKQ7FOMLY5oc3rJlyOGQSeErumvyaPirBFjZRfhB1ZPraVFb0EWbLwhR3Dg1BHuLFeHemoy0w%3D%3D"});
+            yunData.setData('SERVERTIME', 1591439094383);
+            yunData.setData('product','yun');
+            }();
+!function(){        var context = require('system-core:context/context.js').instanceForSystem; 
+        context.pluginControl.setArea({
+            name: 'aside',
+            selector: '.module-aside',
+            className: 'aside-absolute-container',
+            shortestDistance: 477
+        });
+        context.pluginControl.init();
+        require('disk-system:widget/start/start.js');
+    }();
+!function(){    require('disk-system:widget/pageModule/redPicketIcon/init.js');
+}();</script>
