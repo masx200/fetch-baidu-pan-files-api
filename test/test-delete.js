@@ -7,3 +7,6 @@ deletefiles([
 ]).then(() => {
     console.log("删除文件成功");
 });
+process.on("unhandledRejection", (err) => {
+    throw err;
+});
