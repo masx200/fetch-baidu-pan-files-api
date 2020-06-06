@@ -11,7 +11,7 @@ export async function getbdstokenanduser(): Promise<string> {
 */
 function parsehtmlstoken(html: string): string {
     // text=`initPrefetch('dd1601843e05e55609ed49d51dabba42', 'masx20');`
-    const reg = /"bdstoken":"(.+)",/g;
+    const reg = /"bdstoken":"(.+)","is_vip"/g;
     const RegExpExecArray = reg.exec(html);
     if (RegExpExecArray) {
         const [, bdstoken] = RegExpExecArray;
