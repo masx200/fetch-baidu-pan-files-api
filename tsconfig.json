@@ -1,6 +1,7 @@
 {
     "include": ["*.ts", "./**/*.ts"],
     "compilerOptions": {
+        "sourceMap": false,
         "strictNullChecks": true,
         "alwaysStrict": true,
         "allowUnreachableCode": false,
