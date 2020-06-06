@@ -1,3 +1,5 @@
+import assert from "assert";
+import 错误码表 from "./errno";
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
@@ -69,18 +71,24 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
             if (data?.errno === 0 && typeof taskid === "number") {
                 return taskid;
             } else {
+                const errno = data.errno;
+                assert(typeof errno === "number");
+
                 throw Error(
-                    "data error " + urlhref + " " + JSON.stringify(data)
+                    "data error " +
+                        urlhref +
+                        " \n" +
+                        Reflect.get(错误码表, errno)
                 );
             }
         } else {
             throw Error(
-                "fetch failed " +
+                "fetch failed :" +
+                    urlhref +
+                    " " +
                     req.status +
                     " " +
-                    req.statusText +
-                    " " +
-                    urlhref
+                    req.statusText
             );
         }
     } catch (e) {

@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 // import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
+import assert from "assert";
+import 错误码表 from "./errno";
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */
 export async function taskquerydeletepoll(
@@ -61,24 +63,30 @@ async function taskquerydeleteonce(
         };
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
-            const data = await req.json();
+            const data: any = await req.json();
             const status = data?.status;
             const progress = data?.progress;
             if (data?.errno === 0 && typeof status === "string") {
                 return [status, progress];
             } else {
+                const errno = data.errno;
+                assert(typeof errno === "number");
+
                 throw Error(
-                    "data error " + urlhref + " " + JSON.stringify(data)
+                    "data error " +
+                        urlhref +
+                        " \n" +
+                        Reflect.get(错误码表, errno)
                 );
             }
         } else {
             throw Error(
-                "fetch failed " +
+                "fetch failed :" +
+                    urlhref +
+                    " " +
                     req.status +
                     " " +
-                    req.statusText +
-                    " " +
-                    urlhref
+                    req.statusText
             );
         }
     } catch (e) {

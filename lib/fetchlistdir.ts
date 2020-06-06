@@ -1,8 +1,10 @@
+import 错误码表 from "./errno";
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
 import { initPANENV } from "./PANENV.js";
+import assert from "assert";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 const numlimit = 1000;
@@ -76,7 +78,7 @@ async function listdirpage(
             method: "GET",
         });
         if (req.ok) {
-            const data = await req.json();
+            const data: any = await req.json();
             const errno = data?.errno;
             const listdata = data?.list;
             /* 如果目录不存在则返回空数组 */
@@ -91,18 +93,24 @@ async function listdirpage(
             ) {
                 return listdata;
             } else {
+                const errno = data.errno;
+                assert(typeof errno === "number");
+
                 throw Error(
-                    "data error " + " " + urlhref + " " + JSON.stringify(data)
+                    "data error " +
+                        urlhref +
+                        " \n" +
+                        Reflect.get(错误码表, errno)
                 );
             }
         } else {
             throw Error(
-                "fetch failed " +
+                "fetch failed :" +
+                    urlhref +
+                    " " +
                     req.status +
                     " " +
-                    req.statusText +
-                    " " +
-                    urlhref
+                    req.statusText
             );
         }
     } catch (e) {
