@@ -1,4 +1,5 @@
 {
+    "bin": "cli/save-cookie.js",
     "types": "dist/index.d.ts",
     "module": "lib/index.js",
     "type": "module",
