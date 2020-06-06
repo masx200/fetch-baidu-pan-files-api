@@ -18,7 +18,7 @@ function parsehtmlstoken(html: string) : string{
         // console.log([raw, bdstoken, user]);
         return bdstoken;
     }
-    throw Error("failed parse bdstoken " + html);
+    throw Error("failed parse bdstoken :" + html);
 }
 // fetch("https://pan.baidu.com/disk/home?", {
 //   "headers": {
