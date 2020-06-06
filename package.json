@@ -3,7 +3,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
@@ -20,7 +20,7 @@
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
     "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
     "dependencies": {
-        "@masx200/async-task-current-limiter": "^1.0.7",
+        "@masx200/async-task-current-limiter": "^1.0.8",
         "@microsoft/api-extractor": "^7.7.13",
         "@types/btoa": "^1.2.3",
         "@types/cookie": "^0.3.3",
@@ -32,9 +32,9 @@
         "cookie": "^0.4.0",
         "fs-extra": "^8.1.0",
         "mongoose": "^5.9.2",
-        "node-fetch": "^3.0.0-beta.4",
-        "prettier": "^1.19.1",
-        "typescript": "^3.8.2"
+        "node-fetch": "3.0.0-beta.6-exportfix",
+        "prettier": "^2.0.5",
+        "typescript": "^3.9.5"
     },
     "devDependencies": {},
     "repository": {
