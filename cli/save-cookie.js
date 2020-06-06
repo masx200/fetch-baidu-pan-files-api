@@ -14,6 +14,7 @@ process.on("unhandledRejection", (err) => {
         await fsextra.ensureDir(path.dirname(txtfile));
         await fsextra.writeFile(txtfile, cookiestr);
         await parsecookie();
+        console.log("cookie 保存成功");
     } else {
         throw new TypeError("invalid cookie");
     }
