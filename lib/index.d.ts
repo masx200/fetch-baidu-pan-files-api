@@ -4,4 +4,3 @@ import { PANFILE } from "./schemafile.js";
 import { PANDIR } from "./schemadir.js";
 export { PANDIR, PANFILE };
 export { listonedir, deletefiles };
-//# sourceMappingURL=index.d.ts.map

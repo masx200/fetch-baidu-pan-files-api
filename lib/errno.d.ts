@@ -121,4 +121,3 @@ declare const _default: {
     10019: string;
 };
 export default _default;
-//# sourceMappingURL=errno.d.ts.map

@@ -1,4 +1,4 @@
-import 错误码表 from "./errno";
+import 错误码表 from "./errno.js";
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
 import { PANDIR } from "./schemadir.js";

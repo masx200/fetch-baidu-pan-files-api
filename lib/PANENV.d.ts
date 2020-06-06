@@ -5,4 +5,3 @@ interface PANENV {
 }
 export declare function initPANENV(): Promise<PANENV>;
 export {};
-//# sourceMappingURL=PANENV.d.ts.map

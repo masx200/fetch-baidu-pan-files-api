@@ -3,4 +3,3 @@ declare const limitedfetch: (
     opt?: RequestInit | undefined
 ) => Promise<Response>;
 export { limitedfetch as fetch };
-//# sourceMappingURL=limitfetch.d.ts.map
