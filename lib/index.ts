@@ -4,7 +4,7 @@ import { listonedir } from "./fetchlistdir.js";
 import { PANFILE } from "./schemafile.js";
 import { PANDIR } from "./schemadir.js";
 export { PANDIR, PANFILE };
-process.on("unhandledRejection", err => {
+process.on("unhandledRejection", (err) => {
     throw err;
 });
 export { listonedir, deletefiles };

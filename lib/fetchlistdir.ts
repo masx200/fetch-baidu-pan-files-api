@@ -47,7 +47,7 @@ async function listdirpage(
         app_id: "250528",
         bdstoken: panenv.bdstoken,
         logid: panenv.logid,
-        clienttype: "0"
+        clienttype: "0",
         //  startLogTime: gettimestamp()
     };
     const headers = {
@@ -63,7 +63,7 @@ async function listdirpage(
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin",
         "x-requested-with": "XMLHttpRequest",
-        cookie: panenv.cookie
+        cookie: panenv.cookie,
     };
     const listapi = new URL(listurl);
     listapi.search = String(new URLSearchParams(params));
@@ -73,7 +73,7 @@ async function listdirpage(
             headers: headers,
 
             body: undefined,
-            method: "GET"
+            method: "GET",
         });
         if (req.ok) {
             const data = await req.json();
@@ -107,7 +107,7 @@ async function listdirpage(
     } catch (e) {
         console.error("获取文件列表错误,5秒后重试." + dir);
         console.error(e);
-        await new Promise(r => {
+        await new Promise((r) => {
             setTimeout(r, 5000);
         });
         return listdirpage(dir, page /* , bdstoken, logid */);

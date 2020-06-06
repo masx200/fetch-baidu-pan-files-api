@@ -27,10 +27,10 @@ export async function gethomehtmlandupdatecookie(): Promise<string> {
             "sec-fetch-user": "?1",
             "upgrade-insecure-requests": "1",
             cookie: coostr,
-            Referer: "https://pan.baidu.com/disk/home?"
+            Referer: "https://pan.baidu.com/disk/home?",
         },
         body: undefined,
-        method: "GET"
+        method: "GET",
     });
     if (req.ok) {
         // console.log(req.headers);

@@ -21,7 +21,7 @@ export async function initPANENV(): Promise<PANENV> {
         logid: generatelogid(),
         bdstoken: bdstoken,
         // user: user,
-        cookie: coostr
+        cookie: coostr,
     };
     cacheenv = panenv;
     return panenv;

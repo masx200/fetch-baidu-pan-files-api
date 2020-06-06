@@ -1,6 +1,6 @@
 import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
 export const homeurl = `https://pan.baidu.com/disk/home`;
-export async function getbdstokenanduser() : Promise<string>{
+export async function getbdstokenanduser(): Promise<string> {
     const homehtml = await gethomehtmlandupdatecookie();
     // console.log(homehtml);
     return parsehtmlstoken(homehtml);
@@ -9,7 +9,7 @@ export async function getbdstokenanduser() : Promise<string>{
 /* bdstoken获取方式发生改变了 
 2020年6月6日
 */
-function parsehtmlstoken(html: string) : string{
+function parsehtmlstoken(html: string): string {
     // text=`initPrefetch('dd1601843e05e55609ed49d51dabba42', 'masx20');`
     const reg = /"bdstoken":"(.+)",/g;
     const RegExpExecArray = reg.exec(html);

@@ -4,7 +4,7 @@ const d = btoa;
 const r = String.fromCharCode;
 // const n =
 //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/~！@#￥%……&";
-const a = function(e: string) {
+const a = function (e: string) {
     if (e.length < 2) {
         var t = e.charCodeAt(0);
         return 128 > t
@@ -31,7 +31,7 @@ const o = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g;
 // const d = function(e) {
 //     return e.replace(/[\s\S]{1,3}/g, i);
 // };
-const l = function() {
+const l = function () {
     return d(c(new Date().getTime()));
 };
 // const i = function(e) {
@@ -48,7 +48,7 @@ const l = function() {
 //         ];
 //     return a.join("");
 // };
-const c = function(e: number) {
+const c = function (e: number) {
     return (String(e) + "" + Math.random()).replace(o, a);
 };
 export function generatelogid() {

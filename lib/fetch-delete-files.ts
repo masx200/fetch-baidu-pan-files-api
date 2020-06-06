@@ -36,7 +36,7 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
         app_id: "250528",
         bdstoken: panenv.bdstoken,
         logid: panenv.logid,
-        clienttype: "0"
+        clienttype: "0",
     };
     try {
         const listapi = new URL(operationurl);
@@ -60,7 +60,7 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language":
                 "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            Cookie: panenv.cookie
+            Cookie: panenv.cookie,
         };
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
@@ -86,7 +86,7 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
     } catch (e) {
         console.error("删除文件错误,5秒后重试.");
         console.error(e);
-        await new Promise(r => {
+        await new Promise((r) => {
             setTimeout(r, 5000);
         });
         return fetchdeletetaskid(filestoremove);
@@ -96,20 +96,20 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
 async function excludenotexistfiles(
     rawfiles: Array<string>
 ): Promise<Array<string>> {
-    const filedirs = Array.from(new Set(rawfiles.map(f => posix.dirname(f))));
+    const filedirs = Array.from(new Set(rawfiles.map((f) => posix.dirname(f))));
     console.log("获取文件信息", filedirs);
     const filepool: string[] = (
         await Promise.all(
-            filedirs.map(async f => {
+            filedirs.map(async (f) => {
                 return (await listonedir(f))
-                    .filter(o => !o.isdir)
-                    .map(o => o.path);
+                    .filter((o) => !o.isdir)
+                    .map((o) => o.path);
             })
         )
     ).flat();
 
     /* 先把不存在的文件从删除列表中去除 */
-    const filestoremove = rawfiles.filter(f => {
+    const filestoremove = rawfiles.filter((f) => {
         return filepool.includes(f);
     });
 

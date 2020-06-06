@@ -5,7 +5,7 @@ import process from "process";
 import { txtfile } from "../lib/files.js";
 import { parsecookie } from "../lib/parse-cookie.js";
 const cookiestr = process.argv[2];
-process.on("unhandledRejection", err => {
+process.on("unhandledRejection", (err) => {
     throw err;
 });
 

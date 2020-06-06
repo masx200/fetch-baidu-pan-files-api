@@ -1,7 +1,8 @@
-
 export declare function deletefiles(rawfiles: Array<string>): Promise<void>;
 
-export declare function listonedir(dir: string): Promise<Array<PANFILE | PANDIR>>;
+export declare function listonedir(
+    dir: string
+): Promise<Array<PANFILE | PANDIR>>;
 
 export declare type PANDIR = {
     dir_empty: number;
@@ -38,4 +39,4 @@ export declare type PANFILE = {
     unlist: number;
 };
 
-export { }
+export {};

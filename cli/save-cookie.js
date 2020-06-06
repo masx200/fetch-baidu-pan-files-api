@@ -5,7 +5,7 @@ import process from "process";
 import { txtfile } from "../lib/files.js";
 import { parsecookie } from "../lib/parse-cookie.js";
 const cookiestr = process.argv[2];
-process.on("unhandledRejection", err => {
+process.on("unhandledRejection", (err) => {
     throw err;
 });
 (async () => {
@@ -14,8 +14,7 @@ process.on("unhandledRejection", err => {
         await fsextra.ensureDir(path.dirname(txtfile));
         await fsextra.writeFile(txtfile, cookiestr);
         await parsecookie();
-    }
-    else {
+    } else {
         throw new TypeError("invalid cookie");
     }
 })();

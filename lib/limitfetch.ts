@@ -3,17 +3,17 @@ import https from "https";
 import fetch from "node-fetch";
 const fetchlimiter = currentlimiter(17);
 
-const limitedfetch = fetchlimiter.asyncwrap(function(
+const limitedfetch = fetchlimiter.asyncwrap(function (
     url: string,
     opt?: RequestInit
 ): Promise<Response> {
     const agent = new https.Agent({
-        keepAlive: true
+        keepAlive: true,
     });
     // @ts-ignore
     return fetch.default(url, {
         agent: url.startsWith("http:") ? undefined : agent,
-        ...opt
+        ...opt,
     });
 });
 export { limitedfetch as fetch };

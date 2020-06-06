@@ -14,7 +14,7 @@ export async function taskquerydeletepoll(
         if (status === "success") {
             return;
         } else {
-            await new Promise(r => {
+            await new Promise((r) => {
                 setTimeout(r, 5000);
             });
         }
@@ -34,7 +34,7 @@ async function taskquerydeleteonce(
         app_id: "250528",
         bdstoken: panenv.bdstoken,
         logid: panenv.logid,
-        clienttype: "0"
+        clienttype: "0",
     };
     try {
         const listapi = new URL(operationurl);
@@ -57,7 +57,7 @@ async function taskquerydeleteonce(
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language":
                 "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            Cookie: panenv.cookie
+            Cookie: panenv.cookie,
         };
         const req = await fetch(urlhref, { method: "POST", body, headers });
         if (req.ok) {
@@ -84,7 +84,7 @@ async function taskquerydeleteonce(
     } catch (e) {
         console.error("查询文件错误,5秒后重试.");
         console.error(e);
-        await new Promise(r => {
+        await new Promise((r) => {
             setTimeout(r, 5000);
         });
         return taskquerydeleteonce(taskid, filelist);

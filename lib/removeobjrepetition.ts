@@ -11,7 +11,7 @@ function removeobjrepetition(
             [key: string]: any;
         }
     >();
-    arr.forEach(obj => {
+    arr.forEach((obj) => {
         cache.set(obj.path, obj);
     });
     return [...cache.values()];
