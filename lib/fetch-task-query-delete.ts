@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-// import { fetch } from "./limitfetch.js";
+// import fetch from "node-fetch";
+import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
 import assert from "assert";
 import 错误码表 from "./errno.js";
