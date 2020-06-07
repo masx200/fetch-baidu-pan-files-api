@@ -42,7 +42,12 @@ export async function gethomehtmlandupdatecookie(): Promise<string> {
         return req.text();
     } else {
         throw Error(
-            "fetch failed " + req.status + " " + req.statusText + " " + homeurl
+            "fetch failed \n" +
+                homeurl +
+                " \n" +
+                req.status +
+                " " +
+                req.statusText
         );
     }
 }

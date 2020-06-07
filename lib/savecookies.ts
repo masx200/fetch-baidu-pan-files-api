@@ -12,6 +12,8 @@ export async function savecookies(setcookie: string) {
     const panobj = await fsextra.readJSON(jsonfile);
     const outputcoo = { ...panobj, ...cooobj };
     Reflect.deleteProperty(outputcoo, "expires");
+    Reflect.deleteProperty(outputcoo, "domain");
+    Reflect.deleteProperty(outputcoo, "path");
     console.log(outputcoo);
     await fsextra.writeJSON(jsonfile, outputcoo, { spaces: 4 });
 }
