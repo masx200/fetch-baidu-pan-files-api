@@ -1,5 +1,7 @@
 export declare function deletefiles(rawfiles: Array<string>): Promise<void>;
 
+export declare function initPANENV(): Promise<PANENV>;
+
 export declare function listonedir(
     dir: string
 ): Promise<Array<PANFILE | PANDIR>>;
@@ -21,6 +23,12 @@ export declare type PANDIR = {
     size: number;
     unlist: number;
 };
+
+export declare interface PANENV {
+    logid: string;
+    bdstoken: string;
+    cookie: string;
+}
 
 export declare type PANFILE = {
     category: number;
