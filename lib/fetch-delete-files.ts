@@ -1,5 +1,8 @@
 import assert from "assert";
 import 错误码表 from "./errno.js";
+//一次删除的文件太多会失败
+const listlimit = 200;
+//一次删除操作的文件数量
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
@@ -125,7 +128,7 @@ async function excludenotexistfiles(
     return filestoremove;
 }
 
-const listlimit = 500;
+
 async function slicedelete(filestoremove: string[]): Promise<void> {
     const sliced = slicearray(filestoremove, listlimit);
     return await sliced.reduce(async (prev, filelist) => {
