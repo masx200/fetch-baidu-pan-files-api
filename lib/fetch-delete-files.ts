@@ -3,6 +3,9 @@ import 错误码表 from "./errno.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
 //一次删除操作的文件数量
+
+import{
+response_error_handler}from "./response-error-handler"
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
@@ -74,7 +77,8 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
             if (data?.errno === 0 && typeof taskid === "number") {
                 return taskid;
             } else {
-                const errno = data.errno;
+response_error_handler(data,urlhref)
+               /* const errno = data.errno;
                 assert(typeof errno === "number");
 console.error("response body error",data)
                 throw Error(
@@ -83,7 +87,10 @@ console.error("response body error",data)
                         " \n" +
                         errno +" "+
                         Reflect.get(错误码表, errno)
-                );
+                );*/
+
+
+
             }
         } else {
             throw Error(
