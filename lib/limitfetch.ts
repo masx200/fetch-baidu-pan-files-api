@@ -11,9 +11,11 @@ const limitedfetch = fetchlimiter.asyncwrap(function (
     opt?: RequestInit
 ): Promise<Response> {
     // @ts-ignore
-    return fetch(url, {
-        agent: url.startsWith("https:") ? agent : undefined,
-        ...opt,
-    });
+   opt=Object.assign(
+        {agent: url.startsWith("https:") ? agent : undefined,}
+        ,opt,
+    )
+    const req=new fetch.Request(url,opt)
+    return fetch(req );
 });
 export { limitedfetch as fetch };
