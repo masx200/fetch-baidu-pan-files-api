@@ -69,7 +69,8 @@ async function taskquerydeleteonce(
             if (data?.errno === 0 && typeof status === "string") {
                 return [status, progress];
             } else {
-                const errno = data.errno;
+response_error_handler(data,urlhref)
+               /* const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(
@@ -78,7 +79,7 @@ async function taskquerydeleteonce(
                         " \n" +
                         errno +
                         Reflect.get(错误码表, errno)
-                );
+                );*/
             }
         } else {
             throw Error(
