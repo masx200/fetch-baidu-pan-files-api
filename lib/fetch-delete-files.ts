@@ -76,12 +76,12 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
             } else {
                 const errno = data.errno;
                 assert(typeof errno === "number");
-
+console.error("response body error",data)
                 throw Error(
                     "data error \n" +
                         urlhref +
                         " \n" +
-                        errno +
+                        errno +" "+
                         Reflect.get(错误码表, errno)
                 );
             }
