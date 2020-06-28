@@ -8,6 +8,9 @@ import assert from "assert";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 const numlimit = 1000;
+import{
+response_error_handler}from "./response-error-handler"
+
 export async function listonedir(
     dir: string
     // bdstoken: string,
@@ -93,7 +96,9 @@ async function listdirpage(
             ) {
                 return listdata;
             } else {
-                const errno = data.errno;
+
+response_error_handler(data,urlhref)
+             /*   const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(
@@ -102,7 +107,7 @@ async function listdirpage(
                         " \n" +
                         errno +
                         Reflect.get(错误码表, errno)
-                );
+                );*/
             }
         } else {
             throw Error(
