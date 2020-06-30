@@ -30,7 +30,7 @@ export async function listonedir(
     return String(new Date().getTime());
 }*/
 /* 需要拆分1000个最多每次 */
-async function listdirpage(
+export async function listdirpage(
     dir: string,
     page: number
     // bdstoken: string,

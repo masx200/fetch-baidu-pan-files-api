@@ -27,7 +27,7 @@ export async function taskquerydeletepoll(
     }
 }
 // type status = "running" | "success" | "pending";
-async function taskquerydeleteonce(
+export async function taskquerydeleteonce(
     taskid: number,
     filelist: string[]
 ): Promise<{

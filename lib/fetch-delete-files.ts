@@ -32,7 +32,7 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
     }
     return result;
 }
-async function fetchdeletetaskid(
+export async function fetchdeletetaskid(
     filestoremove: string[]
 ): Promise<number | undefined> {
     if (!filestoremove.length) {
