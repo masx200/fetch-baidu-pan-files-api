@@ -29,7 +29,7 @@ onrequest(url,opt)
 
 const limitedfetch = fetchlimiter.asyncwrap(customfetch);
 export { limitedfetch as fetch };
-function onrequest(url,opt){
+function onrequest(url: string,opt:RequestInit){
 
-console.log("request",url)
+console.log("request",opt.method,url,opt.headers,opt.body)
 }
