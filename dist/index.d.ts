@@ -2,6 +2,11 @@ export declare function deletefiles(rawfiles: Array<string>): Promise<void>;
 
 export declare function initPANENV(): Promise<PANENV>;
 
+export declare function listdirpage(
+    dir: string,
+    page: number
+): Promise<Array<PANFILE | PANDIR>>;
+
 export declare function listonedir(
     dir: string
 ): Promise<Array<PANFILE | PANDIR>>;
@@ -46,5 +51,18 @@ export declare type PANFILE = {
     size: number;
     unlist: number;
 };
+
+export declare function taskquerydeleteonce(
+    taskid: number,
+    filelist: string[]
+): Promise<{
+    status: string;
+    progress: any;
+}>;
+
+export declare function taskquerydeletepoll(
+    taskid: number,
+    filelist: string[]
+): Promise<void>;
 
 export {};

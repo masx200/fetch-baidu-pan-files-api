@@ -89,17 +89,18 @@ import { listonedir } from "@masx200/fetch-baidu-pan-files";
 listonedir("/path/to/your/dir").then(console.log);
 ```
 
-# 直接删除指定的批量文件,多次尝试,判断要删除的文件是否存在
+# 先判断要删除的文件是否存在,然后直接删除指定的批量文件,若遇到网络错误多次尝试,
 
 ```js
 import { deletefiles } from "@masx200/fetch-baidu-pan-files";
 deletefiles(["/path/to/your/file1", "/path/to/your/file2"]).then(console.log);
 ```
-# 直接获取指定目录下的分页文件信息,若遇到网络错误自动重试,默认每页最多1000条
+
+# 直接获取指定目录下的分页文件信息,若遇到网络错误自动重试,默认每页最多 1000 条
 
 ```js
 import { listdirpage } from "@masx200/fetch-baidu-pan-files";
-listdirpage("/path/to/your/dir",1).then(console.log);
+listdirpage("/path/to/your/dir", 1).then(console.log);
 ```
 
 # 详细的网盘 API
