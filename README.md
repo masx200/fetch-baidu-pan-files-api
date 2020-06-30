@@ -82,6 +82,10 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 node  --experimental-modules ./node_modules/@masx200/fetch-baidu-pan-files/cli/save-cookie.js "BAIDUID=xxx; BIDUPSID=xxx; PSTM=xxx; PANWEB=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; cflag=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
 ```
 
+# 详细的网盘 API
+
+https://github.com/masx200/fetch-baidu-pan-files/tree/master/api
+
 # 直接获取指定目录下的所有文件信息,若遇到网络错误自动重试
 
 ```js
@@ -103,6 +107,11 @@ import { listdirpage } from "@masx200/fetch-baidu-pan-files";
 listdirpage("/path/to/your/dir", 1).then(console.log);
 ```
 
-# 详细的网盘 API
+# 直接删除指定的批量文件,并获得任务的序号,若遇到网络错误多次尝试,
 
-https://github.com/masx200/fetch-baidu-pan-files/tree/master/api
+```js
+import { fetchdeletetaskid } from "@masx200/fetch-baidu-pan-files";
+fetchdeletetaskid(["/path/to/your/file1", "/path/to/your/file2"]).then(
+    console.log
+);
+```
