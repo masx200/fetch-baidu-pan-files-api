@@ -30,6 +30,6 @@ onrequest(url,opt)
 const limitedfetch = fetchlimiter.asyncwrap(customfetch);
 export { limitedfetch as fetch };
 function onrequest(url: string,opt:RequestInit){
-
-console.log("request",opt.method,url,opt.headers,opt.body)
+const{method,headers,body}=opt
+console.log("request",method,url,headers,body)
 }
