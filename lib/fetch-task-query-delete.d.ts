@@ -1,10 +1,6 @@
-export declare function taskquerydeletepoll(
-    taskid: number,
-    filelist: string[]
-): Promise<void>;
+export declare function taskquerydeletepoll(taskid: number): Promise<void>;
 export declare function taskquerydeleteonce(
-    taskid: number,
-    filelist: string[]
+    taskid: number
 ): Promise<{
     status: string;
     progress: any;

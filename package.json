@@ -7,7 +7,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {

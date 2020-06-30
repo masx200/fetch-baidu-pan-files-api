@@ -165,7 +165,7 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
             return;
         }
         console.log("获取到删除的任务id", taskid);
-        await taskquerydeletepoll(taskid, filelist);
+        await taskquerydeletepoll(taskid /*  filelist */);
         console.log("删除文件成功", filelist);
     }, Promise.resolve());
 }

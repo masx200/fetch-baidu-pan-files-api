@@ -6,16 +6,18 @@ import { response_error_handler } from "./response-error-handler.js";
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */
 export async function taskquerydeletepoll(
-    taskid: number,
-    filelist: string[]
+    taskid: number
+    // filelist: string[]
 ): Promise<void> {
     while (true) {
         // console.log("开始查询任务状态", taskid);
         const { status, progress } = await taskquerydeleteonce(
-            taskid,
-            filelist
+            taskid
+            // filelist
         );
         console.log("查询到任务状态成功", taskid, status, progress);
+
+        // 任务完成后第一次是  "success",后面是 "failed"
         if (status === "success" || status === "failed") {
             // 可能是成功或失败
             return;
@@ -26,10 +28,16 @@ export async function taskquerydeletepoll(
         }
     }
 }
+
+/* 
+
+{"errno":0,"request_id":4219930869770444291,"task_errno":4,"status":"failed","list":[{"error_code":-7,"path":"\/apps\/baidu_shurufa\/\u6211\u7684\u56fe\u7247\/20140920221912_Ic6M8KOEXM.jpg"}]}
+
+*/
 // type status = "running" | "success" | "pending";
 export async function taskquerydeleteonce(
-    taskid: number,
-    filelist: string[]
+    taskid: number
+    // filelist: string[]
 ): Promise<{
     status: string;
     progress: any;
@@ -49,7 +57,12 @@ export async function taskquerydeleteonce(
         const listapi = new URL(operationurl);
         listapi.search = String(new URLSearchParams(params));
         const urlhref = String(listapi);
-        const body = "filelist=" + encodeURIComponent(JSON.stringify(filelist));
+        // const body = "filelist=" + encodeURIComponent(JSON.stringify(filelist));
+        //查询任务的状态不需要带上文件的路径
+        // const body = "filelist=" + encodeURIComponent(JSON.stringify([]));
+        /* 实测发现其实没有请求体都可以了,甚至使用get方法也可以了 */
+        const body = undefined;
+        /* 其实不带查询的文件路径也可以的 */
         const headers = {
             Host: "pan.baidu.com",
             Connection: "keep-alive",
@@ -106,7 +119,7 @@ export async function taskquerydeleteonce(
         await new Promise((r) => {
             setTimeout(r, 5000);
         });
-        return taskquerydeleteonce(taskid, filelist);
+        return taskquerydeleteonce(taskid /*  filelist */);
     }
 }
 // /* POST /share/taskquery?taskid=65546456840230&channel=chunlei&web=1&app_id=250528&bdstoken=603a14a94befd0d5b90cd1431d9c87ef&logid=MTU4MjgxMzI4Njg5ODAuOTcwOTU0MzU4NzY2MzM4Nw==&clienttype=0 HTTP/1.1
