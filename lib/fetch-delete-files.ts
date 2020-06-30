@@ -1,11 +1,13 @@
-import assert from "assert";
-import 错误码表 from "./errno.js";
+import { posix } from "path";
+import { taskquerydeletepoll } from "./fetch-task-query-delete.js";
+import { listonedir } from "./fetchlistdir.js";
+// import fetch from "node-fetch";
+import { fetch } from "./limitfetch.js";
+import { initPANENV } from "./PANENV.js";
+//一次删除操作的文件数量
+import { response_error_handler } from "./response-error-handler";
 //一次删除的文件太多会失败
 const listlimit = 200;
-//一次删除操作的文件数量
-
-import{
-response_error_handler}from "./response-error-handler"
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
@@ -17,12 +19,6 @@ export async function deletefiles(rawfiles: Array<string>): Promise<void> {
         console.log("没有需要删除的文件");
     }
 }
-import { posix } from "path";
-import { listonedir } from "./fetchlistdir.js";
-// import fetch from "node-fetch";
-import { fetch } from "./limitfetch.js";
-import { initPANENV } from "./PANENV.js";
-import { taskquerydeletepoll } from "./fetch-task-query-delete.js";
 const operationurl = `https://pan.baidu.com/api/filemanager`;
 /* 每次不能太多2000个1000个500个 */
 function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
@@ -77,8 +73,9 @@ async function fetchdeletetaskid(filestoremove: string[]): Promise<number> {
             if (data?.errno === 0 && typeof taskid === "number") {
                 return taskid;
             } else {
-response_error_handler(data,urlhref)
-               /* const errno = data.errno;
+                response_error_handler(data, urlhref);
+                return 0;
+                /* const errno = data.errno;
                 assert(typeof errno === "number");
 console.error("response body error",data)
                 throw Error(
@@ -88,9 +85,6 @@ console.error("response body error",data)
                         errno +" "+
                         Reflect.get(错误码表, errno)
                 );*/
-
-
-
             }
         } else {
             throw Error(
@@ -134,7 +128,6 @@ async function excludenotexistfiles(
 
     return filestoremove;
 }
-
 
 async function slicedelete(filestoremove: string[]): Promise<void> {
     const sliced = slicearray(filestoremove, listlimit);

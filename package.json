@@ -7,7 +7,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
@@ -40,6 +40,7 @@
         "mongoose": "^5.9.20",
         "node-fetch": "^2.6.0",
         "prettier": "^2.0.5",
+        "tslib": "^2.0.0",
         "typescript": "^3.9.5"
     },
     "devDependencies": {},

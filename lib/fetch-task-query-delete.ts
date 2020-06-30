@@ -1,12 +1,7 @@
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
-import assert from "assert";
-import 错误码表 from "./errno.js";
-
-
-import{
-response_error_handler}from "./response-error-handler"
+import { response_error_handler } from "./response-error-handler";
 
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */
@@ -16,7 +11,10 @@ export async function taskquerydeletepoll(
 ): Promise<void> {
     while (true) {
         // console.log("开始查询任务状态", taskid);
-        const [status, progress] = await taskquerydeleteonce(taskid, filelist);
+        const { status, progress } = await taskquerydeleteonce(
+            taskid,
+            filelist
+        );
         console.log("查询到任务状态成功", taskid, status, progress);
         if (status === "success") {
             return;
@@ -31,7 +29,10 @@ export async function taskquerydeletepoll(
 async function taskquerydeleteonce(
     taskid: number,
     filelist: string[]
-): Promise<[string, any]> {
+): Promise<{
+    status: string;
+    progress: any;
+}> {
     const panenv = await initPANENV();
     const params = {
         taskid: String(taskid),
@@ -72,10 +73,12 @@ async function taskquerydeleteonce(
             const status = data?.status;
             const progress = data?.progress;
             if (data?.errno === 0 && typeof status === "string") {
-                return [status, progress];
+                return { status, progress };
             } else {
-response_error_handler(data,urlhref)
-               /* const errno = data.errno;
+                response_error_handler(data, urlhref);
+                //@ts-ignore
+                return {};
+                /* const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(

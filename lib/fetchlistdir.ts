@@ -1,15 +1,12 @@
-import 错误码表 from "./errno.js";
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
+import { initPANENV } from "./PANENV.js";
+import { response_error_handler } from "./response-error-handler";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-import { initPANENV } from "./PANENV.js";
-import assert from "assert";
 const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 const numlimit = 1000;
-import{
-response_error_handler}from "./response-error-handler"
 
 export async function listonedir(
     dir: string
@@ -96,9 +93,9 @@ async function listdirpage(
             ) {
                 return listdata;
             } else {
-
-response_error_handler(data,urlhref)
-             /*   const errno = data.errno;
+                response_error_handler(data, urlhref);
+                return [];
+                /*   const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(
