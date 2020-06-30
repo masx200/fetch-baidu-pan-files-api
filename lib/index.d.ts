@@ -1,4 +1,4 @@
-import { deletefiles } from "./fetch-delete-files.js";
+import { deletefiles, fetchdeletetaskid } from "./fetch-delete-files.js";
 import {
     taskquerydeleteonce,
     taskquerydeletepoll,
@@ -13,3 +13,4 @@ export { initPANENV, PANENV };
 export { listdirpage };
 export { taskquerydeleteonce };
 export { taskquerydeletepoll };
+export { fetchdeletetaskid };

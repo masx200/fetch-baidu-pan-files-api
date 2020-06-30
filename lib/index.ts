@@ -1,5 +1,5 @@
 import process from "process";
-import { deletefiles } from "./fetch-delete-files.js";
+import { deletefiles, fetchdeletetaskid } from "./fetch-delete-files.js";
 import {
     taskquerydeleteonce,
     taskquerydeletepoll,
@@ -17,3 +17,4 @@ export { taskquerydeletepoll };
 process.on("unhandledRejection", (err) => {
     throw err;
 });
+export { fetchdeletetaskid };
