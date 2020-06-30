@@ -16,7 +16,8 @@ export async function taskquerydeletepoll(
             filelist
         );
         console.log("查询到任务状态成功", taskid, status, progress);
-        if (status === "success") {
+        if ((status === "success" )||status === "failed") {
+            // 可能是成功或失败
             return;
         } else {
             await new Promise((r) => {
