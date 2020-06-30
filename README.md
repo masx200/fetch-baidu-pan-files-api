@@ -115,3 +115,10 @@ fetchdeletetaskid(["/path/to/your/file1", "/path/to/your/file2"]).then(
     console.log
 );
 ```
+
+# 查询任务的进度,根据任务的序号,若遇到网络错误多次尝试,
+
+```js
+import { taskquerydeleteonce } from "@masx200/fetch-baidu-pan-files";
+taskquerydeleteonce(278400522319194).then(console.log);
+```
