@@ -1,7 +1,7 @@
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
-import { response_error_handler } from "./response-error-handler";
+import { response_error_handler } from "./response-error-handler.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
 const listurl = `https://pan.baidu.com/api/list`;
