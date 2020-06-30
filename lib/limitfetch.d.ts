@@ -1,5 +1,5 @@
 declare const limitedfetch: (
     url: string,
-    opt?: RequestInit | undefined
+    opt: RequestInit
 ) => Promise<Response>;
 export { limitedfetch as fetch };

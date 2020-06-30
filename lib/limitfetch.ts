@@ -7,9 +7,7 @@ const agent = new https.Agent({
 });
 https.globalAgent = agent;
 
-
-
-const customfetch=function (
+const customfetch = function (
     url: string,
     opt: RequestInit
 ): Promise<Response> {
@@ -19,17 +17,15 @@ const customfetch=function (
         opt
     );
 
-
-onrequest(url,opt)
+    onrequest(url, opt);
     // const req = new fetch.Request(url, opt);
     //@ts-ignore
     return fetch(url, opt) as Response;
-}
-
+};
 
 const limitedfetch = fetchlimiter.asyncwrap(customfetch);
 export { limitedfetch as fetch };
-function onrequest(url: string,opt:RequestInit){
-const{method="GET",headers={},body}=opt
-console.log("request",method,url,headers,body)
+function onrequest(url: string, opt: RequestInit) {
+    const { method = "GET", headers = {}, body } = opt;
+    console.log("request", method, url, headers, body);
 }

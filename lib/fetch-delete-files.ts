@@ -9,10 +9,11 @@ import { response_error_handler } from "./response-error-handler.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
-   
-if(!rawfiles.length){return}
+    if (!rawfiles.length) {
+        return;
+    }
 
- /* 先获取文件列表 */
+    /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
     console.log("需要删除的文件", filestoremove);
     /* 如果没有需要删除的文件,则不需要执行 */
@@ -31,9 +32,13 @@ function slicearray<T>(data: Array<T>, count: number): Array<T>[] {
     }
     return result;
 }
-async function fetchdeletetaskid(filestoremove: string[]): Promise<number|undefined> {
-    if(!filestoremove.length){return}
-const panenv = await initPANENV();
+async function fetchdeletetaskid(
+    filestoremove: string[]
+): Promise<number | undefined> {
+    if (!filestoremove.length) {
+        return;
+    }
+    const panenv = await initPANENV();
     const params = {
         async: "2",
         opera: "delete",
@@ -84,8 +89,10 @@ const panenv = await initPANENV();
                     let filepath = file?.path;
                     restfilestodel.delete(filepath);
                 }
-const filelist=Array.from(restfilestodel)
-if(!filelist.length){return}
+                const filelist = Array.from(restfilestodel);
+                if (!filelist.length) {
+                    return;
+                }
                 return fetchdeletetaskid(filelist);
             } else {
                 response_error_handler(data, urlhref);
@@ -145,15 +152,19 @@ async function excludenotexistfiles(
 }
 
 async function slicedelete(filestoremove: string[]): Promise<void> {
-   if(!filestoremove.length){return}
+    if (!filestoremove.length) {
+        return;
+    }
 
- const sliced = slicearray(filestoremove, listlimit);
+    const sliced = slicearray(filestoremove, listlimit);
     return await sliced.reduce(async (prev, filelist) => {
         await prev;
         const taskid = await fetchdeletetaskid(filelist);
-    
-if(!taskid){return}
-    console.log("获取到删除的任务id", taskid);
+
+        if (!taskid) {
+            return;
+        }
+        console.log("获取到删除的任务id", taskid);
         await taskquerydeletepoll(taskid, filelist);
         console.log("删除文件成功", filelist);
     }, Promise.resolve());
