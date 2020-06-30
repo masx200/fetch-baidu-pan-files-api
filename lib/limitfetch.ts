@@ -6,17 +6,30 @@ const agent = new https.Agent({
     keepAlive: true,
 });
 https.globalAgent = agent;
-const limitedfetch = fetchlimiter.asyncwrap(function (
+
+
+
+const customfetch=function (
     url: string,
-    opt?: RequestInit
+    opt: RequestInit
 ): Promise<Response> {
     // @ts-ignore
     opt = Object.assign(
         { agent: url.startsWith("https:") ? agent : undefined },
         opt
     );
+
+
+onrequest(url,opt)
     // const req = new fetch.Request(url, opt);
     //@ts-ignore
     return fetch(url, opt) as Response;
-});
+}
+
+
+const limitedfetch = fetchlimiter.asyncwrap(customfetch);
 export { limitedfetch as fetch };
+function onrequest(url,opt){
+
+console.log("request",url)
+}
