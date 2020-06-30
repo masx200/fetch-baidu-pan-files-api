@@ -1,7 +1,7 @@
 // import fetch from "node-fetch";
 import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
-import { response_error_handler } from "./response-error-handler";
+import { response_error_handler } from "./response-error-handler.js";
 
 const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */

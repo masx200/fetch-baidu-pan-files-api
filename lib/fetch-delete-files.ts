@@ -5,7 +5,7 @@ import { listonedir } from "./fetchlistdir.js";
 import { fetch } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
 //一次删除操作的文件数量
-import { response_error_handler } from "./response-error-handler";
+import { response_error_handler } from "./response-error-handler.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
