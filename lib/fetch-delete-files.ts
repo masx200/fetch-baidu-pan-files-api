@@ -8,11 +8,21 @@ import { initPANENV } from "./PANENV.js";
 import { response_error_handler } from "./response-error-handler.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
+const splitlimit=2000
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     if (!rawfiles.length) {
         return;
     }
 
+
+//文件太多就拆分
+if(rawfiles.length>splitlimit){
+const sliced = slicearray(rawfiles,splitlimit);
+for(let filelist of sliced){
+await deletefiles(filelist)
+
+}
+}
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
     console.log("需要删除的文件", filestoremove);
