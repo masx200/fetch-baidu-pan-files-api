@@ -1,5 +1,5 @@
 // import fetch from "node-fetch";
-import { taskquerydeleteonce } from "./taskquerydeleteonce";
+import { taskquerydeleteonce } from "./taskquerydeleteonce.js";
 
 export const operationurl = `https://pan.baidu.com/share/taskquery`;
 /* 轮询任务状态 */
