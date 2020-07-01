@@ -1,7 +1,7 @@
 // import fetch from "node-fetch";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-import { listdirpage } from "./listdirpage";
+import { listdirpage } from "./listdirpage.js";
 export const listurl = `https://pan.baidu.com/api/list`;
 // export let coostr: string | undefined;
 export const numlimit = 1000;
