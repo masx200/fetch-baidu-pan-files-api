@@ -35,7 +35,7 @@ export async function initPANENV(): Promise<PANENV> {
             cookie: coostr,
         };
         // cacheenv = panenv;
-        console.log(panenv)
+        console.log(panenv);
         resolve(panenv);
         return panenv;
     } catch (error) {
