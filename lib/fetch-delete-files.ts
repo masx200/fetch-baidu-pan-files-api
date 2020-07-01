@@ -167,9 +167,11 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
     }
 
     const sliced = slicearray(filestoremove, listlimit);
-    return await sliced.reduce(async (prev, filelist) => {
-        await prev;await deletetaskquerypoll(filelist)
-    
+   // return await sliced.reduce(async (prev, filelist) => {
+       // await prev;
+for(let filelist of sliced){
+await deletetaskquerypoll(filelist)
+    }
    ///* const taskid = await fetchdeletetaskid(filelist);
 
      //   if (!taskid) {
