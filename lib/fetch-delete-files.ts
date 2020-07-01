@@ -8,21 +8,19 @@ import { initPANENV } from "./PANENV.js";
 import { response_error_handler } from "./response-error-handler.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
-const splitlimit=2000
+const splitlimit = 2000;
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     if (!rawfiles.length) {
         return;
     }
 
-
-//文件太多就拆分
-if(rawfiles.length>splitlimit){
-const sliced = slicearray(rawfiles,splitlimit);
-for(let filelist of sliced){
-await deletefiles(filelist)
-
-}
-}
+    //文件太多就拆分
+    if (rawfiles.length > splitlimit) {
+        const sliced = slicearray(rawfiles, splitlimit);
+        for (let filelist of sliced) {
+            await deletefiles(filelist);
+        }
+    }
     /* 先获取文件列表 */
     const filestoremove = await excludenotexistfiles(rawfiles);
     console.log("需要删除的文件", filestoremove);
@@ -167,35 +165,31 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
     }
 
     const sliced = slicearray(filestoremove, listlimit);
-   // return await sliced.reduce(async (prev, filelist) => {
-       // await prev;
-for(let filelist of sliced){
-await deletetaskquerypoll(filelist)
+    // return await sliced.reduce(async (prev, filelist) => {
+    // await prev;
+    for (let filelist of sliced) {
+        await deletetaskquerypoll(filelist);
     }
-   ///* const taskid = await fetchdeletetaskid(filelist);
+    ///* const taskid = await fetchdeletetaskid(filelist);
 
-     //   if (!taskid) {
-      //      return;
-     //   }
-      //  console.log("获取到删除的任务id", taskid);
-      //  await taskquerydeletepoll(taskid /*  filelist */);
-     //   console.log("删除文件成功", filelist);*/
-   
+    //   if (!taskid) {
+    //      return;
+    //   }
+    //  console.log("获取到删除的任务id", taskid);
+    //  await taskquerydeletepoll(taskid /*  filelist */);
+    //   console.log("删除文件成功", filelist);*/
 
-
-// }, Promise.resolve());
+    // }, Promise.resolve());
 }
-async function deletetaskquerypoll(filelist){
+async function deletetaskquerypoll(filelist: string[]) {
+    const taskid = await fetchdeletetaskid(filelist);
 
-
-const taskid = await fetchdeletetaskid(filelist);
-
-        if (!taskid) {
-            return;
-        }
-        console.log("获取到删除的任务id", taskid);
-        await taskquerydeletepoll(taskid /*  filelist */);
-        console.log("删除文件成功", filelist);
+    if (!taskid) {
+        return;
+    }
+    console.log("获取到删除的任务id", taskid);
+    await taskquerydeletepoll(taskid /*  filelist */);
+    console.log("删除文件成功", filelist);
 }
 /* 12 部分文件已存在于目标文件夹中 */
 

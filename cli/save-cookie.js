@@ -3,7 +3,7 @@ import path from "path";
 import fsextra from "fs-extra";
 import process from "process";
 import { txtfile } from "../lib/files.js";
-import { parsecookie } from "../lib/parse-cookie.js";
+import { parsecookiesave } from "./parse-cookie-save.js";
 const cookiestr = process.argv[2];
 process.on("unhandledRejection", (err) => {
     throw err;
@@ -13,7 +13,7 @@ process.on("unhandledRejection", (err) => {
     if (cookiestr) {
         await fsextra.ensureDir(path.dirname(txtfile));
         await fsextra.writeFile(txtfile, cookiestr);
-        await parsecookie();
+        await parsecookiesave();
         console.log("cookie 保存成功");
     } else {
         throw new TypeError("invalid cookie");
