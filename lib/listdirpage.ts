@@ -1,9 +1,9 @@
-import { fetch } from "./limitfetch.js";
+import { listurl, numlimit } from "./fetchlistdir.js";
+import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
 import { response_error_handler } from "./response-error-handler.js";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
-import { numlimit, listurl } from "./fetchlistdir.js";
 /*function gettimestamp() {
     return String(new Date().getTime());
 }*/
@@ -48,31 +48,31 @@ export async function listdirpage(
     listapi.search = String(new URLSearchParams(params));
     const urlhref = String(listapi);
     try {
-        const req = await fetch(urlhref, {
+        const data = await fetchresjson(urlhref, {
             headers: headers,
 
             body: undefined,
             method: "GET",
         });
-        if (req.ok) {
-            const data: any = await req.json();
-            const errno = data?.errno;
-            const listdata = data?.list;
-            /* 如果目录不存在则返回空数组 */
-            if (errno === -9) {
-                //  "-9": "文件被所有者删除，操作失败",
-                return [];
-            }
-            if (
-                typeof errno === "number" &&
-                errno === 0 &&
-                Array.isArray(listdata)
-            ) {
-                return listdata;
-            } else {
-                response_error_handler(data, urlhref);
-                return [];
-                /*   const errno = data.errno;
+        // if (req.ok) {
+        //     const data: any = await req.json();
+        const errno = data?.errno;
+        const listdata = data?.list;
+        /* 如果目录不存在则返回空数组 */
+        if (errno === -9) {
+            //  "-9": "文件被所有者删除，操作失败",
+            return [];
+        }
+        if (
+            typeof errno === "number" &&
+            errno === 0 &&
+            Array.isArray(listdata)
+        ) {
+            return listdata;
+        } else {
+            response_error_handler(data, urlhref);
+            return [];
+            /*   const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(
@@ -82,17 +82,17 @@ export async function listdirpage(
                         errno +
                         Reflect.get(错误码表, errno)
                 );*/
-            }
-        } else {
-            throw Error(
-                "fetch failed :" +
-                    urlhref +
-                    " " +
-                    req.status +
-                    " " +
-                    req.statusText
-            );
         }
+        // } else {
+        //     throw Error(
+        //         "fetch failed :" +
+        //             urlhref +
+        //             " " +
+        //             req.status +
+        //             " " +
+        //             req.statusText
+        //     );
+        // }
     } catch (e) {
         console.error("获取文件列表错误,5秒后重试." + dir);
         console.error(e);

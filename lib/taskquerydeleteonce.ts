@@ -1,7 +1,7 @@
-import { fetch } from "./limitfetch.js";
+import { operationurl } from "./fetch-task-query-delete.js";
+import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
 import { response_error_handler } from "./response-error-handler.js";
-import { operationurl } from "./fetch-task-query-delete.js";
 /*
 
 {"errno":0,"request_id":4219930869770444291,"task_errno":4,"status":"failed","list":[{"error_code":-7,"path":"\/apps\/baidu_shurufa\/\u6211\u7684\u56fe\u7247\/20140920221912_Ic6M8KOEXM.jpg"}]}
@@ -55,18 +55,22 @@ export async function taskquerydeleteonce(
                 "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             Cookie: panenv.cookie,
         };
-        const req = await fetch(urlhref, { method: "POST", body, headers });
-        if (req.ok) {
-            const data: any = await req.json();
-            const status = data?.status;
-            const progress = data?.progress;
-            if (data?.errno === 0 && typeof status === "string") {
-                return { status, progress };
-            } else {
-                response_error_handler(data, urlhref);
-                //@ts-ignore
-                return {};
-                /* const errno = data.errno;
+        const data = await fetchresjson(urlhref, {
+            method: "POST",
+            body,
+            headers,
+        });
+        // if (req.ok) {
+        //     const data: any = await req.json();
+        const status = data?.status;
+        const progress = data?.progress;
+        if (data?.errno === 0 && typeof status === "string") {
+            return { status, progress };
+        } else {
+            response_error_handler(data, urlhref);
+            //@ts-ignore
+            return {};
+            /* const errno = data.errno;
                 assert(typeof errno === "number");
 
                 throw Error(
@@ -76,17 +80,17 @@ export async function taskquerydeleteonce(
                         errno +
                         Reflect.get(错误码表, errno)
                 );*/
-            }
-        } else {
-            throw Error(
-                "fetch failed :" +
-                    urlhref +
-                    " " +
-                    req.status +
-                    " " +
-                    req.statusText
-            );
         }
+        // } else {
+        //     throw Error(
+        //         "fetch failed :" +
+        //             urlhref +
+        //             " " +
+        //             req.status +
+        //             " " +
+        //             req.statusText
+        //     );
+        // }
     } catch (e) {
         console.error("查询文件错误,5秒后重试.");
         console.error(e);

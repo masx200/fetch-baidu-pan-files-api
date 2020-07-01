@@ -1,7 +1,7 @@
-import { fetch } from "./limitfetch.js";
+import { operationurl } from "./fetch-delete-files.js";
+import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
 import { response_error_handler } from "./response-error-handler.js";
-import { operationurl } from "./fetch-delete-files.js";
 export async function fetchdeletetaskid(
     filestoremove: string[]
 ): Promise<number | undefined> {
@@ -45,29 +45,37 @@ export async function fetchdeletetaskid(
                 "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             Cookie: panenv.cookie,
         };
-        const req = await fetch(urlhref, { method: "POST", body, headers });
-        if (req.ok) {
-            const data: any = await req.json();
-            const taskid = data?.taskid;
-            const info = data?.info;
-            if (data?.errno === 0 && typeof taskid === "number") {
-                return taskid;
-            } else if (data?.errno === 12 && Array.isArray(info)) {
-                const restfilestodel = new Set(filestoremove);
+        const data = await fetchresjson(urlhref, {
+            method: "POST",
+            body,
+            headers,
+        });
+        // if (req.ok) {
+        // const data: any = await req.json();
+        const taskid = data?.taskid;
+        const info = data?.info;
+        if (data?.errno === 0 && typeof taskid === "number") {
+            return taskid;
+        } else if (data?.errno === 12 && Array.isArray(info)) {
+            const restfilestodel = new Set(filestoremove);
 
-                for (let file of info) {
-                    let filepath = file?.path;
+            for (let file of info) {
+                let filepath = file?.path;
+                let errno = file?.errno;
+                if (errno === -9) {
+                    // 文件不存在的
                     restfilestodel.delete(filepath);
                 }
-                const filelist = Array.from(restfilestodel);
-                if (!filelist.length) {
-                    return;
-                }
-                return fetchdeletetaskid(filelist);
-            } else {
-                response_error_handler(data, urlhref);
-                return 0;
-                /* const errno = data.errno;
+            }
+            const filelist = Array.from(restfilestodel);
+            if (!filelist.length) {
+                return;
+            }
+            return fetchdeletetaskid(filelist);
+        } else {
+            response_error_handler(data, urlhref);
+            return 0;
+            /* const errno = data.errno;
                 assert(typeof errno === "number");
 console.error("response body error",data)
                 throw Error(
@@ -77,17 +85,17 @@ console.error("response body error",data)
                         errno +" "+
                         Reflect.get(错误码表, errno)
                 );*/
-            }
-        } else {
-            throw Error(
-                "fetch failed :" +
-                    urlhref +
-                    " " +
-                    req.status +
-                    " " +
-                    req.statusText
-            );
         }
+        // } else {
+        //     throw Error(
+        //         "fetch failed :" +
+        //             urlhref +
+        //             " " +
+        //             req.status +
+        //             " " +
+        //             req.statusText
+        //     );
+        // }
     } catch (e) {
         console.error("删除文件错误,5秒后重试.");
         console.error(e);

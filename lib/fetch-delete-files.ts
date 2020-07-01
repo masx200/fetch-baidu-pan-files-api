@@ -6,7 +6,7 @@ import { listonedir } from "./fetchlistdir.js";
 import { fetchdeletetaskid } from "./fetchdeletetaskid.js";
 //一次删除的文件太多会失败
 const listlimit = 200;
-const splitlimit = 2000;
+const splitlimit = 1600;
 export async function deletefiles(rawfiles: Array<string>): Promise<void> {
     if (!rawfiles.length) {
         return;
@@ -51,7 +51,9 @@ async function excludenotexistfiles(
                     .map((o) => o.path);
             })
         )
-    ).flat();
+    )
+        //@ts-ignore
+        .flat();
 
     /* 先把不存在的文件从删除列表中去除 */
     const filestoremove = rawfiles.filter((f) => {
