@@ -183,7 +183,7 @@ await deletetaskquerypoll(filelist)
    
 
 
- }, Promise.resolve());
+// }, Promise.resolve());
 }
 async function deletetaskquerypoll(filelist){
 
