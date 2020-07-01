@@ -168,8 +168,25 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
 
     const sliced = slicearray(filestoremove, listlimit);
     return await sliced.reduce(async (prev, filelist) => {
-        await prev;
-        const taskid = await fetchdeletetaskid(filelist);
+        await prev;await deletetaskquerypoll(filelist)
+    
+   ///* const taskid = await fetchdeletetaskid(filelist);
+
+     //   if (!taskid) {
+      //      return;
+     //   }
+      //  console.log("获取到删除的任务id", taskid);
+      //  await taskquerydeletepoll(taskid /*  filelist */);
+     //   console.log("删除文件成功", filelist);*/
+   
+
+
+ }, Promise.resolve());
+}
+async function deletetaskquerypoll(filelist){
+
+
+const taskid = await fetchdeletetaskid(filelist);
 
         if (!taskid) {
             return;
@@ -177,9 +194,7 @@ async function slicedelete(filestoremove: string[]): Promise<void> {
         console.log("获取到删除的任务id", taskid);
         await taskquerydeletepoll(taskid /*  filelist */);
         console.log("删除文件成功", filelist);
-    }, Promise.resolve());
 }
-
 /* 12 部分文件已存在于目标文件夹中 */
 
 /* {
