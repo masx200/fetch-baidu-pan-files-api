@@ -26,7 +26,7 @@ const customfetch = function (
 
 const limitedfetch = fetchlimiter.asyncwrap(customfetch);
 export { limitedfetch as fetch };
-function onrequest(url: string, opt: RequestInit) {
+function onrequest(url: string, opt: RequestInit={}) {
     const { method = "GET", /*headers = {}, */ body } = opt;
     console.log("request", method, url, /* headers,*/ body);
 }
