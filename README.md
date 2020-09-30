@@ -1,5 +1,11 @@
 # fetch-baidu-pan-files
 
+
+获取bduss
+
+http://tool.cccyun.cc/tool/bduss/index3.html
+
+
 这个代码库是`百度网盘批量清理重复文件计划`的一部分。
 
 模拟浏览器脚本操作,使用 `nodejs` 来批量读取和操作网盘文件信息
