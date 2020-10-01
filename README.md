@@ -98,7 +98,7 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 提取出 `"bdstoken"`之后的内容为`bdstoken`
 
-![./sshot-2020-10-01-[15-53-29].png]()
+![./sshot-2020-10-01-[15-53-29].png](sshot-2020-10-01-[15-53-29].png)
 
 # 详细的网盘 API
 
