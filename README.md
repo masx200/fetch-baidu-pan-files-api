@@ -1,10 +1,12 @@
-# fetch-baidu-pan-files
+# fetch-baidu-pan-files-api
 
 
-获取bduss
+# 获取bduss的方法
 
 http://tool.cccyun.cc/tool/bduss/index3.html
 
+
+# 功能说明
 
 这个代码库是`百度网盘批量清理重复文件计划`的一部分。
 
@@ -18,11 +20,11 @@ http://tool.cccyun.cc/tool/bduss/index3.html
 
 网盘对于每次删除操作的文件数有限制,故只能拆分多次尝试删除,轮询任务完成状态
 
-百度网盘批量清理重复文件计划
+# 百度网盘批量清理重复文件计划
 
 https://github.com/masx200/baidu-pan-delete-repeated-files
 
-https://github.com/masx200/fetch-baidu-pan-files
+https://github.com/masx200/fetch-baidu-pan-files-api
 
 https://github.com/masx200/fetch-file-list-to-mongodb
 
@@ -82,41 +84,40 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 ![./sshot-2020-02-26-[13-50-52].png](sshot-2020-02-26-%5B13-50-52%5D.png)
 
-# 使用前先保存 `cookie`,并解析 `cookie`
+## 使用前先保存 `cookie`,并解析 `cookie`
 
-```shell
-node  --experimental-modules ./node_modules/@masx200/fetch-baidu-pan-files/cli/save-cookie.js "BAIDUID=xxx; BIDUPSID=xxx; PSTM=xxx; PANWEB=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; cflag=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
-```
+
+
 
 # 详细的网盘 API
 
-https://github.com/masx200/fetch-baidu-pan-files/tree/master/api
+https://github.com/masx200/fetch-baidu-pan-files-api/tree/master/api
 
 # 直接获取指定目录下的所有文件信息,若遇到网络错误自动重试
 
 ```js
-import { listonedir } from "@masx200/fetch-baidu-pan-files";
+import { listonedir } from "@masx200/fetch-baidu-pan-files-api";
 listonedir("/path/to/your/dir").then(console.log);
 ```
 
 # 直接获取指定目录下的一页文件信息,若遇到网络错误自动重试,默认每页最多 1000 条
 
 ```js
-import { listdirpage } from "@masx200/fetch-baidu-pan-files";
+import { listdirpage } from "@masx200/fetch-baidu-pan-files-api";
 listdirpage("/path/to/your/dir", 1).then(console.log);
 ```
 
 # 先判断要删除的文件是否存在,然后直接删除指定的批量文件,若遇到网络错误多次尝试,
 
 ```js
-import { deletefiles } from "@masx200/fetch-baidu-pan-files";
+import { deletefiles } from "@masx200/fetch-baidu-pan-files-api";
 deletefiles(["/path/to/your/file1", "/path/to/your/file2"]).then(console.log);
 ```
 
 # 直接删除指定的批量文件,并获得任务的序号,若遇到网络错误多次尝试,
 
 ```js
-import { fetchdeletetaskid } from "@masx200/fetch-baidu-pan-files";
+import { fetchdeletetaskid } from "@masx200/fetch-baidu-pan-files-api";
 fetchdeletetaskid(["/path/to/your/file1", "/path/to/your/file2"]).then(
     console.log
 );
@@ -125,13 +126,13 @@ fetchdeletetaskid(["/path/to/your/file1", "/path/to/your/file2"]).then(
 # 查询一次任务的进度,根据任务的序号,若遇到网络错误多次尝试,
 
 ```js
-import { taskquerydeleteonce } from "@masx200/fetch-baidu-pan-files";
+import { taskquerydeleteonce } from "@masx200/fetch-baidu-pan-files-api";
 taskquerydeleteonce(278400522319194).then(console.log);
 ```
 
 # 轮询查询任务的进度,根据任务的序号,直到任务成功为止,若遇到网络错误多次尝试,
 
 ```js
-import { taskquerydeletepoll } from "@masx200/fetch-baidu-pan-files";
+import { taskquerydeletepoll } from "@masx200/fetch-baidu-pan-files-api";
 taskquerydeletepoll(278400522319194).then(console.log);
 ```
