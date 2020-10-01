@@ -1,7 +1,9 @@
 import fsextra from "fs-extra";
 import { jsonfile } from "./files.js";
 import { generatelogid } from "./generatelogid.js";
-import { getbdstokenanduser } from "./init.js";
+import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
+import { getbdstoken } from "./init.js";
+// import { getbdstokenanduser } from "./init.js";
 import { objtostrcookie } from "./objtostrcookie.js";
 export interface PANENV {
     logid: string;
@@ -20,14 +22,16 @@ export async function initPANENV(): Promise<PANENV> {
         return cacheenv;
     } else {
         cacheenv = new Promise((res, rej) => {
+            //@ts-ignore
             resolve = res;
             rejecet = rej;
         });
     }
     try {
-        let bdstoken = await getbdstokenanduser();
+        await gethomehtmlandupdatecookie();
+        const bdstoken = await getbdstoken();
         const panobj = await fsextra.readJSON(jsonfile);
-        let coostr = objtostrcookie(panobj);
+        const coostr = objtostrcookie(panobj);
         const panenv: PANENV = {
             logid: generatelogid(),
             bdstoken: bdstoken,

@@ -1,25 +1,30 @@
-import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
-export const homeurl = `https://pan.baidu.com/disk/home`;
-export async function getbdstokenanduser(): Promise<string> {
-    const homehtml = await gethomehtmlandupdatecookie();
-    // console.log(homehtml);
-    return parsehtmlstoken(homehtml);
+import fsextra from "fs-extra";
+import { bdstokenfile } from "./files.js";
+export async function getbdstoken() {
+    return String(await fsextra.readFile(bdstokenfile));
 }
+// import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
+export const homeurl = `https://pan.baidu.com/disk/home`;
+// export async function getbdstokenanduser(): Promise<string> {
+//     const homehtml = await gethomehtmlandupdatecookie();
+//     // console.log(homehtml);
+//     return parsehtmlstoken(homehtml);
+// }
 
-/* bdstoken获取方式发生改变了 
+/* bdstoken获取方式发生改变了
 2020年6月6日
 */
-function parsehtmlstoken(html: string): string {
-    // text=`initPrefetch('dd1601843e05e55609ed49d51dabba42', 'masx20');`
-    const reg = /"bdstoken":"(.+)","is_vip"/g;
-    const RegExpExecArray = reg.exec(html);
-    if (RegExpExecArray) {
-        const [, bdstoken] = RegExpExecArray;
-        // console.log([raw, bdstoken, user]);
-        return bdstoken;
-    }
-    throw Error("failed parse bdstoken :" + html);
-}
+// function parsehtmlstoken(html: string): string {
+//     // text=`initPrefetch('dd1601843e05e55609ed49d51dabba42', 'masx20');`
+//     const reg = /"bdstoken":"(.+)","is_vip"/g;
+//     const RegExpExecArray = reg.exec(html);
+//     if (RegExpExecArray) {
+//         const [, bdstoken] = RegExpExecArray;
+//         // console.log([raw, bdstoken, user]);
+//         return bdstoken;
+//     }
+//     throw Error("failed parse bdstoken :" + html);
+// }
 // fetch("https://pan.baidu.com/disk/home?", {
 //   "headers": {
 //     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
