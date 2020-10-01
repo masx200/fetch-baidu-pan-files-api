@@ -4,6 +4,7 @@ import path from "path";
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = dirname(__filename);
 const datadirname = path.join(os.homedir(), "baidupan", "./userdata");
-const txtfile = path.resolve(datadirname, "./cookies.txt");
+const bdstokenfile = path.resolve(datadirname, "./bdstoken.txt");
 const jsonfile = path.resolve(datadirname, "./cookies.json");
-export { jsonfile, txtfile };
+
+export { jsonfile, bdstokenfile };

@@ -1,3 +1,3 @@
-declare const txtfile: string;
+declare const bdstokenfile: string;
 declare const jsonfile: string;
-export { jsonfile, txtfile };
+export { jsonfile, bdstokenfile };

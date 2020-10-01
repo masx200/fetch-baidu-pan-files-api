@@ -1,9 +1,7 @@
 import cookie from "cookie";
 import fsextra from "fs-extra";
-import { jsonfile, txtfile } from "../lib/files.js";
-export const parsecookiesave = async () => {
-    const buf = await fsextra.readFile(txtfile);
-    const cookiestr = buf.toString();
+import { jsonfile } from "../lib/files.js";
+export const parsecookiesave = async (cookiestr) => {
     console.log(cookiestr);
     const parsedobj = cookie.parse(cookiestr, {});
     console.log(parsedobj);

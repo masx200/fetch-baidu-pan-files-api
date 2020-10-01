@@ -1,1 +1,1 @@
-export declare const parsecookiesave: () => Promise<void>;
+export declare const parsecookiesave: (cookiestr: string) => Promise<void>;
