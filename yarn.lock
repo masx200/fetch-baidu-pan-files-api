@@ -14,6 +14,11 @@
   resolved "https://registry.npm.taobao.org/@masx200/event-emitter-target/download/@masx200/event-emitter-target-1.1.7.tgz#11757a805314886ecb54a5aa5fab6815b33b0913"
   integrity sha1-EXV6gFMUiG7LVKWqX6toFbM7CRM=
 
+"@masx200/mini-cli-args-parser@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/@masx200/mini-cli-args-parser/download/@masx200/mini-cli-args-parser-1.0.0.tgz#ac25d4ee8412633b001457512c5216b30f2e546c"
+  integrity sha1-rCXU7oQSYzsAFFdRLFIWsw8uVGw=
+
 "@microsoft/api-extractor-model@7.8.11":
   version "7.8.11"
   resolved "https://registry.npm.taobao.org/@microsoft/api-extractor-model/download/@microsoft/api-extractor-model-7.8.11.tgz?cache=0&sync_timestamp=1593103549432&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40microsoft%2Fapi-extractor-model%2Fdownload%2F%40microsoft%2Fapi-extractor-model-7.8.11.tgz#641664307584f4c8dbd38b3cf3cd618b7a092643"
