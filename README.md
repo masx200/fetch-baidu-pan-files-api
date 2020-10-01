@@ -94,7 +94,7 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 然后搜索`bdstoken`
 
-找到`locals.set('bdstoken', 'b15336fbc7d1edc790135f95b06855b1');`
+找到`locals.set('bdstoken', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');`
 
 提取出 `"bdstoken"`之后的内容为`bdstoken`
 
