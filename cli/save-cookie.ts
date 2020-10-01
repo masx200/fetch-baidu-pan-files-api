@@ -4,7 +4,10 @@ import fsextra from "fs-extra";
 import process from "process";
 import { jsonfile } from "../lib/files.js";
 import { parsecookiesave } from "./parse-cookie-save.js";
-const cookiestr = process.argv[2];
+import parse from '@masx200/mini-cli-args-parser'
+
+const opts = parse(process.argv.slice(2))
+const cookiestr = opts['cookie']
 process.on("unhandledRejection", (err) => {
     throw err;
 });
@@ -19,4 +22,5 @@ process.on("unhandledRejection", (err) => {
     } else {
         throw new TypeError("invalid cookie");
     }
+
 })();
