@@ -1,5 +1,6 @@
 {
     "publishConfig": {
+        "access": "public",
         "registry": "https://registry.npmjs.com"
     },
     "bin": "cli/save-cookie.js",
