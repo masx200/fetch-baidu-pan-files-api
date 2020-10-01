@@ -9,7 +9,7 @@
         "checkJs": true,
         "allowJs": true,
         "pretty": true,
-        "target": "es2019",
+        "target": "esnext",
         "module": "ESNext",
         "jsx": "preserve",
         "declaration": true,

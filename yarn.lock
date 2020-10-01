@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@masx200/async-task-current-limiter@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.npm.taobao.org/@masx200/async-task-current-limiter/download/@masx200/async-task-current-limiter-1.0.8.tgz#cb23867600889c470f1806c9ec6cb60c3505f5ef"
-  integrity sha1-yyOGdgCInEcPGAbJ7Gy2DDUF9e8=
+"@masx200/async-task-current-limiter@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.npm.taobao.org/@masx200/async-task-current-limiter/download/@masx200/async-task-current-limiter-1.0.9.tgz#23ca138e4cf6b5dbc30844475394ae3154a951dc"
+  integrity sha1-I8oTjkz2tdvDCERHU5SuMVSpUdw=
   dependencies:
     "@masx200/event-emitter-target" "^1.1.7"
 
@@ -392,10 +392,10 @@ ms@2.1.2:
   resolved "https://registry.npm.taobao.org/ms/download/ms-2.1.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
-node-fetch@^2.6.0:
+node-fetch@^2.6.1:
   version "2.6.1"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
-  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+  resolved "https://registry.npm.taobao.org/node-fetch/download/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
 
 path-parse@^1.0.6:
   version "1.0.6"
@@ -521,10 +521,10 @@ tslib@^2.0.0:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
   integrity sha1-GNE/wtzgQFHiDwdMyDh/2Aic5PM=
 
-typescript@^3.9.5:
-  version "3.9.5"
-  resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.9.5.tgz?cache=0&sync_timestamp=1593240570207&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
-  integrity sha1-WG8NujAM3ovlLdGsT34QCcGxPzY=
+typescript@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.npm.taobao.org/typescript/download/typescript-4.0.3.tgz?cache=0&sync_timestamp=1601536996637&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
+  integrity sha1-FTu9Ro7wdyXB35x36LRT+NNqu6U=
 
 typescript@~3.7.2:
   version "3.7.5"

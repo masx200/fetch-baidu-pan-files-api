@@ -1,10 +1,8 @@
 # fetch-baidu-pan-files-api
 
-
-# 获取bduss的方法
+# 获取 `bduss` 的方法
 
 http://tool.cccyun.cc/tool/bduss/index3.html
-
 
 # 功能说明
 
@@ -86,8 +84,21 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 ## 使用前先保存 `cookie`,并解析 `cookie`
 
+# 使用前先获取 `bdstoken`
 
+使用浏览器登陆百度网盘的网页版,并登陆
 
+`https://pan.baidu.com/`
+
+点击右键菜单,点击查看页面源代码
+
+然后搜索`bdstoken`
+
+找到`locals.set('bdstoken', 'b15336fbc7d1edc790135f95b06855b1');`
+
+提取出 `"bdstoken"`之后的内容为`bdstoken`
+
+![./sshot-2020-10-01-[15-53-29].png]()
 
 # 详细的网盘 API
 
