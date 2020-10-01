@@ -14,10 +14,10 @@
   resolved "https://registry.npm.taobao.org/@masx200/event-emitter-target/download/@masx200/event-emitter-target-1.1.7.tgz#11757a805314886ecb54a5aa5fab6815b33b0913"
   integrity sha1-EXV6gFMUiG7LVKWqX6toFbM7CRM=
 
-"@masx200/mini-cli-args-parser@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/@masx200/mini-cli-args-parser/download/@masx200/mini-cli-args-parser-1.0.1.tgz?cache=0&sync_timestamp=1601550176932&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40masx200%2Fmini-cli-args-parser%2Fdownload%2F%40masx200%2Fmini-cli-args-parser-1.0.1.tgz#ad89858bb3fe638c53b7df12b19444a58876db00"
-  integrity sha1-rYmFi7P+Y4xTt98SsZREpYh22wA=
+"@masx200/mini-cli-args-parser@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/@masx200/mini-cli-args-parser/download/@masx200/mini-cli-args-parser-1.0.2.tgz?cache=0&sync_timestamp=1601551332263&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40masx200%2Fmini-cli-args-parser%2Fdownload%2F%40masx200%2Fmini-cli-args-parser-1.0.2.tgz#bedbdc1dc713f6f9b5a1a35f66b5dd6c48dd85f2"
+  integrity sha1-vtvcHccT9vm1oaNfZrXdbEjdhfI=
 
 "@microsoft/api-extractor-model@7.8.11":
   version "7.8.11"
