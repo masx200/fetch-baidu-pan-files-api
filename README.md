@@ -4,6 +4,9 @@
 
 http://tool.cccyun.cc/tool/bduss/index3.html
 
+
+https://bduss.lingtings.com/index3.html
+
 # 功能说明
 
 这个代码库是`百度网盘批量清理重复文件计划`的一部分。
