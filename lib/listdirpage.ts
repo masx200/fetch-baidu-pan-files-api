@@ -1,3 +1,4 @@
+import { fatalerrorcheck } from "./fatalerrorcheck.js";
 import { listurl, numlimit } from "./fetchlistdir.js";
 import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
@@ -54,6 +55,7 @@ export async function listdirpage(
             body: undefined,
             method: "GET",
         });
+        fatalerrorcheck(data);
         // if (req.ok) {
         //     const data: any = await req.json();
         const errno = data?.errno;

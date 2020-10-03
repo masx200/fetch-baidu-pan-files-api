@@ -1,3 +1,4 @@
+import { fatalerrorcheck } from "./fatalerrorcheck.js";
 import { operationurl } from "./fetch-delete-files.js";
 import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
@@ -50,6 +51,7 @@ export async function fetchdeletetaskid(
             body,
             headers,
         });
+        fatalerrorcheck(data);
         // if (req.ok) {
         // const data: any = await req.json();
         const taskid = data?.taskid;

@@ -1,3 +1,4 @@
+import { fatalerrorcheck } from "./fatalerrorcheck.js";
 import { operationurl } from "./fetch-task-query-delete.js";
 import { fetchresjson } from "./limitfetch.js";
 import { initPANENV } from "./PANENV.js";
@@ -60,6 +61,7 @@ export async function taskquerydeleteonce(
             body,
             headers,
         });
+        fatalerrorcheck(data);
         // if (req.ok) {
         //     const data: any = await req.json();
         const status = data?.status;
