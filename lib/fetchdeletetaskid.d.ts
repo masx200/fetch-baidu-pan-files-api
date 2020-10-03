@@ -1,1 +1,3 @@
-export declare function fetchdeletetaskid(filestoremove: string[]): Promise<number | undefined>;
+export declare function fetchdeletetaskid(
+    filestoremove: string[]
+): Promise<number | undefined>;

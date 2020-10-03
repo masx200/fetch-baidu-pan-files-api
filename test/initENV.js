@@ -5,5 +5,5 @@ process.on("unhandledRejection", (err) => {
 Array(5)
     .fill(undefined)
     .forEach(() => {
-    initPANENV().then(console.log);
-});
+        initPANENV().then(console.log);
+    });

@@ -1,13 +1,19 @@
-
 export declare function deletefiles(rawfiles: Array<string>): Promise<void>;
 
-export declare function fetchdeletetaskid(filestoremove: string[]): Promise<number | undefined>;
+export declare function fetchdeletetaskid(
+    filestoremove: string[]
+): Promise<number | undefined>;
 
 export declare function initPANENV(): Promise<PANENV>;
 
-export declare function listdirpage(dir: string, page: number): Promise<Array<PANFILE | PANDIR>>;
+export declare function listdirpage(
+    dir: string,
+    page: number
+): Promise<Array<PANFILE | PANDIR>>;
 
-export declare function listonedir(dir: string): Promise<Array<PANFILE | PANDIR>>;
+export declare function listonedir(
+    dir: string
+): Promise<Array<PANFILE | PANDIR>>;
 
 export declare type PANDIR = {
     dir_empty: number;
@@ -50,11 +56,13 @@ export declare type PANFILE = {
     unlist: number;
 };
 
-export declare function taskquerydeleteonce(taskid: number): Promise<{
+export declare function taskquerydeleteonce(
+    taskid: number
+): Promise<{
     status: string;
     progress: any;
 }>;
 
 export declare function taskquerydeletepoll(taskid: number): Promise<void>;
 
-export { }
+export {};

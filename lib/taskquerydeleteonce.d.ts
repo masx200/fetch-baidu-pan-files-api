@@ -1,4 +1,6 @@
-export declare function taskquerydeleteonce(taskid: number): Promise<{
+export declare function taskquerydeleteonce(
+    taskid: number
+): Promise<{
     status: string;
     progress: any;
 }>;
