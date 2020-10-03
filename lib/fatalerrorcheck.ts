@@ -1,10 +1,11 @@
 import 错误码表 from "./errno.js";
 function fatalerrorcheck(data: any) {
     if (data?.errno === -6) {
+        const e = new Error("response data error \n" +
+            JSON.stringify(data) + "\n" +
+            Reflect.get(错误码表, data?.errno))
         console.error(
-            "response data error \n",
-            data,
-            Reflect.get(错误码表, data?.errno)
+            e
         );
         process.exit(1);
     }

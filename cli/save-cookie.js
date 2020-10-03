@@ -19,7 +19,8 @@ console.log(opts);
         await fsextra.ensureDir(path.dirname(jsonfile));
         await parsecookiesave(cookiestr);
         console.log("cookie 保存成功");
-    } else {
+    }
+    else {
         throw new TypeError("invalid cookie");
     }
     console.log(bdstoken);
@@ -27,7 +28,8 @@ console.log(opts);
         await fsextra.ensureDir(path.dirname(bdstokenfile));
         await fsextra.writeFile(bdstokenfile, bdstoken);
         console.log("bdstoken 保存成功");
-    } else {
+    }
+    else {
         throw new TypeError("invalid bdstoken");
     }
 })();
