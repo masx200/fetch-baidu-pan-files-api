@@ -1,0 +1,552 @@
+dependencies:
+  '@masx200/async-task-current-limiter': 1.0.9
+  '@masx200/mini-cli-args-parser': 1.0.2
+  '@types/btoa': 1.2.3
+  '@types/cookie': 0.4.0
+  '@types/fs-extra': 9.0.5
+  '@types/mongoose': 5.10.2
+  '@types/node': 14.14.14
+  '@types/node-fetch': 2.5.7
+  abort-controller: 3.0.0
+  btoa: 1.2.1
+  cookie: 0.4.1
+  fs-extra: 9.0.1
+  node-fetch: 2.6.1
+devDependencies:
+  '@microsoft/api-extractor': 7.12.1
+  mquery: 3.2.3
+  prettier: 2.2.1
+  tslib: 2.0.3
+  typescript: 4.1.3
+lockfileVersion: 5.2
+packages:
+  /@masx200/async-task-current-limiter/1.0.9:
+    dependencies:
+      '@masx200/event-emitter-target': 1.1.7
+    dev: false
+    resolution:
+      integrity: sha1-I8oTjkz2tdvDCERHU5SuMVSpUdw=
+      tarball: '@masx200/async-task-current-limiter/download/@masx200/async-task-current-limiter-1.0.9.tgz'
+  /@masx200/event-emitter-target/1.1.7:
+    dev: false
+    resolution:
+      integrity: sha1-EXV6gFMUiG7LVKWqX6toFbM7CRM=
+      tarball: '@masx200/event-emitter-target/download/@masx200/event-emitter-target-1.1.7.tgz'
+  /@masx200/mini-cli-args-parser/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-vtvcHccT9vm1oaNfZrXdbEjdhfI=
+      tarball: '@masx200/mini-cli-args-parser/download/@masx200/mini-cli-args-parser-1.0.2.tgz'
+  /@microsoft/api-extractor-model/7.12.1:
+    dependencies:
+      '@microsoft/tsdoc': 0.12.24
+      '@rushstack/node-core-library': 3.35.2
+    dev: true
+    resolution:
+      integrity: sha1-HxCRXENASNo04cB4RbomI9XyP2Y=
+      tarball: '@microsoft/api-extractor-model/download/@microsoft/api-extractor-model-7.12.1.tgz'
+  /@microsoft/api-extractor/7.12.1:
+    dependencies:
+      '@microsoft/api-extractor-model': 7.12.1
+      '@microsoft/tsdoc': 0.12.24
+      '@rushstack/node-core-library': 3.35.2
+      '@rushstack/rig-package': 0.2.9
+      '@rushstack/ts-command-line': 4.7.8
+      colors: 1.2.5
+      lodash: 4.17.20
+      resolve: 1.17.0
+      semver: 7.3.4
+      source-map: 0.6.1
+      typescript: 4.0.5
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-QgS+bJ+EXX0XlrbVHFi8sl5yZ+k=
+      tarball: '@microsoft/api-extractor/download/@microsoft/api-extractor-7.12.1.tgz'
+  /@microsoft/tsdoc/0.12.24:
+    dev: true
+    resolution:
+      integrity: sha1-MHKONOvJA1HdOv9OGNA47tLD4Jg=
+      tarball: '@microsoft/tsdoc/download/@microsoft/tsdoc-0.12.24.tgz'
+  /@rushstack/node-core-library/3.35.2:
+    dependencies:
+      '@types/node': 10.17.13
+      colors: 1.2.5
+      fs-extra: 7.0.1
+      import-lazy: 4.0.0
+      jju: 1.4.0
+      resolve: 1.17.0
+      semver: 7.3.4
+      timsort: 0.3.0
+      z-schema: 3.18.4
+    dev: true
+    resolution:
+      integrity: sha1-IcqHm1BRpeuvqVL6/NZIoHoUK8s=
+      tarball: '@rushstack/node-core-library/download/@rushstack/node-core-library-3.35.2.tgz'
+  /@rushstack/rig-package/0.2.9:
+    dependencies:
+      '@types/node': 10.17.13
+      resolve: 1.17.0
+      strip-json-comments: 3.1.1
+    dev: true
+    resolution:
+      integrity: sha1-V++U5/dwOxjidbYD0/WaGhZYBxY=
+      tarball: '@rushstack/rig-package/download/@rushstack/rig-package-0.2.9.tgz'
+  /@rushstack/ts-command-line/4.7.8:
+    dependencies:
+      '@types/argparse': 1.0.38
+      argparse: 1.0.10
+      colors: 1.2.5
+      string-argv: 0.3.1
+    dev: true
+    resolution:
+      integrity: sha1-Oqd89UTFcb4yBvwry6IMeglu0lQ=
+      tarball: '@rushstack/ts-command-line/download/@rushstack/ts-command-line-4.7.8.tgz'
+  /@types/argparse/1.0.38:
+    dev: true
+    resolution:
+      integrity: sha1-qB/YYG1IH4c6OADG665PHXaKVqk=
+      tarball: '@types/argparse/download/@types/argparse-1.0.38.tgz'
+  /@types/bson/4.0.3:
+    dependencies:
+      '@types/node': 14.14.14
+    dev: false
+    resolution:
+      integrity: sha1-MIidL/3mJiq744ZZNkxjFFSZn78=
+      tarball: '@types/bson/download/@types/bson-4.0.3.tgz'
+  /@types/btoa/1.2.3:
+    dependencies:
+      '@types/node': 14.14.14
+    dev: false
+    resolution:
+      integrity: sha1-LI5wk/kCv48OEJkqcxpJlqoaVzI=
+      tarball: '@types/btoa/download/@types/btoa-1.2.3.tgz'
+  /@types/cookie/0.4.0:
+    dev: false
+    resolution:
+      integrity: sha1-FPhUwPk9Mm452m47bzT303UT0Qg=
+      tarball: '@types/cookie/download/@types/cookie-0.4.0.tgz'
+  /@types/fs-extra/9.0.5:
+    dependencies:
+      '@types/node': 14.14.14
+    dev: false
+    resolution:
+      integrity: sha1-Kvt2pDpL74CjY7lLMU0MoWlPxPg=
+      tarball: '@types/fs-extra/download/@types/fs-extra-9.0.5.tgz'
+  /@types/mongodb/3.6.3:
+    dependencies:
+      '@types/bson': 4.0.3
+      '@types/node': 14.14.14
+    dev: false
+    resolution:
+      integrity: sha1-VlWvQJ2eMtXVrpplOr8+X5yD63o=
+      tarball: '@types/mongodb/download/@types/mongodb-3.6.3.tgz'
+  /@types/mongoose/5.10.2:
+    dependencies:
+      '@types/mongodb': 3.6.3
+      '@types/node': 14.14.14
+    dev: false
+    resolution:
+      integrity: sha1-dh1zt4yqosTHRatPzKTLl24/rR4=
+      tarball: '@types/mongoose/download/@types/mongoose-5.10.2.tgz'
+  /@types/node-fetch/2.5.7:
+    dependencies:
+      '@types/node': 14.14.14
+      form-data: 3.0.0
+    dev: false
+    resolution:
+      integrity: sha1-IKKv/6iCqwTUTKeGRJonb59rvzw=
+      tarball: '@types/node-fetch/download/@types/node-fetch-2.5.7.tgz'
+  /@types/node/10.17.13:
+    dev: true
+    resolution:
+      integrity: sha1-zOvNuZC9YTnNFuhMOdwvsQI8qQw=
+      tarball: '@types/node/download/@types/node-10.17.13.tgz'
+  /@types/node/14.14.14:
+    dev: false
+    resolution:
+      integrity: sha1-9/1fPMhSEwERn2ORDw+5ZcfXYa4=
+      tarball: '@types/node/download/@types/node-14.14.14.tgz'
+  /abort-controller/3.0.0:
+    dependencies:
+      event-target-shim: 5.0.1
+    dev: false
+    engines:
+      node: '>=6.5'
+    resolution:
+      integrity: sha1-6vVNU7YrrkE46AnKIlyEOabvs5I=
+      tarball: abort-controller/download/abort-controller-3.0.0.tgz
+  /argparse/1.0.10:
+    dependencies:
+      sprintf-js: 1.0.3
+    dev: true
+    resolution:
+      integrity: sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
+      tarball: argparse/download/argparse-1.0.10.tgz
+  /asynckit/0.4.0:
+    dev: false
+    resolution:
+      integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
+      tarball: asynckit/download/asynckit-0.4.0.tgz
+  /at-least-node/1.0.0:
+    dev: false
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha1-YCzUtG6EStTv/JKoARo8RuAjjcI=
+      tarball: at-least-node/download/at-least-node-1.0.0.tgz
+  /bluebird/3.5.1:
+    dev: true
+    resolution:
+      integrity: sha1-2VUfnemPH82h5oPRfukaBgLuLrk=
+      tarball: bluebird/download/bluebird-3.5.1.tgz?cache=0&sync_timestamp=1575041806529&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbluebird%2Fdownload%2Fbluebird-3.5.1.tgz
+  /btoa/1.2.1:
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-AamQn4ssk/a/aAuiYTHrMPf6PXM=
+      tarball: btoa/download/btoa-1.2.1.tgz
+  /colors/1.2.5:
+    dev: true
+    engines:
+      node: '>=0.1.90'
+    resolution:
+      integrity: sha1-icetmjdLwDDfgBMkH2gTbtiDWvw=
+      tarball: colors/download/colors-1.2.5.tgz
+  /combined-stream/1.0.8:
+    dependencies:
+      delayed-stream: 1.0.0
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=
+      tarball: combined-stream/download/combined-stream-1.0.8.tgz
+  /commander/2.20.3:
+    dev: true
+    optional: true
+    resolution:
+      integrity: sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
+      tarball: commander/download/commander-2.20.3.tgz
+  /cookie/0.4.1:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-r9cT/ibr0hupXOth+agRblClN9E=
+      tarball: cookie/download/cookie-0.4.1.tgz
+  /debug/3.1.0:
+    dependencies:
+      ms: 2.0.0
+    dev: true
+    resolution:
+      integrity: sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
+      tarball: debug/download/debug-3.1.0.tgz
+  /delayed-stream/1.0.0:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
+      tarball: delayed-stream/download/delayed-stream-1.0.0.tgz
+  /event-target-shim/5.0.1:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha1-XU0+vflYPWOlMzzi3rdICrKwV4k=
+      tarball: event-target-shim/download/event-target-shim-5.0.1.tgz
+  /form-data/3.0.0:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.27
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha1-MbfjnIXxNVtxOe4MZHzw3n+DxoI=
+      tarball: form-data/download/form-data-3.0.0.tgz?cache=0&sync_timestamp=1600349504247&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fform-data%2Fdownload%2Fform-data-3.0.0.tgz
+  /fs-extra/7.0.1:
+    dependencies:
+      graceful-fs: 4.2.4
+      jsonfile: 4.0.0
+      universalify: 0.1.2
+    dev: true
+    engines:
+      node: '>=6 <7 || >=8'
+    resolution:
+      integrity: sha1-TxicRKoSO4lfcigE9V6iPq3DSOk=
+      tarball: fs-extra/download/fs-extra-7.0.1.tgz
+  /fs-extra/9.0.1:
+    dependencies:
+      at-least-node: 1.0.0
+      graceful-fs: 4.2.4
+      jsonfile: 6.1.0
+      universalify: 1.0.0
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha1-kQ2gBiQ3ukw5/t2GPxZ1zP78ufw=
+      tarball: fs-extra/download/fs-extra-9.0.1.tgz
+  /graceful-fs/4.2.4:
+    resolution:
+      integrity: sha1-Ila94U02MpWMRl68ltxGfKB6Kfs=
+      tarball: graceful-fs/download/graceful-fs-4.2.4.tgz
+  /import-lazy/4.0.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha1-6OtidIOgpD2jwD8+NVSL5csMwVM=
+      tarball: import-lazy/download/import-lazy-4.0.0.tgz
+  /jju/1.4.0:
+    dev: true
+    resolution:
+      integrity: sha1-o6vicYryQaKykE+EpiWXDzia4yo=
+      tarball: jju/download/jju-1.4.0.tgz
+  /jsonfile/4.0.0:
+    dev: true
+    optionalDependencies:
+      graceful-fs: 4.2.4
+    resolution:
+      integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
+      tarball: jsonfile/download/jsonfile-4.0.0.tgz
+  /jsonfile/6.1.0:
+    dependencies:
+      universalify: 2.0.0
+    dev: false
+    optionalDependencies:
+      graceful-fs: 4.2.4
+    resolution:
+      integrity: sha1-vFWyY0eTxnnsZAMJTrE2mKbsCq4=
+      tarball: jsonfile/download/jsonfile-6.1.0.tgz
+  /lodash.get/4.4.2:
+    dev: true
+    resolution:
+      integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+      tarball: lodash.get/download/lodash.get-4.4.2.tgz
+  /lodash.isequal/4.5.0:
+    dev: true
+    resolution:
+      integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+      tarball: lodash.isequal/download/lodash.isequal-4.5.0.tgz
+  /lodash/4.17.20:
+    dev: true
+    resolution:
+      integrity: sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+      tarball: lodash/download/lodash-4.17.20.tgz
+  /lru-cache/6.0.0:
+    dependencies:
+      yallist: 4.0.0
+    dev: true
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=
+      tarball: lru-cache/download/lru-cache-6.0.0.tgz
+  /mime-db/1.44.0:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-+hHF6wrKEzS0Izy01S8QxaYnL5I=
+      tarball: mime-db/download/mime-db-1.44.0.tgz
+  /mime-types/2.1.27:
+    dependencies:
+      mime-db: 1.44.0
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-R5SfmOJ56lMRn1ci4PNOUpvsAJ8=
+      tarball: mime-types/download/mime-types-2.1.27.tgz
+  /mquery/3.2.3:
+    dependencies:
+      bluebird: 3.5.1
+      debug: 3.1.0
+      regexp-clone: 1.0.0
+      safe-buffer: 5.1.2
+      sliced: 1.0.1
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha1-vPVP3+O69XtqIvm2KxrV+hj/6Wo=
+      tarball: mquery/download/mquery-3.2.3.tgz
+  /ms/2.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+      tarball: ms/download/ms-2.0.0.tgz
+  /node-fetch/2.6.1:
+    dev: false
+    engines:
+      node: 4.x || >=6.0.0
+    resolution:
+      integrity: sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
+      tarball: node-fetch/download/node-fetch-2.6.1.tgz
+  /path-parse/1.0.6:
+    dev: true
+    resolution:
+      integrity: sha1-1i27VnlAXXLEc37FhgDp3c8G0kw=
+      tarball: path-parse/download/path-parse-1.0.6.tgz
+  /prettier/2.2.1:
+    dev: true
+    engines:
+      node: '>=10.13.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
+      tarball: prettier/download/prettier-2.2.1.tgz
+  /regexp-clone/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-Ii25Z2IydwViYLmSYmNUoEzpv2M=
+      tarball: regexp-clone/download/regexp-clone-1.0.0.tgz
+  /resolve/1.17.0:
+    dependencies:
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha1-sllBtUloIxzC0bt2p5y38sC/hEQ=
+      tarball: resolve/download/resolve-1.17.0.tgz
+  /safe-buffer/5.1.2:
+    dev: true
+    resolution:
+      integrity: sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+      tarball: safe-buffer/download/safe-buffer-5.1.2.tgz
+  /semver/7.3.4:
+    dependencies:
+      lru-cache: 6.0.0
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    resolution:
+      integrity: sha1-J6qn0uTKdkUvmNOt0JOnLJQ+3Jc=
+      tarball: semver/download/semver-7.3.4.tgz?cache=0&sync_timestamp=1606871158789&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver%2Fdownload%2Fsemver-7.3.4.tgz
+  /sliced/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
+      tarball: sliced/download/sliced-1.0.1.tgz
+  /source-map/0.6.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+      tarball: source-map/download/source-map-0.6.1.tgz
+  /sprintf-js/1.0.3:
+    dev: true
+    resolution:
+      integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+      tarball: sprintf-js/download/sprintf-js-1.0.3.tgz
+  /string-argv/0.3.1:
+    dev: true
+    engines:
+      node: '>=0.6.19'
+    resolution:
+      integrity: sha1-leL77AQnrhkYSTX4FtdKqkxcGdo=
+      tarball: string-argv/download/string-argv-0.3.1.tgz
+  /strip-json-comments/3.1.1:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
+      tarball: strip-json-comments/download/strip-json-comments-3.1.1.tgz
+  /timsort/0.3.0:
+    dev: true
+    resolution:
+      integrity: sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+      tarball: timsort/download/timsort-0.3.0.tgz
+  /tslib/2.0.3:
+    dev: true
+    resolution:
+      integrity: sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
+      tarball: tslib/download/tslib-2.0.3.tgz
+  /typescript/4.0.5:
+    dev: true
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-rp3d/RBp8ctb6z7zshcN18EzI4k=
+      tarball: typescript/download/typescript-4.0.5.tgz?cache=0&sync_timestamp=1608364563905&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.0.5.tgz
+  /typescript/4.1.3:
+    dev: true
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-UZ1YK9lMugz4k0x9joRn5HP1O7c=
+      tarball: typescript/download/typescript-4.1.3.tgz?cache=0&sync_timestamp=1608364563905&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.1.3.tgz
+  /universalify/0.1.2:
+    dev: true
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha1-tkb2m+OULavOzJ1mOcgNwQXvqmY=
+      tarball: universalify/download/universalify-0.1.2.tgz
+  /universalify/1.0.0:
+    dev: false
+    engines:
+      node: '>= 10.0.0'
+    resolution:
+      integrity: sha1-thodoXPoQ1sv48Z9Kbmt+FlL0W0=
+      tarball: universalify/download/universalify-1.0.0.tgz
+  /universalify/2.0.0:
+    dev: false
+    engines:
+      node: '>= 10.0.0'
+    resolution:
+      integrity: sha1-daSYTv7cSwiXXFrrc/Uw0C3yVxc=
+      tarball: universalify/download/universalify-2.0.0.tgz
+  /validator/8.2.0:
+    dev: true
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha1-PBI3KQ43CSNVNE/veMIxJJ2rd7k=
+      tarball: validator/download/validator-8.2.0.tgz
+  /yallist/4.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-m7knkNnA7/7GO+c1GeEaNQGaOnI=
+      tarball: yallist/download/yallist-4.0.0.tgz
+  /z-schema/3.18.4:
+    dependencies:
+      lodash.get: 4.4.2
+      lodash.isequal: 4.5.0
+      validator: 8.2.0
+    dev: true
+    hasBin: true
+    optionalDependencies:
+      commander: 2.20.3
+    resolution:
+      integrity: sha1-6oEysnlTPuYL4khaAvfj5CVBqaI=
+      tarball: z-schema/download/z-schema-3.18.4.tgz
+specifiers:
+  '@masx200/async-task-current-limiter': ^1.0.9
+  '@masx200/mini-cli-args-parser': ^1.0.2
+  '@microsoft/api-extractor': ^7.12.1
+  '@types/btoa': ^1.2.3
+  '@types/cookie': ^0.4.0
+  '@types/fs-extra': ^9.0.5
+  '@types/mongoose': ^5.10.2
+  '@types/node': ^14.14.14
+  '@types/node-fetch': ^2.5.7
+  abort-controller: ^3.0.0
+  btoa: ^1.2.1
+  cookie: ^0.4.1
+  fs-extra: ^9.0.1
+  mquery: 3.2.3
+  node-fetch: ^2.6.1
+  prettier: ^2.2.1
+  tslib: ^2.0.3
+  typescript: ^4.1.3
