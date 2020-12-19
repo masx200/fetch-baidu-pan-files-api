@@ -8,7 +8,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
@@ -43,7 +43,7 @@
     },
     "devDependencies": {
         "@microsoft/api-extractor": "^7.8.15",
-        "mongoose": "^5.9.20",
+        "mquery": "3.2.3",
         "prettier": "^2.0.5",
         "tslib": "^2.0.0",
         "typescript": "^4.0.3"
