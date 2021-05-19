@@ -36,7 +36,7 @@ https://github.com/masx200/mongodb-file-find-md5-repeat
 
 ```shell
 
-yarn add @masx200/fetch-baidu-pan-files-api
+yarn global add @masx200/fetch-baidu-pan-files-api
 ```
 
 ## 安装 `node_modules`
