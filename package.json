@@ -51,10 +51,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/masx200/fetch-baidu-pan-files.git"
+        "url": "git+https://github.com/masx200/fetch-baidu-pan-files-api.git"
     },
     "bugs": {
-        "url": "https://github.com/masx200/fetch-baidu-pan-files/issues"
+        "url": "https://github.com/masx200/fetch-baidu-pan-files-api/issues"
     },
-    "homepage": "https://github.com/masx200/fetch-baidu-pan-files#readme"
+    "homepage": "https://github.com/masx200/fetch-baidu-pan-files-api#readme"
 }
