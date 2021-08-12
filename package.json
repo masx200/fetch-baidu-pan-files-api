@@ -3,13 +3,13 @@
         "access": "public",
         "registry": "https://registry.npmjs.com"
     },
-    "bin": "cli/save-cookie.js",
+    "bin": "dist/save-cookie.js",
     "types": "dist/index.d.ts",
-    "module": "lib/index.js",
+    "module": "dist/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
     "version": "2.1.0",
-    "main": "lib/index.js",
+    "main": "dist/index.cjs",
     "license": "MIT",
     "scripts": {
         "test": "yarn test-cookie &&yarn test-init && yarn test-get-html &&  yarn test-list-dir && yarn test-delete &&yarn test-query-task",
