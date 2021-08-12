@@ -1,13 +1,14 @@
 {
     "include": ["*.ts", "./**/*.ts"],
     "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
         "sourceMap": false,
         "strictNullChecks": true,
         "alwaysStrict": true,
         "allowUnreachableCode": false,
         "noImplicitThis": true,
-        "checkJs": true,
-        "allowJs": true,
+        "checkJs": false,
+        "allowJs": false,
         "pretty": true,
         "target": "esnext",
         "module": "ESNext",
@@ -21,7 +22,7 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
+
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true
     }

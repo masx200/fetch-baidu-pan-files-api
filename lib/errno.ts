@@ -10,8 +10,7 @@ export default {
     "-3": "用户未激活（调用init接口）",
     "-4": "COOKIE中未找到host_key&user_key（或BDUSS）",
     "-5": "host_key和user_key无效",
-    "-6":
-        '登录失败，请重新<a href="javascript:window.location.reload();">登录</a>',
+    "-6": '登录失败，请重新<a href="javascript:window.location.reload();">登录</a>',
     "-7": "文件或目录名错误或无权访问",
     "-8": "该目录下已存在此文件",
     "-9": "文件被所有者删除，操作失败",

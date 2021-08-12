@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+// #!/usr/bin/env node
 import path from "path";
 import fsextra from "fs-extra";
 import process from "process";
