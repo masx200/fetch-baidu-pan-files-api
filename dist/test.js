@@ -1,24 +1,141 @@
-import e from "process";
+import e from "fs-extra";
 
-import t, { posix as o } from "path";
+import t from "os";
 
-import n from "@masx200/async-task-current-limiter";
+import o, { posix as n } from "path";
 
-import r from "https";
+import r from "btoa";
 
-import a from "node-fetch";
+import a from "@masx200/async-task-current-limiter";
 
-import i from "assert";
+import i from "https";
 
-import s from "fs-extra";
+import s from "node-fetch";
 
-import c from "os";
-
-import p from "btoa";
+import c from "assert";
 
 import l from "cookie";
 
-var d = '你的空间不足了哟，赶紧<a target="_blank" href="//yun.baidu.com/buy/center?tag=8&from=disk-home">购买容量</a>吧', u = {
+import p from "process";
+
+const d = o.join(t.homedir(), "baidupan", "./userdata"), h = o.resolve(d, "./bdstoken.txt"), u = o.resolve(d, "./cookies.json"), f = r, g = String.fromCharCode, m = function(e) {
+    if (e.length < 2) {
+        var t = e.charCodeAt(0);
+        return 128 > t ? e : 2048 > t ? g(192 | t >>> 6) + g(128 | 63 & t) : g(224 | t >>> 12 & 15) + g(128 | t >>> 6 & 63) + g(128 | 63 & t);
+    }
+    {
+        let t = 65536 + 1024 * (e.charCodeAt(0) - 55296) + (e.charCodeAt(1) - 56320);
+        return g(240 | t >>> 18 & 7) + g(128 | t >>> 12 & 63) + g(128 | t >>> 6 & 63) + g(128 | 63 & t);
+    }
+}, w = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g, y = function(e) {
+    return (String(e) + "" + Math.random()).replace(w, m);
+};
+
+function k() {
+    return f(y((new Date).getTime()));
+}
+
+const b = a(15), S = new i.Agent({
+    keepAlive: !0
+});
+
+i.globalAgent = S;
+
+const q = b.asyncwrap((function(e, t = {}) {
+    return t = Object.assign({
+        agent: e.startsWith("https:") ? S : void 0
+    }, t), function(e, t = {}) {
+        const {method: o = "GET", body: n} = t;
+        console.log("request", o, e, n);
+    }(e, t), s(e, t);
+}));
+
+async function A(e, t = {}) {
+    const o = t.method || "GET", n = await q(e, t);
+    if (!n.ok) throw Error("fetch failed \n " + o + " " + e + " \n" + n.status + " " + n.statusText);
+    const r = await n.json();
+    return function(e) {
+        c(e && "object" == typeof e);
+        const t = e?.errno;
+        0 !== t && console.error("response data error", e);
+    }(r), r;
+}
+
+const x = "https://pan.baidu.com/disk/home";
+
+function R(e) {
+    return Object.entries(e).map((([e, t]) => l.serialize(e, String(t)))).join(";");
+}
+
+async function T() {
+    if (!e.existsSync(u)) throw Error("没有找到cookie文件,请先登陆网盘,并保存 cookie");
+    const t = R(await e.readJSON(u)), o = await q(x, {
+        headers: {
+            "Accept-Encoding": " gzip, deflate, br",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.17 Safari/537.36 Edg/81.0.416.12",
+            Connection: "keep-alive",
+            Host: "pan.baidu.com",
+            accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+            "cache-control": "max-age=0",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "same-origin",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            cookie: t,
+            Referer: "https://pan.baidu.com/disk/home?"
+        },
+        body: void 0,
+        method: "GET"
+    });
+    if (o.ok) {
+        const t = o.headers.get("set-cookie");
+        return t && await async function(t) {
+            const o = {};
+            t.split(",").map((e => e.split(";"))).flat().forEach((e => Object.assign(o, l.parse(e))));
+            const n = {
+                ...await e.readJSON(u),
+                ...o
+            };
+            Reflect.deleteProperty(n, "expires"), Reflect.deleteProperty(n, "domain"), Reflect.deleteProperty(n, "path"), 
+            console.log(n), await e.writeJSON(u, n, {
+                spaces: 4
+            });
+        }(t), o.text();
+    }
+    throw Error("fetch failed \n" + x + " \n" + o.status + " " + o.statusText);
+}
+
+let j, C = e => {}, v = e => {};
+
+async function E() {
+    if (j) return j;
+    j = new Promise(((e, t) => {
+        C = e, v = t;
+    }));
+    try {
+        await T();
+        const t = await async function() {
+            return String(await e.readFile(h));
+        }(), o = R(await e.readJSON(u)), n = {
+            logid: k(),
+            bdstoken: t,
+            cookie: o
+        };
+        return console.log(n), C(n), n;
+    } catch (e) {
+        return v(e), Promise.reject(e);
+    }
+}
+
+process.on("unhandledRejection", (e => {
+    throw e;
+})), Array(5).fill(void 0).forEach((() => {
+    E().then(console.log);
+}));
+
+var U = '你的空间不足了哟，赶紧<a target="_blank" href="//yun.baidu.com/buy/center?tag=8&from=disk-home">购买容量</a>吧', z = {
     0: "成功",
     "-1": "用户名和密码验证失败",
     "-2": "备用",
@@ -29,7 +146,7 @@ var d = '你的空间不足了哟，赶紧<a target="_blank" href="//yun.baidu.c
     "-7": "文件或目录名错误或无权访问",
     "-8": "该目录下已存在此文件",
     "-9": "文件被所有者删除，操作失败",
-    "-10": d,
+    "-10": U,
     "-11": "父目录不存在",
     "-12": "设备尚未注册",
     "-13": "设备已经被绑定",
@@ -41,7 +158,7 @@ var d = '你的空间不足了哟，赶紧<a target="_blank" href="//yun.baidu.c
     "-24": "要取消的文件列表中含有不允许取消public的文件。",
     "-25": "非公测用户",
     "-26": "邀请码失效",
-    "-32": d,
+    "-32": U,
     "-102": "云冲印文件7日内无法删除",
     1: "服务器错误 ",
     2: "接口请求错误，请稍候重试",
@@ -141,198 +258,29 @@ var d = '你的空间不足了哟，赶紧<a target="_blank" href="//yun.baidu.c
     10019: "格式有误"
 };
 
-function f(e) {
+function F(e) {
     if (-6 === e?.errno) {
-        const t = new Error("response data error \n" + JSON.stringify(e) + "\n" + Reflect.get(u, e?.errno));
+        const t = new Error("response data error \n" + JSON.stringify(e) + "\n" + Reflect.get(z, e?.errno));
         console.error(t), process.exit(1);
     }
 }
 
-const h = n(15), m = new r.Agent({
-    keepAlive: !0
-});
-
-r.globalAgent = m;
-
-const g = h.asyncwrap((function(e, t = {}) {
-    return t = Object.assign({
-        agent: e.startsWith("https:") ? m : void 0
-    }, t), function(e, t = {}) {
-        const {method: o = "GET", body: n} = t;
-        console.log("request", o, e, n);
-    }(e, t), a(e, t);
-}));
-
-async function w(e, t = {}) {
-    const o = t.method || "GET", n = await g(e, t);
-    if (!n.ok) throw Error("fetch failed \n " + o + " " + e + " \n" + n.status + " " + n.statusText);
-    const r = await n.json();
-    return function(e) {
-        i(e && "object" == typeof e);
-        const t = e?.errno;
-        0 !== t && console.error("response data error", e);
-    }(r), r;
-}
-
-const y = t.join(c.homedir(), "baidupan", "./userdata"), k = t.resolve(y, "./bdstoken.txt"), b = t.resolve(y, "./cookies.json"), S = p, q = String.fromCharCode, A = function(e) {
-    if (e.length < 2) {
-        var t = e.charCodeAt(0);
-        return 128 > t ? e : 2048 > t ? q(192 | t >>> 6) + q(128 | 63 & t) : q(224 | t >>> 12 & 15) + q(128 | t >>> 6 & 63) + q(128 | 63 & t);
-    }
-    {
-        let t = 65536 + 1024 * (e.charCodeAt(0) - 55296) + (e.charCodeAt(1) - 56320);
-        return q(240 | t >>> 18 & 7) + q(128 | t >>> 12 & 63) + q(128 | t >>> 6 & 63) + q(128 | 63 & t);
-    }
-}, x = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g, T = function(e) {
-    return (String(e) + "" + Math.random()).replace(x, A);
-};
-
-function C() {
-    return S(T((new Date).getTime()));
-}
-
-const R = "https://pan.baidu.com/disk/home";
-
-function v(e) {
-    return Object.entries(e).map((([e, t]) => l.serialize(e, String(t)))).join(";");
-}
-
-async function j() {
-    if (!s.existsSync(b)) throw Error("没有找到cookie文件,请先登陆网盘,并保存 cookie");
-    const e = v(await s.readJSON(b)), t = await g(R, {
-        headers: {
-            "Accept-Encoding": " gzip, deflate, br",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.17 Safari/537.36 Edg/81.0.416.12",
-            Connection: "keep-alive",
-            Host: "pan.baidu.com",
-            accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            "cache-control": "max-age=0",
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "same-origin",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-            cookie: e,
-            Referer: "https://pan.baidu.com/disk/home?"
-        },
-        body: void 0,
-        method: "GET"
-    });
-    if (t.ok) {
-        const e = t.headers.get("set-cookie");
-        return e && await async function(e) {
-            const t = {};
-            e.split(",").map((e => e.split(";"))).flat().forEach((e => Object.assign(t, l.parse(e))));
-            const o = {
-                ...await s.readJSON(b),
-                ...t
-            };
-            Reflect.deleteProperty(o, "expires"), Reflect.deleteProperty(o, "domain"), Reflect.deleteProperty(o, "path"), 
-            console.log(o), await s.writeJSON(b, o, {
-                spaces: 4
-            });
-        }(e), t.text();
-    }
-    throw Error("fetch failed \n" + R + " \n" + t.status + " " + t.statusText);
-}
-
-let E, U = e => {}, z = e => {};
-
-async function F() {
-    if (E) return E;
-    E = new Promise(((e, t) => {
-        U = e, z = t;
-    }));
-    try {
-        await j();
-        const e = await async function() {
-            return String(await s.readFile(k));
-        }(), t = v(await s.readJSON(b)), o = {
-            logid: C(),
-            bdstoken: e,
-            cookie: t
-        };
-        return console.log(o), U(o), o;
-    } catch (e) {
-        return z(e), Promise.reject(e);
-    }
-}
-
 function L(e, t) {
-    i("object" == typeof e && e && !Array.isArray(e));
+    c("object" == typeof e && e && !Array.isArray(e));
     const o = e?.errno;
-    if (i("number" == typeof o), 0 !== o) throw console.error("response body error", e), 
-    Error("response data error \n" + t + " \n" + o + " " + Reflect.get(u, o));
+    if (c("number" == typeof o), 0 !== o) throw console.error("response body error", e), 
+    Error("response data error \n" + t + " \n" + o + " " + Reflect.get(z, o));
 }
 
-async function M(e) {
-    const t = await F(), o = {
-        taskid: String(e),
-        channel: "chunlei",
-        web: "1",
-        app_id: "250528",
-        bdstoken: t.bdstoken,
-        logid: t.logid,
-        clienttype: "0"
-    };
-    try {
-        const e = new URL(N);
-        e.search = String(new URLSearchParams(o));
-        const n = String(e), r = void 0, a = {
-            Host: "pan.baidu.com",
-            Connection: "keep-alive",
-            Accept: "application/json, text/javascript, */*; q=0.01",
-            "X-Requested-With": "XMLHttpRequest",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.26 Safari/537.36 Edg/81.0.416.16",
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-            Origin: "https://pan.baidu.com",
-            "Sec-Fetch-Site": "same-origin",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Dest": "empty",
-            Referer: " https://pan.baidu.com/disk/home?",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            Cookie: t.cookie
-        }, i = await w(n, {
-            method: "POST",
-            body: r,
-            headers: a
-        });
-        f(i);
-        const s = i?.status, c = i?.progress;
-        return 0 === i?.errno && "string" == typeof s ? {
-            status: s,
-            progress: c
-        } : (L(i, n), {});
-    } catch (t) {
-        return console.error("查询文件错误,5秒后重试."), console.error(t), await new Promise((e => {
-            setTimeout(e, 5e3);
-        })), M(e);
-    }
-}
-
-const N = "https://pan.baidu.com/share/taskquery";
-
-async function O(e) {
-    for (;;) {
-        const {status: t, progress: o} = await M(e);
-        if (console.log("查询到任务状态成功", e, t, o), "success" === t || "failed" === t) return;
-        await new Promise((e => {
-            setTimeout(e, 5e3);
-        }));
-    }
-}
-
-async function P(e, t) {
-    const o = await F(), n = {
+async function M(e, t) {
+    const o = await E(), n = {
         order: "time",
         desc: "1",
         showempty: "0",
         web: "1",
         page: String(t),
         dir: e,
-        num: String(_),
+        num: String(O),
         channel: "chunlei",
         app_id: "250528",
         bdstoken: o.bdstoken,
@@ -351,42 +299,104 @@ async function P(e, t) {
         "sec-fetch-site": "same-origin",
         "x-requested-with": "XMLHttpRequest",
         cookie: o.cookie
-    }, a = new URL(W);
+    }, a = new URL(N);
     a.search = String(new URLSearchParams(n));
     const i = String(a);
     try {
-        const e = await w(i, {
+        const e = await A(i, {
             headers: r,
             body: void 0,
             method: "GET"
         });
-        f(e);
+        F(e);
         const t = e?.errno, o = e?.list;
         return -9 === t ? [] : "number" == typeof t && 0 === t && Array.isArray(o) ? o : (L(e, i), 
         []);
     } catch (o) {
         return console.error("获取文件列表错误,5秒后重试." + e), console.error(o), await new Promise((e => {
             setTimeout(e, 5e3);
-        })), P(e, t);
+        })), M(e, t);
     }
 }
 
-const W = "https://pan.baidu.com/api/list", _ = 1e3;
+const N = "https://pan.baidu.com/api/list", O = 1e3;
 
-async function G(e) {
+async function P(e) {
     let t = 1;
     const o = [];
     for (;;) {
-        const n = await P(e, t);
-        if (o.push(...n), n.length < _) break;
+        const n = await M(e, t);
+        if (o.push(...n), n.length < O) break;
         t++;
     }
     return o;
 }
 
+async function W(e) {
+    const t = await E(), o = {
+        taskid: String(e),
+        channel: "chunlei",
+        web: "1",
+        app_id: "250528",
+        bdstoken: t.bdstoken,
+        logid: t.logid,
+        clienttype: "0"
+    };
+    try {
+        const e = new URL(_);
+        e.search = String(new URLSearchParams(o));
+        const n = String(e), r = void 0, a = {
+            Host: "pan.baidu.com",
+            Connection: "keep-alive",
+            Accept: "application/json, text/javascript, */*; q=0.01",
+            "X-Requested-With": "XMLHttpRequest",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.26 Safari/537.36 Edg/81.0.416.16",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            Origin: "https://pan.baidu.com",
+            "Sec-Fetch-Site": "same-origin",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Dest": "empty",
+            Referer: " https://pan.baidu.com/disk/home?",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+            Cookie: t.cookie
+        }, i = await A(n, {
+            method: "POST",
+            body: r,
+            headers: a
+        });
+        F(i);
+        const s = i?.status, c = i?.progress;
+        return 0 === i?.errno && "string" == typeof s ? {
+            status: s,
+            progress: c
+        } : (L(i, n), {});
+    } catch (t) {
+        return console.error("查询文件错误,5秒后重试."), console.error(t), await new Promise((e => {
+            setTimeout(e, 5e3);
+        })), W(e);
+    }
+}
+
+P("/").then(console.log), P("/我的图片").then(console.log), process.on("unhandledRejection", (e => {
+    throw e;
+}));
+
+const _ = "https://pan.baidu.com/share/taskquery";
+
+async function G(e) {
+    for (;;) {
+        const {status: t, progress: o} = await W(e);
+        if (console.log("查询到任务状态成功", e, t, o), "success" === t || "failed" === t) return;
+        await new Promise((e => {
+            setTimeout(e, 5e3);
+        }));
+    }
+}
+
 async function H(e) {
     if (!e.length) return;
-    const t = await F(), o = {
+    const t = await E(), o = {
         async: "2",
         opera: "delete",
         onnest: "fail",
@@ -398,7 +408,7 @@ async function H(e) {
         clienttype: "0"
     };
     try {
-        const n = new URL(K);
+        const n = new URL(D);
         n.search = String(new URLSearchParams(o));
         const r = String(n), a = "filelist=" + encodeURIComponent(JSON.stringify(e)), i = {
             Host: "pan.baidu.com",
@@ -415,17 +425,17 @@ async function H(e) {
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             Cookie: t.cookie
-        }, s = await w(r, {
+        }, s = await A(r, {
             method: "POST",
             body: a,
             headers: i
         });
-        f(s);
-        const c = s?.taskid, p = s?.info;
+        F(s);
+        const c = s?.taskid, l = s?.info;
         if (0 === s?.errno && "number" == typeof c) return c;
-        if (12 === s?.errno && Array.isArray(p)) {
+        if (12 === s?.errno && Array.isArray(l)) {
             const t = new Set(e);
-            for (let e of p) {
+            for (let e of l) {
                 let o = e?.path, n = e?.errno;
                 -9 === n && t.delete(o);
             }
@@ -441,40 +451,48 @@ async function H(e) {
     }
 }
 
-async function D(e) {
-    if (!e.length) return;
-    if (e.length > 1600) {
-        const t = B(e, 1600);
-        for (let e of t) await D(e);
-    }
-    const t = await async function(e) {
-        const t = Array.from(new Set(e.map((e => o.dirname(e)))));
-        console.log("获取文件信息", t);
-        const n = (await Promise.all(t.map((async e => (await G(e)).filter((e => !e.isdir)).map((e => e.path)))))).flat();
-        return e.filter((e => n.includes(e)));
-    }(e);
-    console.log("需要删除的文件", t), t.length ? await async function(e) {
-        if (!e.length) return;
-        const t = B(e, 200);
-        for (let e of t) await J(e);
-    }(t) : console.log("没有需要删除的文件");
-}
+const D = "https://pan.baidu.com/api/filemanager";
 
-const K = "https://pan.baidu.com/api/filemanager";
-
-function B(e, t) {
+function K(e, t) {
     for (var o = [], n = 0; n < e.length; n += t) o.push(e.slice(n, n + t));
     return o;
 }
 
-async function J(e) {
+async function B(e) {
     const t = await H(e);
-    t && (console.log("获取到删除的任务id", t), await O(t), console.log("删除文件成功", e));
+    t && (console.log("获取到删除的任务id", t), await G(t), console.log("删除文件成功", e));
 }
 
-e.on("unhandledRejection", (e => {
+(async function e(t) {
+    if (!t.length) return;
+    if (t.length > 1600) {
+        const o = K(t, 1600);
+        for (let t of o) await e(t);
+    }
+    const o = await async function(e) {
+        const t = Array.from(new Set(e.map((e => n.dirname(e)))));
+        console.log("获取文件信息", t);
+        const o = (await Promise.all(t.map((async e => (await P(e)).filter((e => !e.isdir)).map((e => e.path)))))).flat();
+        return e.filter((e => o.includes(e)));
+    }(t);
+    console.log("需要删除的文件", o), o.length ? await async function(e) {
+        if (!e.length) return;
+        const t = K(e, 200);
+        for (let e of t) await B(e);
+    }(o) : console.log("没有需要删除的文件");
+})([ "/管理员取得权限.reg", "/引导启动相关工具/管理员取得权限.reg", "/装机软件/管理员取得权限.reg", "/装机软件/管理员取得权限(1).reg" ]).then((() => {
+    console.log("删除文件成功");
+})), process.on("unhandledRejection", (e => {
+    throw e;
+})), p.on("unhandledRejection", (e => {
+    throw e;
+})), H([ "/sssssssssssssssssss/notfound", "/testssss/notfound" ]).then((e => {
+    if (console.log("taskid", e), e) return G(e), W(e);
+})).then(console.log), process.on("unhandledRejection", (e => {
     throw e;
 }));
 
-export { D as deletefiles, H as fetchdeletetaskid, F as initPANENV, P as listdirpage, G as listonedir, M as taskquerydeleteonce, O as taskquerydeletepoll };
-//# sourceMappingURL=index.js.map
+T().then((e => console.log(e.slice(0, 1e4)))), process.on("unhandledRejection", (e => {
+    throw e;
+}));
+//# sourceMappingURL=test.js.map

@@ -49,4 +49,10 @@ export default defineConfig([
         ],
         plugins: [resolve(), commonjs(), ts(), terserplugin],
     },
+    {
+        external,
+        input: "test/index.ts",
+        output: [{ sourcemap: true, file: "./dist/test.js", format: "esm" }],
+        plugins: [resolve(), commonjs(), ts(), terserplugin],
+    },
 ]);

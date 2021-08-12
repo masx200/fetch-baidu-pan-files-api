@@ -2,7 +2,7 @@ import {
     taskquerydeleteonce,
     fetchdeletetaskid,
     taskquerydeletepoll,
-} from "../lib/index.js";
+} from "../lib/index";
 fetchdeletetaskid(["/sssssssssssssssssss/notfound", "/testssss/notfound"])
     .then((taskid) => {
         console.log("taskid", taskid);

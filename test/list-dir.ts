@@ -1,4 +1,4 @@
-import { listonedir } from "../lib/fetchlistdir.js";
+import { listonedir } from "../lib/fetchlistdir";
 const dirdata = listonedir("/");
 // listonedir(
 //     `/!我的图片-20190604/微博美图合集-20191229/半次元cosplay频道/微博配图`

@@ -1,9 +1,9 @@
 import { posix } from "path";
-import { taskquerydeletepoll } from "./fetch-task-query-delete.js";
-import { listonedir } from "./fetchlistdir.js";
+import { taskquerydeletepoll } from "./fetch-task-query-delete";
+import { listonedir } from "./fetchlistdir";
 // import fetch from "node-fetch";
 //一次删除操作的文件数量
-import { fetchdeletetaskid } from "./fetchdeletetaskid.js";
+import { fetchdeletetaskid } from "./fetchdeletetaskid";
 //一次删除的文件太多会失败
 const listlimit = 200;
 const splitlimit = 1600;

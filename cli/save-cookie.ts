@@ -2,8 +2,8 @@
 import path from "path";
 import fsextra from "fs-extra";
 import process from "process";
-import { bdstokenfile, jsonfile } from "../lib/files.js";
-import { parsecookiesave } from "./parse-cookie-save.js";
+import { bdstokenfile, jsonfile } from "../lib/files";
+import { parsecookiesave } from "./parse-cookie-save";
 import parse from "@masx200/mini-cli-args-parser";
 console.log(process.argv.slice(2));
 const opts = parse(process.argv.slice(2));

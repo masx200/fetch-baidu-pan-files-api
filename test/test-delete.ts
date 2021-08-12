@@ -1,4 +1,4 @@
-import { deletefiles } from "../lib/fetch-delete-files.js";
+import { deletefiles } from "../lib/fetch-delete-files";
 deletefiles([
     "/管理员取得权限.reg",
     "/引导启动相关工具/管理员取得权限.reg",

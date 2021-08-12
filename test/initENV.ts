@@ -1,4 +1,4 @@
-import { initPANENV } from "../lib/PANENV.js";
+import { initPANENV } from "../lib/PANENV";
 process.on("unhandledRejection", (err) => {
     throw err;
 });
