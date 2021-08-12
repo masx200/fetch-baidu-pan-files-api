@@ -8,7 +8,7 @@
     "module": "lib/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "2.0.4",
+    "version": "2.1.0",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
@@ -56,5 +56,8 @@
     "bugs": {
         "url": "https://github.com/masx200/fetch-baidu-pan-files-api/issues"
     },
-    "homepage": "https://github.com/masx200/fetch-baidu-pan-files-api#readme"
+    "homepage": "https://github.com/masx200/fetch-baidu-pan-files-api#readme",
+    "resolutions": {
+        "path-parse": "1.0.7"
+    }
 }
