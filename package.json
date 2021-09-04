@@ -8,8 +8,8 @@
     "module": "dist/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "2.1.2",
-    "main": "dist/index.cjs",
+    "version": "2.1.3",
+    "main": "dist/index.js",
     "license": "MIT",
     "scripts": {
         "test": "yarn test-cookie && node dist/test.js",
@@ -42,6 +42,7 @@
         "rollup-plugin-ts": "^1.4.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.15.4",
         "lodash": "4.17.21",
         "mquery": "3.2.5",
         "prettier": "^2.3.0",

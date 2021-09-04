@@ -32,7 +32,7 @@ export default defineConfig([
         input: "lib/index.ts",
         output: [
             { sourcemap: true, file: "./dist/index.js", format: "esm" },
-            { sourcemap: true, file: "./dist/index.cjs", format: "cjs" },
+            // { sourcemap: true, file: "./dist/index.cjs", format: "cjs" },
         ],
         plugins: [resolve(), commonjs(), ts(), terserplugin],
     },
