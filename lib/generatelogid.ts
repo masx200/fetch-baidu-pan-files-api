@@ -52,6 +52,7 @@ const l = function () {
 const c = function (e: number) {
     return (String(e) + "" + Math.random()).replace(o, a);
 };
+/**随机生成20位的数字 */
 export function generatelogid() {
     return l().replace(".", "").slice(0, 20);
     // return l();

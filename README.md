@@ -67,7 +67,11 @@ yarn start
 
 点击`network`页,选择监视`Doc`类型
 
-然后刷新页面,点击下方的`https://pan.baidu.com/disk/main`一行,右键选择`copy`,`copy request headers`
+然后刷新页面,点击下方的
+
+`https://pan.baidu.com/api/list`
+
+一行,右键选择`copy`,`copy request headers`,获得其中的`cookie`
 
 获得如下内容
 
