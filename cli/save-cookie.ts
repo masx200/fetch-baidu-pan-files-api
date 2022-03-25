@@ -6,6 +6,7 @@ import { /* bdstokenfile, */ jsonfile } from "../lib/files";
 import { parsecookiesave } from "./parse-cookie-save";
 import parse from "@masx200/mini-cli-args-parser";
 import { gethomehtmlandupdatecookie } from "../lib/gethomehtmlandupdatecookie";
+import { objtostrcookie } from "../lib/objtostrcookie";
 console.log(process.argv.slice(2));
 const opts = parse(process.argv.slice(2));
 const cookiestr = opts["cookie"];
@@ -19,6 +20,7 @@ console.log(
     'npx @masx200/fetch-baidu-pan-files-api "--cookie=BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cflag=xxx; BDCLND=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"'
 );
 ~(async () => {
+    console.log("input cookie:");
     console.log(cookiestr);
     if (cookiestr) {
         await fsextra.ensureDir(path.dirname(jsonfile));
@@ -29,6 +31,10 @@ console.log(
         throw new TypeError("invalid cookie");
     }
     await gethomehtmlandupdatecookie();
+    console.log("update cookie success");
+    const panobj = await fsextra.readJSON(jsonfile);
+    const coostr = objtostrcookie(panobj);
+    console.log("cookie:", coostr);
     // console.log(bdstoken);
     // if (bdstoken) {
     //     await fsextra.ensureDir(path.dirname(bdstokenfile));
