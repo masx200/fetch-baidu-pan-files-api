@@ -1,6 +1,11 @@
 {
-    "include": ["*.ts", "./**/*.ts"],
+    "include": [
+        "*.ts",
+        "./**/*.ts"
+    ],
     "compilerOptions": {
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": false,
         "strictNullChecks": true,
@@ -22,7 +27,6 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "moduleResolution": "node",
-
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true
     }

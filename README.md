@@ -99,7 +99,8 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 ![./sshot-2020-10-01-[15-53-29].png](sshot-2020-10-01-[15-53-29].png) -->
 
-# 保存 cookie  的方法
+# 保存 cookie 的方法
+
 <!-- # 保存 cookie 和 bdstoken 的方法 -->
 
 ```shell
@@ -156,7 +157,6 @@ taskquerydeletepoll(278400522319194).then(console.log);
 
 # changelog
 
-## 2022年3月25日 21:14:33
+## 2022 年 3 月 25 日 21:14:33
 
-百度网盘api更新到v2了,没有bdstoken了,换成csrf,并放入了cookie当中.
-
+百度网盘 api 更新到 v2 了,没有 bdstoken 了,换成 csrf,并放入了 cookie 当中.

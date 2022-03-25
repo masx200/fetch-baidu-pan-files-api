@@ -1,3 +1,4 @@
+dist
 # Logs
 logs
 *.log
@@ -110,3 +111,4 @@ userdata/cookies.json
 userdata/
 userdata
 .vscode/settings.json
+*.zip

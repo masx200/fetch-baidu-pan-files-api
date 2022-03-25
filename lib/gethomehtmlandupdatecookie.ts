@@ -4,13 +4,14 @@ import { fetch } from "./limitfetch.js";
 import { homeurl } from "./init.js";
 import { objtostrcookie } from "./objtostrcookie.js";
 import { savecookies } from "./savecookies.js";
+/**登陆并更新cookie */
 export async function gethomehtmlandupdatecookie(): Promise<string> {
     if (!fsextra.existsSync(jsonfile)) {
         throw Error("没有找到cookie文件,请先登陆网盘,并保存 cookie");
     }
     const panobj = await fsextra.readJSON(jsonfile);
     const coostr = objtostrcookie(panobj);
-    const req = await fetch(homeurl, {
+    const response = await fetch(homeurl, {
         headers: {
             "Accept-Encoding": ` gzip, deflate, br`,
             "User-Agent": `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.17 Safari/537.36 Edg/81.0.416.12`,
@@ -31,22 +32,22 @@ export async function gethomehtmlandupdatecookie(): Promise<string> {
         body: undefined,
         method: "GET",
     });
-    if (req.ok) {
-        // console.log(req.headers);
-        const setcookie = req.headers.get("set-cookie");
+    if (response.ok) {
+        // console.log(response.headers);
+        const setcookie = response.headers.get("set-cookie");
         if (setcookie) {
             // console.log(setcookie);
             await savecookies(setcookie);
         }
-        return req.text();
+        return response.text();
     } else {
         throw Error(
             "fetch failed \n" +
                 homeurl +
                 " \n" +
-                req.status +
+                response.status +
                 " " +
-                req.statusText
+                response.statusText
         );
     }
 }
