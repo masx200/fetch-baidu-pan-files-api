@@ -1,6 +1,6 @@
 //https://pan.baidu.com/box-static/disk-system/js/prefetch.js?t=1582036131654
-import btoa from "btoa";
-const d = btoa;
+// import btoa from "btoa";
+// const d = btoa;
 const r = String.fromCharCode;
 // const n =
 //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/~！@#￥%……&";
@@ -32,7 +32,8 @@ const o = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g;
 //     return e.replace(/[\s\S]{1,3}/g, i);
 // };
 const l = function () {
-    return d(c(new Date().getTime()));
+    return c(new Date().getTime());
+    // return d(c(new Date().getTime()));
 };
 // const i = function(e) {
 //     var t = [0, 2, 1][e.length % 3],
@@ -52,5 +53,6 @@ const c = function (e: number) {
     return (String(e) + "" + Math.random()).replace(o, a);
 };
 export function generatelogid() {
-    return l();
+    return l().replace(".", "").slice(0, 20);
+    // return l();
 }

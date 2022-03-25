@@ -27,7 +27,7 @@ export async function listdirpage(
         channel: "chunlei",
         app_id: "250528",
         // bdstoken: panenv.bdstoken,
-        logid: panenv.logid,
+        "dp-logid": panenv.logid,
         clienttype: "0",
     };
     const headers = {

@@ -25,7 +25,7 @@ export async function taskquerydeleteonce(
         web: "1",
         app_id: "250528",
         // bdstoken: panenv.bdstoken,
-        logid: panenv.logid,
+        "dp-logid": panenv.logid,
         clienttype: "0",
     };
     try {

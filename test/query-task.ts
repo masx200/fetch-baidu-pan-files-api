@@ -12,7 +12,14 @@ fetchdeletetaskid(["/sssssssssssssssssss/notfound", "/testssss/notfound"])
         }
         return;
     })
-    .then(console.log);
+    .then(console.log)
+    .then(() => {
+        console.log("fetchdeletetaskid success");
+    })
+    .catch((e) => {
+        console.error("fetchdeletetaskid failed");
+        throw e;
+    });
 process.on("unhandledRejection", (err) => {
     throw err;
 });
