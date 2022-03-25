@@ -1,10 +1,10 @@
 # fetch-baidu-pan-files-api
 
-# 获取 `bduss` 的方法
+<!-- # 获取 `bduss` 的方法
 
 http://tool.cccyun.cc/tool/bduss/index3.html
 
-https://bduss.lingtings.com/index3.html
+https://bduss.lingtings.com/index3.html -->
 
 # 功能说明
 
@@ -83,7 +83,7 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 ## 使用前先保存 `cookie`,并解析 `cookie`
 
-# 使用前先获取 `bdstoken`
+<!-- # 使用前先获取 `bdstoken`
 
 使用浏览器登陆百度网盘的网页版,并登陆
 
@@ -97,12 +97,13 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 提取出 `"bdstoken"`之后的内容为`bdstoken`
 
-![./sshot-2020-10-01-[15-53-29].png](sshot-2020-10-01-[15-53-29].png)
+![./sshot-2020-10-01-[15-53-29].png](sshot-2020-10-01-[15-53-29].png) -->
 
 # 保存 cookie 和 bdstoken 的方法
+<!-- # 保存 cookie 和 bdstoken 的方法 -->
 
 ```shell
-fetch-baidu-pan-files-api --bdstoken=3789cf378cf79ea16dd4310a11afad68 "--cookie=BIDUPSID=C7CAB23C40776BF5E48C67310FD01E74; PSTM=1590808841; BAIDUID=C7CAB23C40776BF5213C5AE187C386C6:FG=1; PANWEB=1; pan_login_way=1; BDCLND=uu57jGT9ElzGWAeaeVEZc0LjXMLt9w2JqQgKARJ5b1Y%3D; BDUSS=3NKUDRHZ1lMMkpILU0ybllPZDJtTWIxWGs2WXRvS1lQZC1SU1VJV0JDQUtScDFmSUFBQUFBJCQAAAAAAAAAAAEAAADPRYIEbWFzeDIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq5dV8KuXVfM; BDUSS_BFESS=3NKUDRHZ1lMMkpILU0ybllPZDJtTWIxWGs2WXRvS1lQZC1SU1VJV0JDQUtScDFmSUFBQUFBJCQAAAAAAAAAAAEAAADPRYIEbWFzeDIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq5dV8KuXVfM; STOKEN=6e7b5cea4d59e1967142508f57990b4218c2d38c93070a646e3493ad0401dcf7; SCRC=c5353cef847fc068755a7759062f12f7; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1599360119,1601538650,1601540146,1601550607; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1601550607; PANPSC=1263501417102908774%3AKkwrx6t0uHDoTFmRfJVxoMJKt428qvGu%2B%2FtD9xp6N5gr2wqYbSNJzI%2BMN1l%2FFuMgUCTN6WhC3i%2FKGWKyBagKrmlUQ2zB5GaPDtTCc6ZqWjGu2cUHmw770eVcjWJ40Swp0v29HoOyBxO7W09FU%2BvrLt8NRd7EA5d%2B2fNZfjs7wBY%2FcoIBUQpA2juoAeCl9TBG"
+fetch-baidu-pan-files-api --bdstoken=3789cf378cf79ea16dd4310a11afad68 "--cookie=BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cflag=xxx; BDCLND=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
 ```
 
 # 详细的网盘 API
@@ -152,3 +153,10 @@ taskquerydeleteonce(278400522319194).then(console.log);
 import { taskquerydeletepoll } from "@masx200/fetch-baidu-pan-files-api";
 taskquerydeletepoll(278400522319194).then(console.log);
 ```
+
+# changelog
+
+## 2022年3月25日 21:14:33
+
+百度网盘api更新,没有bdstoken了,换成csrf,并放入了cookie当中.
+
