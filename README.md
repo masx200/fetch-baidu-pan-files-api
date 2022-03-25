@@ -67,7 +67,7 @@ yarn start
 
 点击`network`页,选择监视`Doc`类型
 
-然后刷新页面,点击下方的`home`一行,右键选择`copy`,`copy request headers`
+然后刷新页面,点击下方的`https://pan.baidu.com/disk/main`一行,右键选择`copy`,`copy request headers`
 
 获得如下内容
 
@@ -158,5 +158,5 @@ taskquerydeletepoll(278400522319194).then(console.log);
 
 ## 2022年3月25日 21:14:33
 
-百度网盘api更新,没有bdstoken了,换成csrf,并放入了cookie当中.
+百度网盘api更新到v2了,没有bdstoken了,换成csrf,并放入了cookie当中.
 
