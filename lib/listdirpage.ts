@@ -26,7 +26,7 @@ export async function listdirpage(
         num: String(numlimit),
         channel: "chunlei",
         app_id: "250528",
-        bdstoken: panenv.bdstoken,
+        // bdstoken: panenv.bdstoken,
         logid: panenv.logid,
         clienttype: "0",
     };

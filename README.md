@@ -99,11 +99,11 @@ Cookie: BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cfla
 
 ![./sshot-2020-10-01-[15-53-29].png](sshot-2020-10-01-[15-53-29].png) -->
 
-# 保存 cookie 和 bdstoken 的方法
+# 保存 cookie  的方法
 <!-- # 保存 cookie 和 bdstoken 的方法 -->
 
 ```shell
-fetch-baidu-pan-files-api --bdstoken=3789cf378cf79ea16dd4310a11afad68 "--cookie=BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cflag=xxx; BDCLND=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
+fetch-baidu-pan-files-api "--cookie=BAIDUID=xxx; pan_login_way=xxx; PANWEB=xxx; BIDUPSID=xxx; PSTM=xxx; cflag=xxx; BDCLND=xxx; BDUSS=xxx; STOKEN=xxx; SCRC=xxx; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=xxx; PANPSC=xxx"
 ```
 
 # 详细的网盘 API

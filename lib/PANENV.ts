@@ -2,12 +2,12 @@ import fsextra from "fs-extra";
 import { jsonfile } from "./files.js";
 import { generatelogid } from "./generatelogid.js";
 import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
-import { getbdstoken } from "./init.js";
+// import { getbdstoken } from "./init.js";
 // import { getbdstokenanduser } from "./init.js";
 import { objtostrcookie } from "./objtostrcookie.js";
 export interface PANENV {
     logid: string;
-    bdstoken: string;
+    // bdstoken: string;
     // user: string;
     cookie: string;
 }
@@ -29,12 +29,12 @@ export async function initPANENV(): Promise<PANENV> {
     }
     try {
         await gethomehtmlandupdatecookie();
-        const bdstoken = await getbdstoken();
+        // const bdstoken = await getbdstoken();
         const panobj = await fsextra.readJSON(jsonfile);
         const coostr = objtostrcookie(panobj);
         const panenv: PANENV = {
             logid: generatelogid(),
-            bdstoken: bdstoken,
+            // bdstoken: bdstoken,
             // user: user,
             cookie: coostr,
         };

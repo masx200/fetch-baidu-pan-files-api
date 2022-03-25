@@ -1,8 +1,8 @@
-import fsextra from "fs-extra";
-import { bdstokenfile } from "./files.js";
-export async function getbdstoken() {
-    return String(await fsextra.readFile(bdstokenfile));
-}
+// import fsextra from "fs-extra";
+// import { bdstokenfile } from "./files.js";
+// export async function getbdstoken() {
+//     return String(await fsextra.readFile(bdstokenfile));
+// }
 // import { gethomehtmlandupdatecookie } from "./gethomehtmlandupdatecookie.js";
 export const homeurl = `https://pan.baidu.com/disk/home`;
 // export async function getbdstokenanduser(): Promise<string> {

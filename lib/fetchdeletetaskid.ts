@@ -18,7 +18,7 @@ export async function fetchdeletetaskid(
         channel: "chunlei",
         web: "1",
         app_id: "250528",
-        bdstoken: panenv.bdstoken,
+        // bdstoken: panenv.bdstoken,
         logid: panenv.logid,
         clienttype: "0",
     };
