@@ -112,3 +112,4 @@ userdata/
 userdata
 .vscode/settings.json
 *.zip
+.yarn/install-state.gz
