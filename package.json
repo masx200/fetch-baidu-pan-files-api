@@ -11,8 +11,8 @@
     "module": "dist/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "3.0.1",
-    "main": "dist/index.js",
+    "version": "3.0.2",
+    "main": "dist/index.cjs",
     "license": "MIT",
     "scripts": {
         "test": " node dist/test.js",

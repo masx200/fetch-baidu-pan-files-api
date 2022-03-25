@@ -32,9 +32,14 @@ export default defineConfig([
         input: "lib/index.ts",
         output: [
             { sourcemap: true, file: "./dist/index.js", format: "esm" },
-            // { sourcemap: true, file: "./dist/index.cjs", format: "cjs" },
+            { sourcemap: true, file: "./dist/index.cjs", format: "cjs" },
         ],
-        plugins: [resolve(), commonjs(), ts(), terserplugin],
+        plugins: [
+            resolve(),
+            commonjs(),
+            ts({ transpiler: "typescript" }),
+            terserplugin,
+        ],
     },
     {
         external,
@@ -47,12 +52,23 @@ export default defineConfig([
                 format: "esm",
             },
         ],
-        plugins: [resolve(), commonjs(), ts(), terserplugin],
+        plugins: [
+            resolve(),
+            commonjs(),
+            ts({ transpiler: "typescript" }),
+            ,
+            terserplugin,
+        ],
     },
     {
         external,
         input: "test/index.ts",
         output: [{ sourcemap: true, file: "./dist/test.js", format: "esm" }],
-        plugins: [resolve(), commonjs(), ts(), terserplugin],
+        plugins: [
+            resolve(),
+            commonjs(),
+            ts({ transpiler: "typescript" }),
+            terserplugin,
+        ],
     },
 ]);

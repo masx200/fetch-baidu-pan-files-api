@@ -1,5 +1,5 @@
 {
-    "include": ["*.ts", "./**/*.ts"],
+    "include": ["*.ts", "./**/*.ts","src","test","cli"],
     "compilerOptions": {
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
