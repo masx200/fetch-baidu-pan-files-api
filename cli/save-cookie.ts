@@ -5,6 +5,7 @@ import process from "process";
 import { /* bdstokenfile, */ jsonfile } from "../lib/files";
 import { parsecookiesave } from "./parse-cookie-save";
 import parse from "@masx200/mini-cli-args-parser";
+import { gethomehtmlandupdatecookie } from "../lib/gethomehtmlandupdatecookie";
 console.log(process.argv.slice(2));
 const opts = parse(process.argv.slice(2));
 const cookiestr = opts["cookie"];
@@ -27,6 +28,7 @@ console.log(
     } else {
         throw new TypeError("invalid cookie");
     }
+    await gethomehtmlandupdatecookie();
     // console.log(bdstoken);
     // if (bdstoken) {
     //     await fsextra.ensureDir(path.dirname(bdstokenfile));
