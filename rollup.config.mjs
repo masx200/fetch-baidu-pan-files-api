@@ -4,7 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import { defineConfig } from "rollup";
 import { terser } from "rollup-plugin-terser";
 import ts from "rollup-plugin-ts";
-
+import rollupExternalModules from "rollup-external-modules";
 const terserplugin = terser({
     compress: {
         ecma: 2015,
@@ -17,14 +17,15 @@ const terserplugin = terser({
     mangle: true,
     output: { comments: false, beautify: true },
 });
-const external = [
-    "@masx200/async-task-current-limiter",
-    "@masx200/mini-cli-args-parser",
-    "btoa",
-    "fs-extra",
-    "node-fetch",
-    "cookie",
-];
+// const external = [
+//     "@masx200/async-task-current-limiter",
+//     "@masx200/mini-cli-args-parser",
+//     "btoa",
+//     "fs-extra",
+//     "node-fetch",
+//     "cookie",
+// ];
+const external = rollupExternalModules;
 const banner = `#!/usr/bin/env node`;
 export default defineConfig([
     {

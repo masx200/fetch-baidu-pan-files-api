@@ -360,6 +360,7 @@ __metadata:
     node-fetch: 2
     prettier: ^2.3.0
     rollup: ^2.70.1
+    rollup-external-modules: ^2.0.0
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-ts: ^2.0.5
     tslib: ^2.2.0
@@ -1992,6 +1993,13 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
+"rollup-external-modules@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "rollup-external-modules@npm:2.0.0"
+  checksum: 29abc64582bdb8b65fd882f2a12e227cc743196aa5d457eb9ca57d014d41f1983a68970668bb85358ef96e83d57a8cb874d3fb3112fce6e30a459319bcb6d9bc
   languageName: node
   linkType: hard
 
