@@ -1,4 +1,10 @@
 {
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.cjs"
+        }
+    },
     "files": [
         "dist"
     ],
@@ -11,7 +17,7 @@
     "module": "dist/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "main": "dist/index.cjs",
     "license": "MIT",
     "scripts": {
