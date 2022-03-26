@@ -17,7 +17,7 @@
     "module": "dist/index.js",
     "type": "module",
     "name": "@masx200/fetch-baidu-pan-files-api",
-    "version": "3.0.4",
+    "version": "3.0.5",
     "main": "dist/index.cjs",
     "license": "MIT",
     "scripts": {
@@ -31,7 +31,7 @@
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
     "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
     "dependencies": {
-        "@masx200/async-task-current-limiter": "^1.0.9",
+        "@masx200/async-task-current-limiter": "^2.0.0",
         "@masx200/mini-cli-args-parser": "^1.0.4",
         "cookie": "^0.4.1",
         "fs-extra": "^10.0.0",
