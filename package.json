@@ -68,7 +68,8 @@
     },
     "homepage": "https://github.com/masx200/fetch-baidu-pan-files-api#readme",
     "resolutions": {
-        "path-parse": "1.0.7"
+        "path-parse": "1.0.7",
+        "minimist": "1.2.6"
     },
     "packageManager": "yarn@3.2.0"
 }
