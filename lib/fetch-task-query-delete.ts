@@ -1,4 +1,4 @@
-// import fetch from "node-fetch";
+// import fetch from "cross-fetch";
 import { taskquerydeleteonce } from "./taskquerydeleteonce.js";
 
 export const operationurl = `https://pan.baidu.com/share/taskquery`;

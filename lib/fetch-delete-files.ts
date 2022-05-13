@@ -1,7 +1,7 @@
 import { posix } from "path";
 import { taskquerydeletepoll } from "./fetch-task-query-delete";
 import { listonedir } from "./fetchlistdir";
-// import fetch from "node-fetch";
+// import fetch from "cross-fetch";
 //一次删除操作的文件数量
 import { fetchdeletetaskid } from "./fetchdeletetaskid";
 //一次删除的文件太多会失败

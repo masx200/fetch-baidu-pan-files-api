@@ -22,7 +22,7 @@ const terserplugin = terser({
 //     "@masx200/mini-cli-args-parser",
 //     "btoa",
 //     "fs-extra",
-//     "node-fetch",
+//     "cross-fetch",
 //     "cookie",
 // ];
 const external = rollupExternalModules;

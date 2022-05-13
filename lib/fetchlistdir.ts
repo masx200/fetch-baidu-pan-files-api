@@ -1,4 +1,4 @@
-// import fetch from "node-fetch";
+// import fetch from "cross-fetch";
 import { PANDIR } from "./schemadir.js";
 import { PANFILE } from "./schemafile.js";
 import { listdirpage } from "./listdirpage.js";
