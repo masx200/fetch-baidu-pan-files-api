@@ -354,16 +354,16 @@ __metadata:
     btoa: ^1.2.1
     cookie: ^0.4.1
     cross-fetch: ^3.1.5
-    fs-extra: ^10.0.0
+    fs-extra: ^10.1.0
     lodash: 4.17.21
     mquery: 3.2.5
-    prettier: ^2.3.0
-    rollup: ^2.70.1
+    prettier: ^2.6.2
+    rollup: ^2.72.1
     rollup-external-modules: ^2.0.0
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-ts: ^2.0.5
     tslib: ^2.2.0
-    typescript: ^4.6.3
+    typescript: ^4.6.4
   bin:
     fetch-baidu-pan-files-api: dist/save-cookie.js
   languageName: unknown
@@ -1133,14 +1133,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "fs-extra@npm:10.0.0"
+"fs-extra@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "fs-extra@npm:10.1.0"
   dependencies:
     graceful-fs: ^4.2.0
     jsonfile: ^6.0.1
     universalify: ^2.0.0
-  checksum: 5285a3d8f34b917cf2b66af8c231a40c1623626e9d701a20051d3337be16c6d7cac94441c8b3732d47a92a2a027886ca93c69b6a4ae6aee3c89650d2a8880c0a
+  checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
   languageName: node
   linkType: hard
 
@@ -1846,12 +1846,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "prettier@npm:2.3.0"
+"prettier@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
   bin:
     prettier: bin-prettier.js
-  checksum: e8851a45f60f2994775f96e07964646c299b8a8f9c64da4fbd8efafc20db3458bdcedac79aed34e1d5477540b3aa04f6499adc4979cb7937f8ebd058a767d8ff
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
@@ -2005,9 +2005,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.70.1":
-  version: 2.70.1
-  resolution: "rollup@npm:2.70.1"
+"rollup@npm:^2.72.1":
+  version: 2.72.1
+  resolution: "rollup@npm:2.72.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -2015,7 +2015,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 06c62933e6e81a1c8c684d7d576e507081aabdb63cc0c91bca86b7348b66df03b77827068e4990b8b6c738bd3ef66dcc8c7ed7e0ea40b736068e7618f693133e
+  checksum: 3dca122129f560acc3c54dd5bd5f9470dd562d74f61c652c57b6a4355a963c0828640382ebff544f1b0e71387733a51fb963d6f761ae1f05a84f5923bbde883c
   languageName: node
   linkType: hard
 
@@ -2305,23 +2305,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.3":
-  version: 4.6.3
-  resolution: "typescript@npm:4.6.3"
+"typescript@npm:^4.6.4":
+  version: 4.6.4
+  resolution: "typescript@npm:4.6.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 255bb26c8cb846ca689dd1c3a56587af4f69055907aa2c154796ea28ee0dea871535b1c78f85a6212c77f2657843a269c3a742d09d81495b97b914bf7920415b
+  checksum: e7bfcc39cd4571a63a54e5ea21f16b8445268b9900bf55aee0e02ad981be576acc140eba24f1af5e3c1457767c96cea6d12861768fb386cf3ffb34013718631a
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>":
-  version: 4.6.3
-  resolution: "typescript@patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"
+"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
+  version: 4.6.4
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6bf45caf847062420592e711bc9c28bf5f9a9a7fa8245343b81493e4ededae33f1774009d1234d911422d1646a2c839f44e1a23ecb111b40a60ac2ea4c1482a8
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 

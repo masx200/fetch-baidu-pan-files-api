@@ -35,7 +35,7 @@
         "@masx200/mini-cli-args-parser": "^1.0.4",
         "cookie": "^0.4.1",
         "cross-fetch": "^3.1.5",
-        "fs-extra": "^10.0.0"
+        "fs-extra": "^10.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.17.8",
@@ -50,13 +50,13 @@
         "btoa": "^1.2.1",
         "lodash": "4.17.21",
         "mquery": "3.2.5",
-        "prettier": "^2.3.0",
-        "rollup": "^2.70.1",
+        "prettier": "^2.6.2",
+        "rollup": "^2.72.1",
         "rollup-external-modules": "^2.0.0",
         "rollup-plugin-terser": "^7.0.2",
         "rollup-plugin-ts": "^2.0.5",
         "tslib": "^2.2.0",
-        "typescript": "^4.6.3"
+        "typescript": "^4.6.4"
     },
     "repository": {
         "type": "git",
