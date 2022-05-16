@@ -49,7 +49,7 @@
         "@types/node": "^15.0.2",
         "btoa": "^1.2.1",
         "lodash": "4.17.21",
-        "mquery": "3.2.5",
+        "mquery": "4.0.2",
         "prettier": "^2.6.2",
         "rollup": "^2.73.0",
         "rollup-external-modules": "^2.0.0",
