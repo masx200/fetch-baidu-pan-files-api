@@ -345,7 +345,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.17.8
     "@masx200/async-task-current-limiter": ^2.0.1
-    "@masx200/mini-cli-args-parser": ^1.0.4
+    "@masx200/mini-cli-args-parser": ^1.0.5
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-node-resolve": ^13.3.0
@@ -372,10 +372,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@masx200/mini-cli-args-parser@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "@masx200/mini-cli-args-parser@npm:1.0.4"
-  checksum: dbb4ff79b35e4350f3855fe5f566d116b345a25b9fdf8387373b870a03bedf28d91e68a41b9848abccb54d34b3bc1dadb78775f884663ba0781765d37ad01444
+"@masx200/mini-cli-args-parser@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@masx200/mini-cli-args-parser@npm:1.0.5"
+  checksum: 54f6e41eeb1206678774ffcaaf6cec916ab69c726630757d6f6706b8ce64fb0fdcbac672f92e3978d4844d84453c33cf664ba3bdf16c8e3f35102f843c4c8853
   languageName: node
   linkType: hard
 

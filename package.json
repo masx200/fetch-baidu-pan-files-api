@@ -32,7 +32,7 @@
     "description": "    模拟浏览器脚本操作,使用 nodejs 来批量读取和操作网盘文件信息,        获取目录的文件信息,模拟浏览器的脚本操作来发送网络请求",
     "dependencies": {
         "@masx200/async-task-current-limiter": "^2.0.1",
-        "@masx200/mini-cli-args-parser": "^1.0.4",
+        "@masx200/mini-cli-args-parser": "^1.0.5",
         "cookie": "^0.5.0",
         "cross-fetch": "^3.1.5",
         "fs-extra": "^10.1.0"
