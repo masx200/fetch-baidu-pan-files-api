@@ -320,22 +320,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@masx200/async-task-current-limiter@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@masx200/async-task-current-limiter@npm:2.0.1"
+"@masx200/async-task-current-limiter@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@masx200/async-task-current-limiter@npm:2.1.0"
   dependencies:
-    "@masx200/event-emitter-target": ^2.0.4
-    tslib: ^2.3.1
-  checksum: 4f8de8565604f8e6b5e884177eae475cdbc2a0d7f38a93e753e5603ac39caf19eacfd20fcda73af82fdea1b7898c4f4c8dfd57b8dc5f6746e49b84d7abc5a018
+    "@masx200/event-emitter-target": 2.0.5
+  checksum: 63fb54d4611eda15050d9034bd7cd97d5eaaa91d3ba1a99513b345e9f098d28dbb7fb93f5f20f18094ca1fa1be5f7da6aad3e941ea41fb1a3ee2ccdf989adfe7
   languageName: node
   linkType: hard
 
-"@masx200/event-emitter-target@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@masx200/event-emitter-target@npm:2.0.4"
+"@masx200/event-emitter-target@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@masx200/event-emitter-target@npm:2.0.5"
   dependencies:
     regenerator-runtime: ^0.13.9
-  checksum: e4d688b82a014f206ad352979cb70af97de80b2a469aa8dcc3a09045fe07d577571a42bf8862680bc955638a3855d930bf15d6ff754a4357a3920598ba3ddb58
+  checksum: 85f17e51183c8d67b2faf5a1a32e084ca2f880bca191c12655439497936461e794562af7e8b60c27fe9d88a257c558b84652a7b8409cf17865f585dd6c0caddb
   languageName: node
   linkType: hard
 
@@ -344,7 +343,7 @@ __metadata:
   resolution: "@masx200/fetch-baidu-pan-files-api@workspace:."
   dependencies:
     "@babel/core": ^7.17.8
-    "@masx200/async-task-current-limiter": ^2.0.1
+    "@masx200/async-task-current-limiter": ^2.1.0
     "@masx200/mini-cli-args-parser": ^1.0.5
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.0
