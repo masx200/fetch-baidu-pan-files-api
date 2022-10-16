@@ -40,7 +40,7 @@
     "devDependencies": {
         "@babel/core": "^7.17.8",
         "@rollup/plugin-babel": "^6.0.0",
-        "@rollup/plugin-commonjs": "^22.0.0",
+        "@rollup/plugin-commonjs": "^23.0.0",
         "@rollup/plugin-node-resolve": "^15.0.0",
         "@types/btoa": "^1.2.3",
         "@types/cookie": "^0.5.1",
