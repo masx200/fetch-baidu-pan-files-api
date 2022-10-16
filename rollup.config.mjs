@@ -30,7 +30,7 @@ const banner = `#!/usr/bin/env node`;
 export default defineConfig([
     {
         external,
-        input: "lib/index.ts",
+        input: "./lib/index.ts",
         output: [
             { sourcemap: true, file: "./dist/index.js", format: "esm" },
             { sourcemap: true, file: "./dist/index.cjs", format: "cjs" },
@@ -44,7 +44,7 @@ export default defineConfig([
     },
     {
         external,
-        input: "cli/save-cookie.ts",
+        input: "./cli/save-cookie.ts",
         output: [
             {
                 banner,
@@ -63,7 +63,7 @@ export default defineConfig([
     },
     {
         external,
-        input: "test/index.ts",
+        input: "./test/index.ts",
         output: [{ sourcemap: true, file: "./dist/test.js", format: "esm" }],
         plugins: [
             resolve(),
