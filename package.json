@@ -41,7 +41,7 @@
         "@babel/core": "^7.17.8",
         "@rollup/plugin-babel": "^5.3.1",
         "@rollup/plugin-commonjs": "^22.0.0",
-        "@rollup/plugin-node-resolve": "^13.3.0",
+        "@rollup/plugin-node-resolve": "^15.0.0",
         "@types/btoa": "^1.2.3",
         "@types/cookie": "^0.5.1",
         "@types/fs-extra": "^9.0.11",
